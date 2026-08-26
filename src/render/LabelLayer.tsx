@@ -2,6 +2,8 @@ import { useMemo } from 'react'
 import type { LayoutResult, Polity } from '../types'
 import { labelColorOn } from '../config/color'
 import { useViewStore } from '../store/view'
+import { useAppStore } from '../store/app'
+import { isDimmed } from '../interact/dim'
 import { styleFor } from './paint'
 
 /**
@@ -37,6 +39,8 @@ export function LabelLayer({
 }) {
   const camera = useViewStore((s) => s.camera)
   const viewport = useViewStore((s) => s.viewport)
+  const filters = useAppStore((s) => s.filters)
+  const timeCursor = useAppStore((s) => s.timeCursor)
 
   const labels = useMemo(() => {
     const out: LabelSpec[] = []
@@ -53,6 +57,7 @@ export function LabelLayer({
       if (w * h < minArea || w < 26 || h < 11) continue
       const polity = polities.get(rect.polityId)
       if (!polity) continue
+      if (isDimmed(polity, filters, timeCursor)) continue
       // Size to the rect, never overflow it. Uppercase Barlow Condensed
       // runs ~0.52em per character; a label that would need less than 7px
       // to fit is dropped, not clipped.
@@ -84,7 +89,7 @@ export function LabelLayer({
     }
     out.sort((a, b) => b.w * b.h - a.w * a.h)
     return out.slice(0, MAX_LABELS)
-  }, [layout, polities, camera, viewport])
+  }, [layout, polities, camera, viewport, filters, timeCursor])
 
   return (
     <div

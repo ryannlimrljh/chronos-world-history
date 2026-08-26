@@ -4,11 +4,19 @@ import { layout } from './layout/engine'
 import { DEFAULT_SCALE } from './layout/scale'
 import { loadPolities } from './data/polities'
 import { useViewStore } from './store/view'
+import { initUrlSync } from './store/url'
 import { Viewport } from './render/Viewport'
 import { CanvasMosaic } from './render/CanvasMosaic'
 import { LabelLayer } from './render/LabelLayer'
 import { TimeAxis, AXIS_WIDTH } from './render/TimeAxis'
 import { RegionHeader, HEADER_HEIGHT } from './render/RegionHeader'
+import { Tooltip } from './ui/Tooltip'
+import { Drawer } from './ui/Drawer'
+import { SearchPalette } from './ui/SearchPalette'
+import { FilterBar } from './ui/FilterBar'
+import { TimeCursor } from './ui/TimeCursor'
+import { CompareBar } from './ui/CompareBar'
+import { PulseOverlay } from './ui/PulseOverlay'
 import { DebugSvg } from './debug/DebugSvg'
 
 const CONFIG: LayoutConfig = {
@@ -40,6 +48,8 @@ function Chronos() {
     setWorld({ width: result.width, height: result.height })
   }, [result, setWorld])
 
+  useEffect(() => initUrlSync(result, DEFAULT_SCALE), [result])
+
   return (
     <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
       <div
@@ -51,13 +61,20 @@ function Chronos() {
           bottom: 0,
         }}
       >
-        <Viewport>
-          <CanvasMosaic layout={result} />
+        <Viewport layout={result}>
+          <CanvasMosaic layout={result} polities={polityMap} />
           <LabelLayer layout={result} polities={polityMap} />
+          <PulseOverlay layout={result} />
+          <TimeCursor scale={DEFAULT_SCALE} polities={polityMap} />
         </Viewport>
       </div>
       <TimeAxis scale={DEFAULT_SCALE} />
       <RegionHeader layout={result} />
+      <FilterBar />
+      <Tooltip layout={result} polities={polityMap} />
+      <Drawer layout={result} polities={polityMap} />
+      <CompareBar polities={polityMap} />
+      <SearchPalette layout={result} polities={polityMap} />
     </div>
   )
 }

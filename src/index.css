@@ -23,3 +23,12 @@ body {
   font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
 }
+
+@keyframes chronos-pulse {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0.15; transform: scale(1.04); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

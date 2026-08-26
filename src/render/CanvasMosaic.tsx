@@ -1,13 +1,21 @@
 import { useEffect, useRef } from 'react'
-import type { LayoutResult } from '../types'
+import type { LayoutResult, Polity } from '../types'
 import { useViewStore } from '../store/view'
+import { useAppStore } from '../store/app'
+import { isDimmed } from '../interact/dim'
 import { paintMosaic } from './paint'
 
 /**
  * The base layer: a single canvas repainted on camera change via rAF.
  * Repaints are coalesced — many camera updates in one frame cause one draw.
  */
-export function CanvasMosaic({ layout }: { layout: LayoutResult }) {
+export function CanvasMosaic({
+  layout,
+  polities,
+}: {
+  layout: LayoutResult
+  polities: ReadonlyMap<string, Polity>
+}) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -23,6 +31,12 @@ export function CanvasMosaic({ layout }: { layout: LayoutResult }) {
       if (!dirty) return
       dirty = false
       const { camera, viewport } = useViewStore.getState()
+      const { filters, timeCursor, selectedId, compareIds } =
+        useAppStore.getState()
+      const dimmedIds = new Set<string>()
+      for (const p of polities.values()) {
+        if (isDimmed(p, filters, timeCursor)) dimmedIds.add(p.id)
+      }
       const dpr = window.devicePixelRatio || 1
       const w = Math.round(viewport.width)
       const h = Math.round(viewport.height)
@@ -33,7 +47,11 @@ export function CanvasMosaic({ layout }: { layout: LayoutResult }) {
         canvas.style.height = `${h}px`
       }
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-      paintMosaic(ctx, layout, camera, w, h)
+      paintMosaic(ctx, layout, camera, w, h, {
+        dimmedIds,
+        selectedId,
+        compareIds,
+      })
     }
     const schedule = () => {
       dirty = true
@@ -41,12 +59,14 @@ export function CanvasMosaic({ layout }: { layout: LayoutResult }) {
     }
 
     schedule()
-    const unsub = useViewStore.subscribe(schedule)
+    const unsubView = useViewStore.subscribe(schedule)
+    const unsubApp = useAppStore.subscribe(schedule)
     return () => {
-      unsub()
+      unsubView()
+      unsubApp()
       if (raf) cancelAnimationFrame(raf)
     }
-  }, [layout])
+  }, [layout, polities])
 
   return (
     <canvas
