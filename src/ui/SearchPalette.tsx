@@ -98,6 +98,7 @@ export function SearchPalette({
     >
       <div
         onClick={(e) => e.stopPropagation()}
+        className="chronos-pop"
         style={{
           width: 'min(480px, 92vw)',
           background: 'var(--paper)',

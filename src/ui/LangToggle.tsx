@@ -1,14 +1,17 @@
 import { useAppStore } from '../store/app'
+import { useRightOffset } from './chrome'
 
 /** EN | 中文 switch, top-right, styled like the other floating chrome. */
 export function LangToggle() {
   const lang = useAppStore((s) => s.lang)
   const setLang = useAppStore((s) => s.setLang)
+  const right = useRightOffset()
 
   const seg = (value: 'en' | 'zh', text: string) => (
     <button
       onClick={() => setLang(value)}
       aria-pressed={lang === value}
+      className={lang === value ? 'cbtn-dark' : 'cbtn'}
       style={{
         font: 'inherit',
         fontSize: 12,
@@ -27,10 +30,11 @@ export function LangToggle() {
 
   return (
     <div
+      className="chronos-shift"
       style={{
         position: 'absolute',
         top: 40,
-        right: 14,
+        right,
         zIndex: 25,
         display: 'flex',
         border: '1px solid rgba(26,22,20,0.45)',

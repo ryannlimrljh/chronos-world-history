@@ -32,3 +32,15 @@ body {
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+
+/* ---- Motion system: ease-out entries, 150-300ms ---- */
+@keyframes chronos-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.chronos-pop { animation: chronos-in 0.22s cubic-bezier(0.2, 0.8, 0.3, 1); }
+.chronos-shift { transition: right 0.28s cubic-bezier(0.2, 0.8, 0.3, 1); }
+.cbtn { transition: background-color 0.15s ease-out, color 0.15s ease-out; }
+.cbtn:hover { background-color: rgba(26, 22, 20, 0.08) !important; }
+.cbtn:active { background-color: rgba(26, 22, 20, 0.16) !important; }
+.cbtn-dark:hover { background-color: rgba(26, 22, 20, 0.85) !important; }

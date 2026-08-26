@@ -48,6 +48,7 @@ interface AppState {
   /** Year the draggable time cursor sits at; null = cursor hidden. */
   timeCursor: Year | null
   searchOpen: boolean
+  filtersOpen: boolean
   /** Id pulsed after a search jump; cleared by the pulse overlay itself. */
   pulseId: string | null
   lang: Lang
@@ -60,6 +61,7 @@ interface AppState {
   resetFilters(): void
   setTimeCursor(year: Year | null): void
   setSearchOpen(open: boolean): void
+  setFiltersOpen(open: boolean): void
   setPulse(id: string | null): void
   setLang(lang: Lang): void
 }
@@ -71,6 +73,7 @@ export const useAppStore = create<AppState>((set) => ({
   filters: EMPTY_FILTERS,
   timeCursor: null,
   searchOpen: false,
+  filtersOpen: false,
   pulseId: null,
   lang: initialLang(),
 
@@ -90,6 +93,7 @@ export const useAppStore = create<AppState>((set) => ({
   resetFilters: () => set({ filters: EMPTY_FILTERS }),
   setTimeCursor: (timeCursor) => set({ timeCursor }),
   setSearchOpen: (searchOpen) => set({ searchOpen }),
+  setFiltersOpen: (filtersOpen) => set({ filtersOpen }),
   setPulse: (pulseId) => set({ pulseId }),
   setLang: (lang) => {
     try {

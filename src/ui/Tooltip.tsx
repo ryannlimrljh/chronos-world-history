@@ -30,6 +30,7 @@ export function Tooltip({
 
   return (
     <div
+      className="chronos-pop"
       style={{
         position: 'fixed',
         left: Math.min(pos.x + 14, window.innerWidth - 240),

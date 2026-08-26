@@ -26,10 +26,11 @@ export function CompareBar({
 
   return (
     <div
+      className="chronos-pop"
       style={{
         position: 'absolute',
         left: 102,
-        bottom: 12,
+        bottom: 48,
         zIndex: 20,
         width: 'min(440px, calc(100vw - 130px))',
         background: 'var(--paper)',

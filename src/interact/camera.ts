@@ -70,3 +70,21 @@ export function centerAtWorld(wx: number, wy: number): void {
     viewport.height / 2 - (wy * camera.k + camera.ty),
   )
 }
+
+/** Smoothly zoom by `factor` about a screen point over ~200ms. */
+export function smoothZoom(factor: number, sx: number, sy: number): void {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const { zoomAt } = useViewStore.getState()
+  if (reduced) {
+    zoomAt(factor, sx, sy)
+    return
+  }
+  const steps = 9
+  const per = factor ** (1 / steps)
+  let i = 0
+  const tick = () => {
+    zoomAt(per, sx, sy)
+    if (++i < steps) requestAnimationFrame(tick)
+  }
+  requestAnimationFrame(tick)
+}

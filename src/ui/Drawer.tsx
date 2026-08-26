@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import type { LayoutResult, Polity } from '../types'
 import { eraForYear } from '../config/eras'
 import { getRegion } from '../config/regions'
@@ -32,7 +32,13 @@ export function Drawer({
     return () => window.removeEventListener('keydown', onKey)
   }, [selectedId, select])
 
-  const p = selectedId ? polities.get(selectedId) : undefined
+  const current = selectedId ? polities.get(selectedId) : undefined
+  // Retain the last polity through the exit slide so content doesn't
+  // vanish mid-animation.
+  const lastRef = useRef(current)
+  if (current) lastRef.current = current
+  const p = current ?? lastRef.current
+  const shown = Boolean(current)
   const rectOf = useMemo(() => {
     const m = new Map(layout.rects.map((r) => [r.polityId, r]))
     return (id: string) => m.get(id)
@@ -97,6 +103,7 @@ export function Drawer({
 
   return (
     <aside
+      aria-hidden={!shown}
       style={{
         position: 'absolute',
         top: 0,
@@ -109,6 +116,11 @@ export function Drawer({
         padding: '18px 20px 28px',
         zIndex: 20,
         fontFamily: 'var(--font-label)',
+        transform: shown ? 'translateX(0)' : 'translateX(102%)',
+        transition: shown
+          ? 'transform 0.28s cubic-bezier(0.2, 0.8, 0.3, 1)'
+          : 'transform 0.2s cubic-bezier(0.6, 0, 0.8, 0.5)',
+        pointerEvents: shown ? 'auto' : 'none',
       }}
     >
       <button

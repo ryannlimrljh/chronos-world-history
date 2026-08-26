@@ -1,22 +1,34 @@
 import { useAppStore } from '../store/app'
 import { useViewStore } from '../store/view'
 import { DEFAULT_SCALE } from '../layout/scale'
+import { smoothZoom } from '../interact/camera'
 import { ui } from '../i18n'
+import { useRightOffset } from './chrome'
 
 /**
- * The visible face of the keyboard shortcuts. Every hidden power feature
- * gets a labelled button: search, zoom, fit, time cursor. Discoverability
- * first; the shortcuts stay for fast hands.
+ * The visible face of the keyboard shortcuts, in one consistent right
+ * rail: search, zoom, fit, time cursor, filters. Shifts smoothly aside
+ * when the detail drawer opens.
  */
 export function Toolbar() {
   const lang = useAppStore((s) => s.lang)
   const setSearchOpen = useAppStore((s) => s.setSearchOpen)
   const timeCursor = useAppStore((s) => s.timeCursor)
   const setTimeCursor = useAppStore((s) => s.setTimeCursor)
+  const filtersOpen = useAppStore((s) => s.filtersOpen)
+  const setFiltersOpen = useAppStore((s) => s.setFiltersOpen)
+  const filters = useAppStore((s) => s.filters)
+  const right = useRightOffset()
+
+  const activeFilters =
+    filters.regions.size +
+    filters.categories.size +
+    filters.eras.size +
+    (filters.minSignificance > 1 ? 1 : 0)
 
   const zoom = (f: number) => {
-    const { viewport, zoomAt } = useViewStore.getState()
-    zoomAt(f, viewport.width / 2, viewport.height / 2)
+    const { viewport } = useViewStore.getState()
+    smoothZoom(f, viewport.width / 2, viewport.height / 2)
   }
   const toggleCursor = () => {
     if (timeCursor !== null) {
@@ -33,12 +45,15 @@ export function Toolbar() {
     title: string,
     onClick: () => void,
     active = false,
+    badge?: number,
   ) => (
     <button
       onClick={onClick}
       title={title}
       aria-label={title}
+      className="cbtn"
       style={{
+        position: 'relative',
         width: 34,
         height: 34,
         border: 'none',
@@ -53,27 +68,53 @@ export function Toolbar() {
       }}
     >
       {label}
+      {badge ? (
+        <span
+          style={{
+            position: 'absolute',
+            top: 2,
+            right: 2,
+            fontSize: 8,
+            fontWeight: 700,
+            background: active ? 'var(--paper)' : 'var(--ink)',
+            color: active ? 'var(--ink)' : 'var(--paper)',
+            borderRadius: 8,
+            padding: '0 4px',
+            lineHeight: '10px',
+          }}
+        >
+          {badge}
+        </span>
+      ) : null}
     </button>
   )
 
   return (
     <div
+      className="chronos-shift"
       style={{
         position: 'absolute',
         top: 88,
-        right: 14,
+        right,
         zIndex: 25,
         border: '1px solid rgba(26,22,20,0.45)',
         background: 'var(--paper)',
       }}
     >
       {btn('⌕', `${ui('toolSearch', 'Search', lang)} · ⌘K`, () => setSearchOpen(true))}
-      {btn('＋', `${ui('toolZoomIn', 'Zoom in', lang)} · +`, () => zoom(1.35))}
-      {btn('－', `${ui('toolZoomOut', 'Zoom out', lang)} · −`, () => zoom(0.74))}
+      {btn('＋', `${ui('toolZoomIn', 'Zoom in', lang)} · +`, () => zoom(1.6))}
+      {btn('－', `${ui('toolZoomOut', 'Zoom out', lang)} · −`, () => zoom(0.62))}
       {btn('⛶', `${ui('toolFit', 'Fit whole poster', lang)} · 0`, () =>
         useViewStore.getState().fitAll(),
       )}
       {btn('☰', `${ui('toolCursor', 'Time cursor', lang)} · T`, toggleCursor, timeCursor !== null)}
+      {btn(
+        '▽',
+        ui('filters', 'Filters', lang),
+        () => setFiltersOpen(!filtersOpen),
+        filtersOpen || activeFilters > 0,
+        activeFilters || undefined,
+      )}
     </div>
   )
 }

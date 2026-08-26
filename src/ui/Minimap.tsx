@@ -3,6 +3,7 @@ import type { LayoutResult } from '../types'
 import { getRegion } from '../config/regions'
 import { useViewStore } from '../store/view'
 import { centerAtWorld } from '../interact/camera'
+import { useRightOffset } from './chrome'
 
 /**
  * The you-are-here map: a thumbnail of the whole poster with a rectangle
@@ -18,6 +19,7 @@ export function Minimap({ layout }: { layout: LayoutResult }) {
   const camera = useViewStore((s) => s.camera)
   const viewport = useViewStore((s) => s.viewport)
   const world = useViewStore((s) => s.world)
+  const right = useRightOffset()
 
   const m = MINI_W / Math.max(world.width, 1)
   const miniH = Math.round(world.height * m)
@@ -73,9 +75,10 @@ export function Minimap({ layout }: { layout: LayoutResult }) {
         if (e.buttons === 1) jump(e)
       }}
       aria-label="Overview map"
+      className="chronos-shift"
       style={{
         position: 'absolute',
-        right: 14,
+        right,
         bottom: 56,
         width: MINI_W,
         height: miniH,

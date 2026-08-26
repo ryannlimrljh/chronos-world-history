@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useAppStore } from '../store/app'
 import { ui } from '../i18n'
+import { useRightOffset } from './chrome'
 
 /**
  * Navigation help. Auto-opens once for first-time visitors (dismissed
@@ -25,6 +26,7 @@ const SEEN_KEY = 'chronos-tips-seen'
 export function TipsOverlay() {
   const [open, setOpen] = useState(false)
   const lang = useAppStore((s) => s.lang)
+  const right = useRightOffset()
 
   useEffect(() => {
     let seen = true
@@ -61,9 +63,10 @@ export function TipsOverlay() {
       <button
         onClick={() => (open ? dismiss() : setOpen(true))}
         aria-label="Navigation tips"
+        className="cbtn chronos-shift"
         style={{
           position: 'absolute',
-          right: 14,
+          right,
           bottom: 14,
           zIndex: 30,
           width: 30,
@@ -82,9 +85,10 @@ export function TipsOverlay() {
       {open && (
         <div
           onClick={dismiss}
+          className="chronos-pop chronos-shift"
           style={{
             position: 'absolute',
-            right: 14,
+            right,
             bottom: 52,
             zIndex: 30,
             width: 300,
