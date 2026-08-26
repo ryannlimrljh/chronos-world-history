@@ -178,6 +178,8 @@ export const UI_ZH: Record<string, string> = {
   tipTouchMap: '右下角小地图', tipTouchMapWhat: '显示当前位置，点按即可跳转',
   filterHint: '筛选不会隐藏任何政权：不符合条件的只是淡化显示，历史的整体轮廓始终可见。',
   filterFocus: '仅高亮', sigAll: '显示全部',
+  helpTip: '帮助：如何探索',
+  minimapTip: '概览地图 · 点按或拖动即可跳转',
   sigOnly: '仅高亮重要度不低于此值的政权',
   footnote:
     '矩形高度为存续时间，宽度反映相对同时代的重要程度。时间轴为非线性：上古纪元被压缩，近现代被展开。年代在多种学术体系并存时取其一；约略年代以 c. 标注。 · © 2026 Chronos',

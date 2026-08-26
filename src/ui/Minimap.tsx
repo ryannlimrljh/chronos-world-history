@@ -3,6 +3,8 @@ import type { LayoutResult } from '../types'
 import { getRegion } from '../config/regions'
 import { useViewStore } from '../store/view'
 import { centerAtWorld } from '../interact/camera'
+import { useAppStore } from '../store/app'
+import { ui } from '../i18n'
 import { useRightOffset } from './chrome'
 
 /**
@@ -20,6 +22,7 @@ export function Minimap({ layout }: { layout: LayoutResult }) {
   const viewport = useViewStore((s) => s.viewport)
   const world = useViewStore((s) => s.world)
   const right = useRightOffset()
+  const lang = useAppStore((s) => s.lang)
 
   const m = MINI_W / Math.max(world.width, 1)
   const miniH = Math.round(world.height * m)
@@ -75,6 +78,7 @@ export function Minimap({ layout }: { layout: LayoutResult }) {
         if (e.buttons === 1) jump(e)
       }}
       aria-label="Overview map"
+      title={ui('minimapTip', 'Overview map · click or drag to jump', lang)}
       className="chronos-shift"
       style={{
         position: 'absolute',

@@ -11,6 +11,15 @@ export function LangToggle() {
     <button
       onClick={() => setLang(value)}
       aria-pressed={lang === value}
+      title={
+        value === 'en'
+          ? lang === 'en'
+            ? 'English (current)'
+            : 'Switch to English'
+          : lang === 'zh'
+            ? '中文（当前）'
+            : '切换为中文'
+      }
       className={lang === value ? 'cbtn-dark' : 'cbtn'}
       style={{
         font: 'inherit',
