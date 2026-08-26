@@ -30,9 +30,14 @@ const FAMILIES: Record<RegionId, { name: string; color: string }> = {
   oceania: { name: 'Oceania', color: '#9FB9AD' },
 }
 
-/** Fixed west-to-east order. Index in this array is the lane's `order`. */
+/**
+ * Fixed lane order per the brief. Mostly west to east across Afro-Eurasia;
+ * the Americas sit at the eastern edge (rather than the true far west) so
+ * the poster's top-left corner stays empty for the title block — the early
+ * Andean towers would otherwise collide with it. Pre-Columbian America is
+ * disconnected from the old world, so either edge is historically neutral.
+ */
 export const REGION_ORDER: readonly RegionId[] = [
-  'americas',
   'europe-west',
   'europe-central',
   'mediterranean',
@@ -45,6 +50,7 @@ export const REGION_ORDER: readonly RegionId[] = [
   'southeast-asia',
   'east-asia',
   'korea-japan',
+  'americas',
   'oceania',
 ]
 

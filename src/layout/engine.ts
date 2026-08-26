@@ -39,6 +39,8 @@ interface WorkRect {
   width: number
   anchor: number
   x: number
+  /** Mean global demand across this rect's lifetime; low = sparse era. */
+  meanTotal: number
 }
 
 const laneOrderOf = (region: RegionId): number => REGION_ORDER.indexOf(region)
@@ -108,6 +110,7 @@ export function layout(
       width: 0,
       anchor: 0,
       x: 0,
+      meanTotal: 0,
     }
   })
 
@@ -182,6 +185,7 @@ export function layout(
       sumWest += westDemand[s]![r.laneOrder]!
     }
     const meanTotal = Math.max(sumTotal / n, DEMAND_FLOOR)
+    r.meanTotal = sumTotal / n
     const lifeWestFraction = sumWest / n / meanTotal
     const westFraction =
       0.5 * lifeWestFraction + 0.5 * staticWestFraction[r.laneOrder]!
@@ -253,6 +257,33 @@ export function layout(
     r.x = x
     placed.push(r)
     lastInCol.set(colKey, r)
+  }
+
+  // --- Widening pass: fill horizontal holes ---------------------------
+  // The mosaic must read near-solid. Nothing moves; instead each rect
+  // grows rightward until it meets the nearest contemporary to its east,
+  // capped so a sliver can never balloon into a slab. Two passes, west to
+  // east, because a widened rect closes its neighbour's measurement.
+  for (let pass = 0; pass < 2; pass++) {
+    const byX = [...work].sort((a, b) => a.x - b.x || byStartThenId(a, b))
+    for (const r of byX) {
+      let nearestEast = Infinity
+      for (const e of work) {
+        if (e === r || !overlaps(e, r)) continue
+        if (e.x >= r.x + r.width - 0.001) {
+          nearestEast = Math.min(nearestEast, e.x)
+        }
+      }
+      if (nearestEast === Infinity) continue
+      const gap = nearestEast - (r.x + r.width) - config.gap
+      if (gap <= 0) continue
+      // Era-aware cap: in a crowded century a rect may grow to seal the
+      // mosaic; in an empty millennium it stays a narrow tower and the
+      // whitespace around it becomes part of the composition.
+      const density = Math.min(r.meanTotal / DEMAND_FLOOR, 2)
+      const cap = r.width * (0.25 + density)
+      r.width = r.width + Math.min(gap, cap)
+    }
   }
 
   // --- Emit rects, recursing into children ----------------------------

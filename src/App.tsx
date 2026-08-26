@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react'
 import type { LayoutConfig } from './types'
 import { layout } from './layout/engine'
 import { DEFAULT_SCALE } from './layout/scale'
-import { loadFixture } from './data/fixture'
+import { loadPolities } from './data/polities'
 import { useViewStore } from './store/view'
 import { Viewport } from './render/Viewport'
 import { CanvasMosaic } from './render/CanvasMosaic'
@@ -28,7 +28,7 @@ export function App() {
 }
 
 function Chronos() {
-  const polities = useMemo(() => loadFixture(), [])
+  const polities = useMemo(() => loadPolities(), [])
   const polityMap = useMemo(
     () => new Map(polities.map((p) => [p.id, p])),
     [polities],
