@@ -4,6 +4,7 @@ import { ERAS } from '../config/eras'
 import { useViewStore } from '../store/view'
 import { useAppStore } from '../store/app'
 import { eraName } from '../i18n'
+import { centerOnYearRange } from '../interact/camera'
 
 /**
  * The fixed left gutter: year ticks and era brackets. It pans vertically
@@ -81,6 +82,13 @@ export function TimeAxis({ scale }: { scale: TimeScale }) {
       {eraBands.map(({ era, y0, y1 }) => (
         <div
           key={era.id}
+          onClick={() =>
+            centerOnYearRange(
+              scale.yearToY(era.start),
+              scale.yearToY(era.end),
+            )
+          }
+          title={eraName(era, lang)}
           style={{
             position: 'absolute',
             left: 0,
@@ -90,6 +98,7 @@ export function TimeAxis({ scale }: { scale: TimeScale }) {
             borderRight: '1px solid rgba(26,22,20,0.35)',
             borderTop: '1px solid rgba(26,22,20,0.35)',
             overflow: 'hidden',
+            cursor: 'pointer',
           }}
         >
           {y1 - y0 > 54 && (

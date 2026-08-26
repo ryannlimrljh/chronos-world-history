@@ -20,6 +20,9 @@ import { PulseOverlay } from './ui/PulseOverlay'
 import { PosterChrome } from './render/PosterChrome'
 import { TipsOverlay } from './ui/TipsOverlay'
 import { LangToggle } from './ui/LangToggle'
+import { Minimap } from './ui/Minimap'
+import { Toolbar } from './ui/Toolbar'
+import { PositionReadout } from './ui/PositionReadout'
 import { DebugSvg } from './debug/DebugSvg'
 import { useAppStore } from './store/app'
 
@@ -94,6 +97,9 @@ function Chronos() {
       <SearchPalette layout={result} polities={polityMap} />
       <TipsOverlay />
       <LangToggle />
+      <Toolbar />
+      <Minimap layout={result} />
+      <PositionReadout />
     </div>
   )
 }

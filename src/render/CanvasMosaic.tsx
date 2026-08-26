@@ -31,7 +31,7 @@ export function CanvasMosaic({
       if (!dirty) return
       dirty = false
       const { camera, viewport } = useViewStore.getState()
-      const { filters, timeCursor, selectedId, compareIds } =
+      const { filters, timeCursor, selectedId, hoveredId, compareIds } =
         useAppStore.getState()
       const dimmedIds = new Set<string>()
       for (const p of polities.values()) {
@@ -50,6 +50,7 @@ export function CanvasMosaic({
       paintMosaic(ctx, layout, camera, w, h, {
         dimmedIds,
         selectedId,
+        hoveredId,
         compareIds,
       })
     }

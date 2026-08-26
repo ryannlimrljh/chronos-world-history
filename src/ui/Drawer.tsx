@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import type { LayoutResult, Polity } from '../types'
 import { eraForYear } from '../config/eras'
 import { getRegion } from '../config/regions'
@@ -22,6 +22,15 @@ export function Drawer({
   const selectedId = useAppStore((s) => s.selectedId)
   const select = useAppStore((s) => s.select)
   const lang = useAppStore((s) => s.lang)
+
+  useEffect(() => {
+    if (!selectedId) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') select(null)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [selectedId, select])
 
   const p = selectedId ? polities.get(selectedId) : undefined
   const rectOf = useMemo(() => {

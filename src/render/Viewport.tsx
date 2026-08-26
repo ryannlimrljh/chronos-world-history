@@ -89,6 +89,7 @@ export function Viewport({
       const { hoveredId, setHovered } = useAppStore.getState()
       const id = found?.polityId ?? null
       if (id !== hoveredId) setHovered(id)
+      el.style.cursor = id ? 'pointer' : 'grab'
     }
     const onPointerUp = (e: PointerEvent) => {
       const wasDrag = moved

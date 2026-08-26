@@ -62,10 +62,16 @@ export interface PaintState {
   /** Rects whose polity fails the active filters or time cursor. */
   dimmedIds: ReadonlySet<string>
   selectedId: string | null
+  hoveredId: string | null
   compareIds: readonly string[]
 }
 
-const NO_STATE: PaintState = { dimmedIds: new Set(), selectedId: null, compareIds: [] }
+const NO_STATE: PaintState = {
+  dimmedIds: new Set(),
+  selectedId: null,
+  hoveredId: null,
+  compareIds: [],
+}
 
 export function paintMosaic(
   ctx: CanvasRenderingContext2D,
@@ -99,6 +105,18 @@ export function paintMosaic(
     }
   }
   ctx.globalAlpha = 1
+
+  // Hover feedback: a light ink outline on the shape under the cursor.
+  if (state.hoveredId && state.hoveredId !== state.selectedId) {
+    const rect = layout.rects.find((r) => r.polityId === state.hoveredId)
+    if (rect) {
+      ctx.lineWidth = 1.5
+      ctx.strokeStyle = 'rgba(26,22,20,0.7)'
+      tracePath(ctx, rect.runs, k, tx, ty)
+      ctx.stroke()
+      ctx.lineWidth = 1
+    }
+  }
 
   // Selection and compare outlines: ink rings floating over the artefact.
   const ringed = new Set(state.compareIds)

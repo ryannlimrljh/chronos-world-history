@@ -48,3 +48,25 @@ function animateCameraTo(
   }
   requestAnimationFrame(step)
 }
+
+/** Frame a year range (era jump): fit its vertical span with margin. */
+export function centerOnYearRange(y0: number, y1: number): void {
+  const { viewport, world, camera } = useViewStore.getState()
+  const k = Math.min(Math.max(viewport.height / ((y1 - y0) * 1.15), camera.k), 8)
+  const cy = (y0 + y1) / 2
+  const target = {
+    k,
+    tx: viewport.width / 2 - (world.width / 2) * k,
+    ty: viewport.height / 2 - cy * k,
+  }
+  animateCameraTo(target, world)
+}
+
+/** Jump the camera so the given world point is centred, keeping zoom. */
+export function centerAtWorld(wx: number, wy: number): void {
+  const { viewport, camera } = useViewStore.getState()
+  useViewStore.getState().panBy(
+    viewport.width / 2 - (wx * camera.k + camera.tx),
+    viewport.height / 2 - (wy * camera.k + camera.ty),
+  )
+}

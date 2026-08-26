@@ -153,6 +153,8 @@ export const UI_ZH: Record<string, string> = {
   tipKeys: '← → ↑ ↓ · + −', tipKeysWhat: '键盘平移与缩放',
   tipFit: '0', tipFitWhat: '整幅海报适配屏幕',
   subtitle: '五千年互动年表',
+  toolSearch: '搜索', toolZoomIn: '放大', toolZoomOut: '缩小',
+  toolFit: '适配全图', toolCursor: '时间光标',
   footnote:
     '矩形高度为存续时间，宽度反映相对同时代的重要程度。时间轴为非线性：上古纪元被压缩，近现代被展开。年代在多种学术体系并存时取其一；约略年代以 c. 标注。 · © 2026 Chronos',
 }
