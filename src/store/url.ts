@@ -80,16 +80,32 @@ export function initUrlSync(layout: LayoutResult, scale: TimeScale): () => void 
     if (applying) return
     if (s.selectedId !== lastSelected) {
       lastSelected = s.selectedId
-      history.pushState(null, '', serialize())
+      try {
+        history.pushState(null, '', serialize())
+      } catch {
+        /* embedded viewers may restrict history writes */
+      }
     } else {
       clearTimeout(debounce)
-      debounce = setTimeout(() => history.replaceState(null, '', serialize()), 400)
+      debounce = setTimeout(() => {
+        try {
+          history.replaceState(null, '', serialize())
+        } catch {
+          /* fine */
+        }
+      }, 400)
     }
   })
   const unsubView = useViewStore.subscribe(() => {
     if (applying) return
     clearTimeout(debounce)
-    debounce = setTimeout(() => history.replaceState(null, '', serialize()), 400)
+    debounce = setTimeout(() => {
+      try {
+        history.replaceState(null, '', serialize())
+      } catch {
+        /* fine */
+      }
+    }, 400)
   })
 
   return () => {
