@@ -45,7 +45,7 @@ const CONFIG: LayoutConfig = {
   nestInset: 3,
   minRectWidth: 6,
   anchorStrength: 0.85,
-  titleReserve: { untilYear: -950, width: 420 },
+  titleReserve: { untilYear: -950, width: 340 },
 }
 
 export function App() {

@@ -192,7 +192,6 @@ export function layout(
     s.snapEnd > sliceStartYear(i)
 
   const alivePerSlice: WorkShape[][] = []
-  let maxDemand = 0
   for (let i = 0; i < nSlices; i++) {
     const alive = work
       .filter((s) => aliveAt(s, i))
@@ -203,55 +202,80 @@ export function layout(
           byStartThenId(a, b),
       )
     alivePerSlice.push(alive)
-    maxDemand = Math.max(
-      maxDemand,
-      alive.reduce((sum, s) => sum + s.weight, 0),
-    )
   }
-  const unit = config.width / Math.max(maxDemand, 1)
-  // Sparse rows get a width boost so the ancient towers hold their own
-  // against the crowded medieval mass, as they do in the reference.
-  const rowScale = (demand: number): number =>
-    Math.min((maxDemand / Math.max(demand, 1)) ** 0.25, 2.2)
 
-  // --- Track tiling: columns stay put, successors stack ---------------
-  // Alignment comes from tracks (a lane's sub-columns). A track's width
-  // is HELD constant for as long as it stays occupied — successors stack
-  // vertically at the same x, which is what makes the reference's Rome
-  // column read as one straight bar through Kingdom, Republic and Empire.
-  // The width steps only when a track empties or its occupant's natural
-  // size departs drastically from the held value. Rows still tile with
-  // zero gaps: every held width is packed edge to edge.
-  const globalDemand: number[] = new Array(nSlices).fill(0)
+  // --- Fixed lane bands: every region has a permanent home ------------
+  // The reference's decisive property: China's lineage occupies ONE
+  // vertical band for four thousand years. So each lane gets a FIXED
+  // horizontal band, sized by its time-integrated demand; members tile
+  // inside their band and the band itself never moves. Sparse-era
+  // whitespace collects at the sheet's edges (the skyline); interior
+  // slices where a lane is briefly empty are sealed by letting both
+  // neighbours flow halfway into the vacancy.
+  const laneCount = REGION_ORDER.length
+  const integrated: number[] = new Array(laneCount).fill(0)
   for (let i = 0; i < nSlices; i++) {
-    for (const s of alivePerSlice[i]!) globalDemand[i]! += s.weight
+    for (const s of alivePerSlice[i]!) integrated[s.laneOrder]! += s.weight
   }
-  const heldW = new Map<string, number>()
-  for (let i = 0; i < nSlices; i++) {
-    const year = sliceStartYear(i)
-    const reserve = config.titleReserve
-    let cum = reserve && year < reserve.untilYear ? reserve.width : 0
-    const boost = rowScale(globalDemand[i]!)
-    const seen = new Set<string>()
-    for (const s of alivePerSlice[i]!) {
-      const key = `${s.laneOrder}:${s.subCol}`
-      seen.add(key)
-      const natural = Math.max(s.weight * unit * boost, config.minRectWidth)
-      const prev = heldW.get(key)
-      let w: number
-      if (prev === undefined || Math.abs(natural - prev) > Math.max(12, prev * 0.45)) {
-        w = natural
-        heldW.set(key, natural)
-      } else {
-        w = prev
+  const totalIntegrated = integrated.reduce((a, b) => a + b, 0) || 1
+  const floorShare = totalIntegrated * 0.028
+  const shares = integrated.map((v) => (v > 0 ? Math.max(v, floorShare) : 0))
+  const shareSum = shares.reduce((a, b) => a + b, 0) || 1
+  const bandW = shares.map((v) => (v / shareSum) * config.width)
+
+  // Fixed origins: cumulative, with the title corner kept clear — any
+  // lane containing pre-950 BCE content may not begin under the title.
+  const earliest: number[] = new Array(laneCount).fill(Infinity)
+  for (const s of work) {
+    earliest[s.laneOrder] = Math.min(earliest[s.laneOrder]!, s.snapStart)
+  }
+  const origin: number[] = new Array(laneCount).fill(0)
+  {
+    let cum = 0
+    for (let lane = 0; lane < laneCount; lane++) {
+      if (
+        config.titleReserve &&
+        earliest[lane]! < config.titleReserve.untilYear
+      ) {
+        cum = Math.max(cum, config.titleReserve.width)
       }
-      s.extents.set(i, [cum, cum + w])
-      cum += w + config.gap
+      origin[lane] = cum
+      cum += bandW[lane]! + config.gap
     }
-    // A track that fell empty forgets its width; the next occupant
-    // starts a fresh column.
-    for (const key of [...heldW.keys()]) {
-      if (!seen.has(key)) heldW.delete(key)
+  }
+
+  for (let i = 0; i < nSlices; i++) {
+    // Tile each occupied lane's members inside its fixed band.
+    const rows: { lane: number; first: WorkShape; last: WorkShape }[] = []
+    for (let lane = 0; lane < laneCount; lane++) {
+      const members = alivePerSlice[i]!.filter((s) => s.laneOrder === lane)
+      if (members.length === 0) continue
+      const demand = members.reduce((sum, s) => sum + s.weight, 0)
+      let cum = origin[lane]!
+      for (const s of members) {
+        const w = (s.weight / demand) * bandW[lane]!
+        s.extents.set(i, [cum, cum + w])
+        cum += w
+      }
+      rows.push({ lane, first: members[0]!, last: members[members.length - 1]! })
+    }
+    // Seal NARROW interior vacancies: between two occupied lanes, each
+    // neighbour flows halfway into a small empty stretch (a lane's brief
+    // interregnum). WIDE vacancies — whole regions before their history
+    // begins — stay as composed whitespace, which is what keeps the
+    // ancient rows reading as separate towers rather than one slab.
+    const SEAL_MAX = config.width * 0.12
+    for (let r = 1; r < rows.length; r++) {
+      const west = rows[r - 1]!
+      const east = rows[r]!
+      const westEnd = west.last.extents.get(i)![1]
+      const eastStart = east.first.extents.get(i)![0]
+      const gap = eastStart - westEnd
+      if (gap > 0.01 && gap <= SEAL_MAX) {
+        const mid = westEnd + gap / 2
+        west.last.extents.get(i)![1] = mid
+        east.first.extents.get(i)![0] = mid
+      }
     }
   }
 
