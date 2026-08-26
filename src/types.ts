@@ -189,6 +189,10 @@ export interface PositionedRect {
   runs: Run[]
   region: RegionId
   significance: Significance
+  /** Sub-column within the lane; one pillar shares one track. */
+  track: number
+  /** Position within the track's succession stack, 0 at the top. */
+  stackIndex: number
   /** Nesting depth. 0 is a top-level rect, 1 is a child inside a parent. */
   depth: number
 }

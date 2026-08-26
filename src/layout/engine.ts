@@ -41,6 +41,7 @@ interface WorkShape {
   ownSnapStart: number
   ownSnapEnd: number
   subCol: number
+  stackIndex: number
   weight: number
   /** Per-slice horizontal extent, filled by the tiling pass. */
   extents: Map<number, [number, number]>
@@ -119,6 +120,7 @@ export function layout(
       ownSnapStart,
       ownSnapEnd,
       subCol: 0,
+      stackIndex: 0,
       weight: weightOf(polity.significance),
       extents: new Map(),
     }
@@ -131,23 +133,52 @@ export function layout(
     list.push(s)
     lanes.set(s.laneOrder, list)
   }
+  // Succession links: a polity knows its predecessors, and inherits their
+  // track when it is free — Tang hands its column to Song, Rome's line
+  // stacks in one pillar, exactly as the reference draws dynasties.
+  const predsOf = new Map<string, Set<string>>()
+  for (const s of work) {
+    predsOf.set(s.polity.id, new Set(s.polity.predecessors ?? []))
+  }
+  for (const s of work) {
+    for (const succ of s.polity.successors ?? []) {
+      predsOf.get(succ)?.add(s.polity.id)
+    }
+  }
   for (const list of lanes.values()) {
     list.sort(byStartThenId)
     const colEnds: number[] = []
+    const colCount: number[] = []
+    const assigned = new Map<string, number>()
     for (const s of list) {
-      let placed = false
-      for (let c = 0; c < colEnds.length; c++) {
-        if (s.snapStart >= colEnds[c]!) {
-          s.subCol = c
-          colEnds[c] = s.snapEnd
-          placed = true
+      let chosen = -1
+      // First choice: a free track already used by a predecessor.
+      for (const predId of predsOf.get(s.polity.id) ?? []) {
+        const c = assigned.get(predId)
+        if (c !== undefined && s.snapStart >= colEnds[c]!) {
+          chosen = c
           break
         }
       }
-      if (!placed) {
-        s.subCol = colEnds.length
-        colEnds.push(s.snapEnd)
+      // Otherwise the leftmost free track, or a new one.
+      if (chosen < 0) {
+        for (let c = 0; c < colEnds.length; c++) {
+          if (s.snapStart >= colEnds[c]!) {
+            chosen = c
+            break
+          }
+        }
       }
+      if (chosen < 0) {
+        chosen = colEnds.length
+        colEnds.push(0)
+        colCount.push(0)
+      }
+      s.subCol = chosen
+      s.stackIndex = colCount[chosen]!
+      colEnds[chosen] = s.snapEnd
+      colCount[chosen] = colCount[chosen]! + 1
+      assigned.set(s.polity.id, chosen)
     }
   }
 
@@ -257,6 +288,8 @@ export function layout(
     snapStart: number,
     snapEnd: number,
     depth: number,
+    track: number,
+    stackIndex: number,
     /** How long the slot itself lives (covers continuation children). */
     slotEnd: number = snapEnd,
   ): void {
@@ -276,6 +309,8 @@ export function layout(
       runs,
       region: polity.region,
       significance: polity.significance,
+      track,
+      stackIndex,
       depth,
     })
 
@@ -315,13 +350,22 @@ export function layout(
         cum += w
       }
     }
-    for (const ks2 of kidShapes) {
-      emit(ks2.k, ks2.extents, ks2.ks, ks2.ke, depth + 1)
-    }
+    kidShapes.forEach((ks2, idx) => {
+      emit(ks2.k, ks2.extents, ks2.ks, ks2.ke, depth + 1, track, stackIndex + idx + 1)
+    })
   }
 
   for (const s of work) {
-    emit(s.polity, s.extents, s.ownSnapStart, s.ownSnapEnd, 0, s.snapEnd)
+    emit(
+      s.polity,
+      s.extents,
+      s.ownSnapStart,
+      s.ownSnapEnd,
+      0,
+      s.subCol,
+      s.stackIndex,
+      s.snapEnd,
+    )
   }
 
   // --- Lane bands for the sticky region header ------------------------

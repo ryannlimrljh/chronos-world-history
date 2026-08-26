@@ -18,12 +18,17 @@ export interface PaintStyle {
 const styleCache = new Map<string, PaintStyle>()
 
 export function styleFor(rect: PositionedRect): PaintStyle {
-  // Alternate tints so adjacent same-lane blocks stay distinguishable but
-  // related. Deterministic: derived from position.
+  // Colour encodes track membership: one pillar draws from ONE pair of
+  // adjacent tints in its lane's family (successive occupants alternate
+  // within the pair, so segments stay distinct while the pillar reads as
+  // a single column), and neighbouring tracks start from different base
+  // tints so pillars separate at a glance.
   const region = getRegion(rect.region)
-  const tintIndex =
-    (Math.abs(Math.round(rect.x * 7 + rect.y * 13)) + rect.depth) %
-    region.tints.length
+  const base = rect.track % (region.tints.length - 1)
+  const tintIndex = Math.min(
+    base + (rect.stackIndex % 2) + rect.depth,
+    region.tints.length - 1,
+  )
   const key = `${rect.region}:${tintIndex}`
   let style = styleCache.get(key)
   if (!style) {
