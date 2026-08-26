@@ -118,6 +118,20 @@ export const CATEGORY_ZH: Record<PolityCategory, string> = {
   'city-state': '城邦', colonial: '殖民地', 'modern-state': '现代国家',
 }
 
+/** One-line explanations of polity categories, for filter hover tips. */
+export const CATEGORY_DESC_ZH: Record<PolityCategory, string> = {
+  empire: '由皇帝统治、通常横跨多个民族的国家',
+  kingdom: '世袭君主统治的国家',
+  dynasty: '以王室世系划分的统治时代，多用于中国与埃及',
+  republic: '无君主、由公民或议会执政的政体',
+  caliphate: '哈里发统治的伊斯兰国家',
+  khanate: '可汗统治的草原政权',
+  confederation: '部落、城邦或政权的联盟',
+  'city-state': '独立的城市及其周边腹地',
+  colonial: '被外来强权统治的领地',
+  'modern-state': '现代民族国家',
+}
+
 export const EVENT_ZH: Record<string, string> = {
   wheel: '车轮的发明', writing: '文字的出现', pyramids: '吉萨大金字塔',
   bronze: '青铜冶炼技术', hammurabi: '汉谟拉比法典', alphabet: '腓尼基字母',
@@ -162,6 +176,9 @@ export const UI_ZH: Record<string, string> = {
   tipTouchHold: '长按色块', tipTouchHoldWhat: '固定最多 4 个政权对比国祚',
   tipTouchTools: '右侧按钮', tipTouchToolsWhat: '搜索、缩放、适配全图、时间光标',
   tipTouchMap: '右下角小地图', tipTouchMapWhat: '显示当前位置，点按即可跳转',
+  filterHint: '筛选不会隐藏任何政权：不符合条件的只是淡化显示，历史的整体轮廓始终可见。',
+  filterFocus: '仅高亮', sigAll: '显示全部',
+  sigOnly: '仅高亮重要度不低于此值的政权',
   footnote:
     '矩形高度为存续时间，宽度反映相对同时代的重要程度。时间轴为非线性：上古纪元被压缩，近现代被展开。年代在多种学术体系并存时取其一；约略年代以 c. 标注。 · © 2026 Chronos',
 }

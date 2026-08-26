@@ -1,5 +1,6 @@
 import type { Era, Polity, PolityCategory, RegionId } from '../types'
 import {
+  CATEGORY_DESC_ZH,
   CATEGORY_ZH,
   ERA_ZH,
   EVENT_ZH,
@@ -37,6 +38,23 @@ export function eraName(era: Era, lang: Lang): string {
 
 export function categoryName(c: PolityCategory, lang: Lang): string {
   return lang === 'zh' ? CATEGORY_ZH[c] : c
+}
+
+const CATEGORY_DESC_EN: Record<PolityCategory, string> = {
+  empire: 'A state ruled by an emperor, usually spanning many peoples',
+  kingdom: 'A state under a hereditary monarch',
+  dynasty: "A ruling family's era, used mainly for China and Egypt",
+  republic: 'Rule without a monarch, by citizens or councils',
+  caliphate: 'An Islamic state under a caliph',
+  khanate: 'A steppe polity under a khan',
+  confederation: 'An alliance of tribes, cities or states',
+  'city-state': 'An independent city and its hinterland',
+  colonial: 'Territory ruled by a foreign power',
+  'modern-state': 'A contemporary nation-state',
+}
+
+export function categoryDescription(c: PolityCategory, lang: Lang): string {
+  return lang === 'zh' ? CATEGORY_DESC_ZH[c] : CATEGORY_DESC_EN[c]
 }
 
 export function eventTitle(id: string, fallback: string, lang: Lang): string {

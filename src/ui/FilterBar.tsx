@@ -3,7 +3,8 @@ import type { PolityCategory, RegionId } from '../types'
 import { REGIONS } from '../config/regions'
 import { ERAS } from '../config/eras'
 import { useAppStore, EMPTY_FILTERS } from '../store/app'
-import { categoryName, eraName, regionName, ui } from '../i18n'
+import { categoryDescription, categoryName, eraName, regionName, ui } from '../i18n'
+import { formatYear } from '../interact/format'
 import { useRightOffset } from './chrome'
 
 const CATEGORIES: PolityCategory[] = [
@@ -78,12 +79,20 @@ export function FilterBar() {
         fontFamily: 'var(--font-label)',
       }}
     >
+      <div style={{ fontSize: 11, lineHeight: 1.5, opacity: 0.65 }}>
+        {ui(
+          'filterHint',
+          'Filters never hide anything: what does not match simply fades, so the shape of history stays visible.',
+          lang,
+        )}
+      </div>
       {heading(ui('regions', 'Regions', lang))}
       <div>
         {REGIONS.map((r) => (
           <button
             key={r.id}
             className="cbtn"
+            title={`${ui('filterFocus', 'Highlight only', lang)}: ${regionName(r.id, lang, r.name)}`}
             style={chipStyle(filters.regions.has(r.id))}
             onClick={() =>
               setFilters({ regions: toggleSet<RegionId>(filters.regions, r.id) })
@@ -99,6 +108,7 @@ export function FilterBar() {
           <button
             key={c}
             className="cbtn"
+            title={categoryDescription(c, lang)}
             style={chipStyle(filters.categories.has(c))}
             onClick={() => setFilters({ categories: toggleSet(filters.categories, c) })}
           >
@@ -112,6 +122,7 @@ export function FilterBar() {
           <button
             key={e.id}
             className="cbtn"
+            title={`${eraName(e, lang)} · ${formatYear(e.start)} – ${formatYear(e.end)}`}
             style={chipStyle(filters.eras.has(e.id))}
             onClick={() => setFilters({ eras: toggleSet(filters.eras, e.id) })}
           >
@@ -125,6 +136,11 @@ export function FilterBar() {
           <button
             key={n}
             className="cbtn"
+            title={
+              n === 1
+                ? ui('sigAll', 'Show everything', lang)
+                : `${ui('sigOnly', 'Highlight only polities of significance', lang)} ${n}+`
+            }
             style={chipStyle(filters.minSignificance === n)}
             onClick={() => setFilters({ minSignificance: n })}
           >

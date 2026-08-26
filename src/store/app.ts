@@ -9,7 +9,9 @@ function initialLang(): Lang {
   } catch {
     /* storage unavailable */
   }
-  return 'en'
+  // Chinese is the default for first-time visitors; an explicit choice
+  // (stored above) always wins.
+  return 'zh'
 }
 
 /**
