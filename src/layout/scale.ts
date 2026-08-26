@@ -88,9 +88,9 @@ export function makeLinearScale(
  */
 export const DEFAULT_SCALE: TimeScale = makePiecewiseScale(
   [
-    { from: -4000, pxPerYear: 0.07 },
-    { from: -1000, pxPerYear: 0.2 },
-    { from: 1500, pxPerYear: 0.6 },
+    { from: -4000, pxPerYear: 0.12 },
+    { from: -1000, pxPerYear: 0.34 },
+    { from: 1500, pxPerYear: 1.05 },
   ],
   CURRENT_YEAR,
 )

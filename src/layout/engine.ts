@@ -162,7 +162,7 @@ export function layout(
   // The divisor is floored so that near-empty millennia produce narrow
   // isolated towers rather than full-canvas slabs: in a sparse era a rect's
   // width is driven by its own significance, not by the emptiness around it.
-  const DEMAND_FLOOR = 24
+  const DEMAND_FLOOR = 40
 
   // Each lane's all-of-history home position, used to keep geography honest
   // when a rect's own lifetime is too sparse to say where west ends.
@@ -191,7 +191,7 @@ export function layout(
       0.5 * lifeWestFraction + 0.5 * staticWestFraction[r.laneOrder]!
     r.width = Math.max(
       config.minRectWidth,
-      (r.polity.significance / meanTotal) * config.width,
+      (r.polity.significance ** 0.85 / meanTotal) * config.width,
     )
     r.anchor = westFraction * config.width * config.anchorStrength
   }
@@ -244,8 +244,20 @@ export function layout(
     // instead of drifting with each era's demand profile.
     const colKey = `${r.laneOrder}:${r.subCol}`
     const prev = lastInCol.get(colKey)
+    // In a crowded era the west-of-east constraints already enforce
+    // geography, so the anchor's pull is damped and rects pack tight; in
+    // an empty era the anchor is all that holds geography, so it holds.
+    const density = Math.min(r.meanTotal / DEMAND_FLOOR, 2)
+    const anchorEff = r.anchor * Math.max(0.2, 1 - density * 0.45)
     let x =
-      prev && prev.effEnd === r.effStart ? Math.min(r.anchor, prev.x) : r.anchor
+      prev && prev.effEnd === r.effStart
+        ? Math.min(anchorEff, prev.x)
+        : anchorEff
+    // The title block owns the poster's top-left corner.
+    const reserve = config.titleReserve
+    if (reserve && r.effStart < reserve.untilYear) {
+      x = Math.max(x, reserve.width)
+    }
     for (const p of placed) {
       const mustBeWest =
         p.laneOrder < r.laneOrder ||
@@ -264,6 +276,7 @@ export function layout(
   // grows rightward until it meets the nearest contemporary to its east,
   // capped so a sliver can never balloon into a slab. Two passes, west to
   // east, because a widened rect closes its neighbour's measurement.
+  const baseWidth = new Map(work.map((r) => [r, r.width]))
   for (let pass = 0; pass < 2; pass++) {
     const byX = [...work].sort((a, b) => a.x - b.x || byStartThenId(a, b))
     for (const r of byX) {
@@ -277,12 +290,14 @@ export function layout(
       if (nearestEast === Infinity) continue
       const gap = nearestEast - (r.x + r.width) - config.gap
       if (gap <= 0) continue
-      // Era-aware cap: in a crowded century a rect may grow to seal the
-      // mosaic; in an empty millennium it stays a narrow tower and the
-      // whitespace around it becomes part of the composition.
+      // Era-aware cap, always measured against the ORIGINAL width so the
+      // two passes cannot compound: in a crowded century a rect may grow
+      // to seal the mosaic; in an empty millennium it stays a narrow
+      // tower and the whitespace becomes part of the composition.
+      const base = baseWidth.get(r)!
       const density = Math.min(r.meanTotal / DEMAND_FLOOR, 2)
-      const cap = r.width * (0.25 + density)
-      r.width = r.width + Math.min(gap, cap)
+      const maxTotal = base * (1.3 + density * 1.4)
+      r.width = Math.min(r.width + gap, Math.max(maxTotal, r.width))
     }
   }
 

@@ -1,6 +1,6 @@
-import type { LayoutResult, PositionedRect } from '../types'
+import type { LayoutResult, PositionedRect, RegionId } from '../types'
 import { getRegion } from '../config/regions'
-import { strokeFor } from '../config/color'
+import { strokeFor, lighten } from '../config/color'
 import type { Camera } from '../store/view'
 
 /**
@@ -15,6 +15,16 @@ export interface PaintStyle {
 }
 
 const styleCache = new Map<string, PaintStyle>()
+const underlayCache = new Map<RegionId, string>()
+
+function underlayFor(region: RegionId): string {
+  let c = underlayCache.get(region)
+  if (!c) {
+    c = lighten(getRegion(region).colorFamily, 0.76)
+    underlayCache.set(region, c)
+  }
+  return c
+}
 
 export function styleFor(rect: PositionedRect): PaintStyle {
   // Alternate tints down each sub-column chain so adjacent same-lane blocks
@@ -53,6 +63,19 @@ export function paintMosaic(
   const { k, tx, ty } = camera
   ctx.clearRect(0, 0, viewportW, viewportH)
   ctx.lineWidth = 1
+
+  // Lane underlays: a pale wash of each lane's family across its active
+  // span, so the unavoidable notches between rigid rects read as lane
+  // ground rather than holes in the poster.
+  for (const band of layout.bands) {
+    const x = band.x * k + tx
+    const y = band.yStart * k + ty
+    const w = band.width * k
+    const h = (band.yEnd - band.yStart) * k
+    if (x + w < 0 || y + h < 0 || x > viewportW || y > viewportH) continue
+    ctx.fillStyle = underlayFor(band.region)
+    ctx.fillRect(x, y, w, h + 0.5)
+  }
 
   // Dimmed rects first, then live ones, then highlight rings, so dimming
   // never washes out a live rect drawn beside it.

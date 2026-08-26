@@ -28,6 +28,8 @@ interface LabelSpec {
   name: string
   nameNative: string | undefined
   showNative: boolean
+  /** Tall narrow columns take vertical text, as the reference does. */
+  vertical: boolean
 }
 
 export function LabelLayer({
@@ -54,20 +56,32 @@ export function LabelLayer({
         continue
       // Entry threshold scales with significance: giants label first.
       const minArea = 3600 / rect.significance
-      if (w * h < minArea || w < 26 || h < 11) continue
+      if (w * h < minArea || h < 11) continue
       const polity = polities.get(rect.polityId)
       if (!polity) continue
       if (isDimmed(polity, filters, timeCursor)) continue
-      // Size to the rect, never overflow it. Uppercase Barlow Condensed
-      // runs ~0.52em per character; a label that would need less than 7px
-      // to fit is dropped, not clipped.
-      const fontSize = Math.min(
-        26,
-        Math.sqrt(w * h) / 7,
-        (w * 0.94) / (polity.name.length * 0.52),
-        h * 0.8,
-      )
-      if (fontSize < 7) continue
+      // Tall narrow columns take vertical text, exactly as the reference
+      // poster does; everything else labels horizontally. Size to the
+      // rect, never overflow it. Uppercase Barlow Condensed runs ~0.52em
+      // per character; a label needing less than 7px is dropped.
+      const vertical = h > w * 2.2
+      const rawSize = vertical
+        ? Math.min(
+            22,
+            w * 0.72,
+            (h * 0.92) / (polity.name.length * 0.52),
+          )
+        : Math.min(
+            26,
+            Math.sqrt(w * h) / 7,
+            (w * 0.94) / (polity.name.length * 0.52),
+            h * 0.8,
+          )
+      if (rawSize < 7 || (!vertical && w < 26) || (vertical && w < 10)) continue
+      // Quantize to five tiers: the reference reads as five deliberate
+      // label sizes on screen at once, not a continuous smear.
+      const TIERS = [8, 10.5, 14, 19, 26]
+      const fontSize = [...TIERS].reverse().find((t) => t <= rawSize) ?? 8
       // Centre the label in the VISIBLE part of the rect, so a block taller
       // than the screen keeps its name on screen while you pan through it.
       const vx = Math.max(x, 0)
@@ -84,7 +98,10 @@ export function LabelLayer({
         color: labelColorOn(styleFor(rect).fill),
         name: polity.name,
         nameNative: polity.nameNative,
-        showNative: Boolean(polity.nameNative) && h > fontSize * 2.6,
+        showNative:
+          Boolean(polity.nameNative) &&
+          (vertical ? w > fontSize * 2.4 : h > fontSize * 2.6),
+        vertical,
       })
     }
     out.sort((a, b) => b.w * b.h - a.w * a.h)
@@ -110,7 +127,7 @@ export function LabelLayer({
             width: l.w,
             height: l.h,
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: l.vertical ? 'row' : 'column',
             alignItems: 'center',
             justifyContent: 'center',
             overflow: 'hidden',
@@ -118,6 +135,7 @@ export function LabelLayer({
             fontFamily: 'var(--font-label)',
             textAlign: 'center',
             lineHeight: 1.05,
+            writingMode: l.vertical ? 'vertical-rl' : undefined,
           }}
         >
           <span

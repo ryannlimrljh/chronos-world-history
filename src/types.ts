@@ -159,6 +159,11 @@ export interface LayoutConfig {
    * keeps geography honest; lower packs tighter.
    */
   anchorStrength: number
+  /**
+   * Poster corner reserved for the title block: rects alive before
+   * `untilYear` may not sit west of `width`. Keeps the top-left clear.
+   */
+  titleReserve?: { untilYear: Year; width: number }
 }
 
 export interface PositionedRect {

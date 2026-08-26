@@ -28,9 +28,17 @@ export function RegionHeader({ layout }: { layout: LayoutResult }) {
       if (bands.length === 0) continue
       const x0 = Math.min(...bands.map((b) => b.x))
       const x1 = Math.max(...bands.map((b) => b.x + b.width))
-      const sx = x0 * k + tx
-      const sw = (x1 - x0) * k
+      let sx = x0 * k + tx
+      let sw = (x1 - x0) * k
       if (sx + sw < 0 || sx > viewport.width || sw < 30) continue
+      // Clamp to the visible span so the name centres on what you can
+      // actually see instead of being clipped to its middle letters.
+      const right = Math.min(sx + sw, viewport.width)
+      sx = Math.max(sx, 0)
+      sw = right - sx
+      // No room for the full name in the visible span: show nothing
+      // rather than a clipped fragment.
+      if (sw < 30 || region.name.length * 6.4 + 10 > sw) continue
       out.push({
         id: region.id,
         name: region.name,

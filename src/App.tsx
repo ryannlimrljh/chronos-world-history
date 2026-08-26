@@ -17,16 +17,30 @@ import { FilterBar } from './ui/FilterBar'
 import { TimeCursor } from './ui/TimeCursor'
 import { CompareBar } from './ui/CompareBar'
 import { PulseOverlay } from './ui/PulseOverlay'
+import { PosterChrome } from './render/PosterChrome'
+import { TipsOverlay } from './ui/TipsOverlay'
 import { DebugSvg } from './debug/DebugSvg'
+import { useAppStore } from './store/app'
 
+// Dev-only: expose stores for debugging in the browser console.
+if (import.meta.env.DEV) {
+  ;(window as unknown as Record<string, unknown>).__stores = {
+    view: useViewStore,
+    app: useAppStore,
+  }
+}
+
+// width + titleReserve tuned so the finished sheet lands on A-series
+// portrait proportions (world ≈ 1141x1762, aspect 0.65 ≈ 1:1.5).
 const CONFIG: LayoutConfig = {
   scale: DEFAULT_SCALE,
-  width: 1200,
+  width: 800,
   sliceYears: 25,
   gap: 0,
   nestInset: 3,
-  minRectWidth: 8,
+  minRectWidth: 6,
   anchorStrength: 0.85,
+  titleReserve: { untilYear: -950, width: 340 },
 }
 
 export function App() {
@@ -45,7 +59,8 @@ function Chronos() {
   const setWorld = useViewStore((s) => s.setWorld)
 
   useEffect(() => {
-    setWorld({ width: result.width, height: result.height })
+    // Extra height covers the flag row, legend and footnote strip.
+    setWorld({ width: result.width, height: result.height + 70 })
   }, [result, setWorld])
 
   useEffect(() => initUrlSync(result, DEFAULT_SCALE), [result])
@@ -63,6 +78,7 @@ function Chronos() {
       >
         <Viewport layout={result}>
           <CanvasMosaic layout={result} polities={polityMap} />
+          <PosterChrome layout={result} polities={polityMap} />
           <LabelLayer layout={result} polities={polityMap} />
           <PulseOverlay layout={result} />
           <TimeCursor scale={DEFAULT_SCALE} polities={polityMap} />
@@ -75,6 +91,7 @@ function Chronos() {
       <Drawer layout={result} polities={polityMap} />
       <CompareBar polities={polityMap} />
       <SearchPalette layout={result} polities={polityMap} />
+      <TipsOverlay />
     </div>
   )
 }
