@@ -2,6 +2,7 @@ import type { Polity } from '../types'
 import { useAppStore } from '../store/app'
 import { getRegion } from '../config/regions'
 import { durationYears, formatRange } from '../interact/format'
+import { polityName, ui } from '../i18n'
 
 /**
  * Bottom compare strip: up to four shift-clicked polities with duration
@@ -15,6 +16,7 @@ export function CompareBar({
   const compareIds = useAppStore((s) => s.compareIds)
   const toggleCompare = useAppStore((s) => s.toggleCompare)
   const clearCompare = useAppStore((s) => s.clearCompare)
+  const lang = useAppStore((s) => s.lang)
 
   if (compareIds.length === 0) return null
   const items = compareIds
@@ -38,13 +40,13 @@ export function CompareBar({
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
         <span style={{ fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', opacity: 0.55 }}>
-          Compare · shift-click to add ({compareIds.length}/4)
+          {ui('compare', 'Compare · shift-click to add', lang)} ({compareIds.length}/4)
         </span>
         <button
           onClick={clearCompare}
           style={{ font: 'inherit', fontSize: 11, border: 'none', background: 'none', cursor: 'pointer', opacity: 0.6 }}
         >
-          clear
+          {ui('clear', 'clear', lang)}
         </button>
       </div>
       {items.map((p) => (
@@ -57,7 +59,7 @@ export function CompareBar({
             ✕
           </button>
           <span style={{ fontSize: 12, fontWeight: 600, width: 130, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-            {p.name}
+            {polityName(p, lang)}
           </span>
           <div style={{ flex: 1, position: 'relative', height: 12 }}>
             <div

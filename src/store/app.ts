@@ -1,5 +1,16 @@
 import { create } from 'zustand'
 import type { PolityCategory, RegionId, Year } from '../types'
+import type { Lang } from '../i18n'
+
+function initialLang(): Lang {
+  try {
+    const stored = localStorage.getItem('chronos-lang')
+    if (stored === 'zh' || stored === 'en') return stored
+  } catch {
+    /* storage unavailable */
+  }
+  return 'en'
+}
 
 /**
  * Application state beyond the camera: hover, selection, filters, the time
@@ -39,6 +50,7 @@ interface AppState {
   searchOpen: boolean
   /** Id pulsed after a search jump; cleared by the pulse overlay itself. */
   pulseId: string | null
+  lang: Lang
 
   setHovered(id: string | null): void
   select(id: string | null): void
@@ -49,6 +61,7 @@ interface AppState {
   setTimeCursor(year: Year | null): void
   setSearchOpen(open: boolean): void
   setPulse(id: string | null): void
+  setLang(lang: Lang): void
 }
 
 export const useAppStore = create<AppState>((set) => ({
@@ -59,6 +72,7 @@ export const useAppStore = create<AppState>((set) => ({
   timeCursor: null,
   searchOpen: false,
   pulseId: null,
+  lang: initialLang(),
 
   setHovered: (hoveredId) => set({ hoveredId }),
   select: (selectedId) => set({ selectedId }),
@@ -77,4 +91,12 @@ export const useAppStore = create<AppState>((set) => ({
   setTimeCursor: (timeCursor) => set({ timeCursor }),
   setSearchOpen: (searchOpen) => set({ searchOpen }),
   setPulse: (pulseId) => set({ pulseId }),
+  setLang: (lang) => {
+    try {
+      localStorage.setItem('chronos-lang', lang)
+    } catch {
+      /* fine */
+    }
+    set({ lang })
+  },
 }))

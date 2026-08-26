@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { useAppStore } from '../store/app'
+import { ui } from '../i18n'
 
 /**
  * Navigation help. Auto-opens once for first-time visitors (dismissed
@@ -6,22 +8,23 @@ import { useEffect, useState } from 'react'
  * Never blocks: click anywhere, Esc, or the ? key closes it.
  */
 
-const TIPS: [string, string][] = [
-  ['Scroll / drag', 'Pan around the poster'],
-  ['⌘ or Ctrl + scroll · pinch', 'Zoom at the cursor'],
-  ['Double-click a block', 'Zoom to that polity'],
-  ['Click a block', 'Open its story, lineage and contemporaries'],
-  ['⇧ Shift + click', 'Pin up to 4 polities to compare lifespans'],
-  ['⌘K / Ctrl+K', 'Search any polity or capital'],
-  ['T', 'Drop the time cursor: see everything alive in one year'],
-  ['← → ↑ ↓ · + −', 'Pan and zoom with the keyboard'],
-  ['0', 'Fit the whole poster'],
+const TIP_KEYS: [string, string, string][] = [
+  ['tipPan', 'Scroll / drag', 'Pan around the poster'],
+  ['tipZoom', '⌘ or Ctrl + scroll · pinch', 'Zoom at the cursor'],
+  ['tipDbl', 'Double-click a block', 'Zoom to that polity'],
+  ['tipClick', 'Click a block', 'Open its story, lineage and contemporaries'],
+  ['tipShift', '⇧ Shift + click', 'Pin up to 4 polities to compare lifespans'],
+  ['tipSearch', '⌘K / Ctrl+K', 'Search any polity or capital'],
+  ['tipCursor', 'T', 'Drop the time cursor: see everything alive in one year'],
+  ['tipKeys', '← → ↑ ↓ · + −', 'Pan and zoom with the keyboard'],
+  ['tipFit', '0', 'Fit the whole poster'],
 ]
 
 const SEEN_KEY = 'chronos-tips-seen'
 
 export function TipsOverlay() {
   const [open, setOpen] = useState(false)
+  const lang = useAppStore((s) => s.lang)
 
   useEffect(() => {
     let seen = true
@@ -101,15 +104,17 @@ export function TipsOverlay() {
               marginBottom: 8,
             }}
           >
-            How to explore · click to dismiss
+            {ui('howToExplore', 'How to explore · click to dismiss', lang)}
           </div>
-          {TIPS.map(([keys, what]) => (
+          {TIP_KEYS.map(([key, keysEn, whatEn]) => (
             <div
-              key={keys}
+              key={key}
               style={{ display: 'flex', gap: 10, fontSize: 12.5, lineHeight: 1.75 }}
             >
-              <span style={{ fontWeight: 700, minWidth: 118 }}>{keys}</span>
-              <span style={{ opacity: 0.8 }}>{what}</span>
+              <span style={{ fontWeight: 700, minWidth: 118 }}>
+                {ui(key, keysEn, lang)}
+              </span>
+              <span style={{ opacity: 0.8 }}>{ui(`${key}What`, whatEn, lang)}</span>
             </div>
           ))}
         </div>

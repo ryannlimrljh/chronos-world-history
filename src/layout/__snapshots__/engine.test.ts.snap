@@ -7,7 +7,7 @@ exports[`layout engine > matches the stable fixture snapshot 1`] = `
     "h": 200,
     "id": "sumer",
     "w": 97,
-    "x": 311,
+    "x": 299,
     "y": 0,
   },
   {
@@ -15,14 +15,14 @@ exports[`layout engine > matches the stable fixture snapshot 1`] = `
     "h": 22,
     "id": "akkadian-empire",
     "w": 76,
-    "x": 311,
+    "x": 299,
     "y": 200,
   },
   {
     "d": 0,
     "h": 61,
     "id": "old-kingdom-egypt",
-    "w": 110,
+    "w": 97,
     "x": 201,
     "y": 158,
   },
@@ -135,7 +135,7 @@ exports[`layout engine > matches the stable fixture snapshot 1`] = `
     "h": 143,
     "id": "han-dynasty",
     "w": 118,
-    "x": 551,
+    "x": 547,
     "y": 631,
   },
   {
@@ -151,7 +151,7 @@ exports[`layout engine > matches the stable fixture snapshot 1`] = `
     "h": 47,
     "id": "maurya-empire",
     "w": 97,
-    "x": 454,
+    "x": 450,
     "y": 591,
   },
   {

@@ -3,6 +3,8 @@ import type { HistoricalEvent, LayoutResult, Polity } from '../types'
 import { CURRENT_YEAR } from '../types'
 import { REGIONS } from '../config/regions'
 import { useViewStore } from '../store/view'
+import { useAppStore } from '../store/app'
+import { eventTitle, polityName, ui } from '../i18n'
 import eventsRaw from '../../data/events.json'
 
 /**
@@ -103,6 +105,7 @@ export function PosterChrome({
   polities: ReadonlyMap<string, Polity>
 }) {
   const camera = useViewStore((s) => s.camera)
+  const lang = useAppStore((s) => s.lang)
   const events = useMemo(
     () =>
       [...(eventsRaw.events as HistoricalEvent[])].sort(
@@ -117,10 +120,10 @@ export function PosterChrome({
       if (!p || p.end < CURRENT_YEAR) continue
       const flag = FLAGS[p.id]
       if (!flag) continue
-      out.push({ flag, name: p.name, x: rect.x, w: rect.width })
+      out.push({ flag, name: polityName(p, lang), x: rect.x, w: rect.width })
     }
     return out.sort((a, b) => a.x - b.x)
-  }, [layout, polities])
+  }, [layout, polities, lang])
 
   const third = Math.ceil(events.length / 3)
   const cols = [
@@ -175,7 +178,7 @@ export function PosterChrome({
             textTransform: 'uppercase',
           }}
         >
-          5000-Year Interactive Timeline
+          {ui('subtitle', '5000-Year Interactive Timeline', lang)}
         </div>
 
         {/* ---- Milestone list: texture as much as content ---- */}
@@ -197,7 +200,7 @@ export function PosterChrome({
                   <span style={{ opacity: 0.6, fontVariantNumeric: 'tabular-nums' }}>
                     {e.year < 0 ? `${-e.year} BCE` : e.year}
                   </span>{' '}
-                  {e.title}
+                  {eventTitle(e.id, e.title, lang)}
                 </div>
               ))}
             </div>
@@ -273,11 +276,11 @@ export function PosterChrome({
           ))}
         </div>
         <div style={{ fontSize: 4.6, opacity: 0.55, marginTop: 3, lineHeight: 1.5 }}>
-          Rectangle height is lifespan; width reflects significance relative to
-          contemporaries. The time scale is non-linear: ancient centuries are
-          compressed, modern centuries expanded. Dates follow one scholarly
-          convention where several exist; approximate dates are marked c. ·
-          © 2026 Chronos
+          {ui(
+            'footnote',
+            'Rectangle height is lifespan; width reflects significance relative to contemporaries. The time scale is non-linear: ancient centuries are compressed, modern centuries expanded. Dates follow one scholarly convention where several exist; approximate dates are marked c. · © 2026 Chronos',
+            lang,
+          )}
         </div>
       </div>
     </div>

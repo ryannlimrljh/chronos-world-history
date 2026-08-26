@@ -5,6 +5,8 @@ import { centerOnRect } from '../interact/camera'
 import { formatRange } from '../interact/format'
 import { search } from '../interact/fuzzy'
 import type { SearchDoc } from '../interact/fuzzy'
+import { polityName, politySecondary, ui } from '../i18n'
+import { POLITY_ZH } from '../i18n/zh'
 
 /**
  * The ⌘K command palette. Fuzzy over name, native name, aliases and
@@ -21,6 +23,7 @@ export function SearchPalette({
   const setOpen = useAppStore((s) => s.setSearchOpen)
   const select = useAppStore((s) => s.select)
   const setPulse = useAppStore((s) => s.setPulse)
+  const lang = useAppStore((s) => s.lang)
   const [query, setQuery] = useState('')
   const [active, setActive] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -31,6 +34,7 @@ export function SearchPalette({
         id: p.id,
         haystacks: [
           p.name,
+          ...(POLITY_ZH[p.id] ? [POLITY_ZH[p.id]!] : []),
           ...(p.nameNative ? [p.nameNative] : []),
           ...(p.aka ?? []),
           ...(p.capital ? [p.capital] : []),
@@ -119,7 +123,7 @@ export function SearchPalette({
               go(results[active])
             }
           }}
-          placeholder="Search polities, capitals…"
+          placeholder={ui('searchPlaceholder', 'Search polities, capitals…', lang)}
           aria-label="Search"
           style={{
             width: '100%',
@@ -150,10 +154,10 @@ export function SearchPalette({
               }}
             >
               <span style={{ fontWeight: 600, fontSize: 14 }}>
-                {p.name}
-                {p.nameNative && (
+                {polityName(p, lang)}
+                {politySecondary(p, lang) && (
                   <span style={{ fontWeight: 400, opacity: 0.65 }}>
-                    {' '}{p.nameNative}
+                    {' '}{politySecondary(p, lang)}
                   </span>
                 )}
               </span>

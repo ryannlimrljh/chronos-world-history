@@ -5,6 +5,7 @@ import { getRegion } from '../config/regions'
 import { useAppStore } from '../store/app'
 import { centerOnRect } from '../interact/camera'
 import { formatRange, durationYears } from '../interact/format'
+import { categoryName, eraName, polityName, politySecondary, regionName, ui } from '../i18n'
 
 /**
  * The right-side detail drawer. At most 380px, hairline border, no shadow;
@@ -20,6 +21,7 @@ export function Drawer({
 }) {
   const selectedId = useAppStore((s) => s.selectedId)
   const select = useAppStore((s) => s.select)
+  const lang = useAppStore((s) => s.lang)
 
   const p = selectedId ? polities.get(selectedId) : undefined
   const rectOf = useMemo(() => {
@@ -64,7 +66,7 @@ export function Drawer({
           marginBottom: 5,
         }}
       >
-        {q.name}
+        {polityName(q, lang)}
       </button>
     )
   }
@@ -129,27 +131,28 @@ export function Drawer({
           paddingRight: 20,
         }}
       >
-        {p.name}
+        {polityName(p, lang)}
       </h2>
-      {p.nameNative && (
+      {politySecondary(p, lang) && (
         <div style={{ fontSize: 15, opacity: 0.75, marginTop: 3 }}>
-          {p.nameNative}
+          {politySecondary(p, lang)}
         </div>
       )}
       <div style={{ fontSize: 14, marginTop: 8, fontWeight: 600 }}>
         {formatRange(p)}
         <span style={{ opacity: 0.6, fontWeight: 400 }}>
-          {' '}· {durationYears(p)} years
+          {' '}· {durationYears(p)} {ui('years', 'years', lang)}
         </span>
       </div>
       <div style={{ fontSize: 12, marginTop: 4, opacity: 0.75 }}>
-        {getRegion(p.region).name} · {p.category}
-        {era ? ` · ${era.name}` : ''}
-        {p.capital ? ` · capital ${p.capital}` : ''}
+        {regionName(p.region, lang, getRegion(p.region).name)} ·{' '}
+        {categoryName(p.category, lang)}
+        {era ? ` · ${eraName(era, lang)}` : ''}
+        {p.capital ? ` · ${ui('capital', 'capital', lang)} ${p.capital}` : ''}
       </div>
       {(p.startPrecision !== 'exact' || p.endPrecision !== 'exact' || p.confidence !== 'high') && (
         <div style={{ fontSize: 11, marginTop: 4, opacity: 0.55 }}>
-          Dating confidence: {p.confidence}
+          {ui('datingConfidence', 'Dating confidence', lang)}: {p.confidence}
           {p.startPrecision !== 'exact' ? ` · start ${p.startPrecision}` : ''}
           {p.endPrecision !== 'exact' ? ` · end ${p.endPrecision}` : ''}
         </div>
@@ -158,25 +161,27 @@ export function Drawer({
 
       {p.predecessors && p.predecessors.length > 0 && (
         <>
-          {label('Preceded by')}
+          {label(ui('precededBy', 'Preceded by', lang))}
           <div>{p.predecessors.map(chip)}</div>
         </>
       )}
       {p.successors && p.successors.length > 0 && (
         <>
-          {label('Succeeded by')}
+          {label(ui('succeededBy', 'Succeeded by', lang))}
           <div>{p.successors.map(chip)}</div>
         </>
       )}
       {contemporaries.length > 0 && (
         <>
-          {label(`Alive in ${mid < 0 ? `${-mid} BCE` : `${mid} CE`}`)}
+          {label(
+            `${ui('aliveIn', 'Alive in', lang)} ${mid < 0 ? `${-mid} BCE` : `${mid} CE`}`,
+          )}
           <div>{contemporaries.map((q) => chip(q.id))}</div>
         </>
       )}
       {p.wikipedia && (
         <>
-          {label('Source')}
+          {label(ui('source', 'Source', lang))}
           <a
             href={p.wikipedia}
             target="_blank"

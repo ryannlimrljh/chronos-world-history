@@ -2,6 +2,8 @@ import { useMemo } from 'react'
 import type { TimeScale } from '../types'
 import { ERAS } from '../config/eras'
 import { useViewStore } from '../store/view'
+import { useAppStore } from '../store/app'
+import { eraName } from '../i18n'
 
 /**
  * The fixed left gutter: year ticks and era brackets. It pans vertically
@@ -29,6 +31,7 @@ function tickStep(pxPerYearOnScreen: number): number {
 export function TimeAxis({ scale }: { scale: TimeScale }) {
   const camera = useViewStore((s) => s.camera)
   const viewport = useViewStore((s) => s.viewport)
+  const lang = useAppStore((s) => s.lang)
 
   const { ticks, eraBands } = useMemo(() => {
     const { k, ty } = camera
@@ -105,7 +108,7 @@ export function TimeAxis({ scale }: { scale: TimeScale }) {
                 opacity: 0.75,
               }}
             >
-              {era.name}
+              {eraName(era, lang)}
             </span>
           )}
         </div>

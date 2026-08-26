@@ -3,6 +3,7 @@ import type { PolityCategory, RegionId } from '../types'
 import { REGIONS } from '../config/regions'
 import { ERAS } from '../config/eras'
 import { useAppStore, EMPTY_FILTERS } from '../store/app'
+import { categoryName, eraName, regionName, ui } from '../i18n'
 
 const CATEGORIES: PolityCategory[] = [
   'empire', 'kingdom', 'dynasty', 'republic', 'caliphate',
@@ -17,6 +18,7 @@ export function FilterBar() {
   const filters = useAppStore((s) => s.filters)
   const setFilters = useAppStore((s) => s.setFilters)
   const resetFilters = useAppStore((s) => s.resetFilters)
+  const lang = useAppStore((s) => s.lang)
   const [open, setOpen] = useState(false)
 
   const activeCount =
@@ -74,7 +76,8 @@ export function FilterBar() {
           cursor: 'pointer',
         }}
       >
-        Filters{activeCount > 0 ? ` · ${activeCount}` : ''}
+        {ui('filters', 'Filters', lang)}
+        {activeCount > 0 ? ` · ${activeCount}` : ''}
       </button>
       {open && (
         <div
@@ -88,7 +91,7 @@ export function FilterBar() {
             background: 'var(--paper)',
           }}
         >
-          {heading('Regions')}
+          {heading(ui('regions', 'Regions', lang))}
           <div>
             {REGIONS.map((r) => (
               <button
@@ -98,11 +101,11 @@ export function FilterBar() {
                   setFilters({ regions: toggleSet<RegionId>(filters.regions, r.id) })
                 }
               >
-                {r.name}
+                {regionName(r.id, lang, r.name)}
               </button>
             ))}
           </div>
-          {heading('Categories')}
+          {heading(ui('categories', 'Categories', lang))}
           <div>
             {CATEGORIES.map((c) => (
               <button
@@ -112,11 +115,11 @@ export function FilterBar() {
                   setFilters({ categories: toggleSet(filters.categories, c) })
                 }
               >
-                {c}
+                {categoryName(c, lang)}
               </button>
             ))}
           </div>
-          {heading('Eras')}
+          {heading(ui('eras', 'Eras', lang))}
           <div>
             {ERAS.map((e) => (
               <button
@@ -124,11 +127,11 @@ export function FilterBar() {
                 style={chipStyle(filters.eras.has(e.id))}
                 onClick={() => setFilters({ eras: toggleSet(filters.eras, e.id) })}
               >
-                {e.name}
+                {eraName(e, lang)}
               </button>
             ))}
           </div>
-          {heading('Minimum significance')}
+          {heading(ui('minSignificance', 'Minimum significance', lang))}
           <div>
             {[1, 2, 3, 4, 5].map((n) => (
               <button
@@ -147,7 +150,7 @@ export function FilterBar() {
             }}
             style={{ ...chipStyle(false), marginTop: 10 }}
           >
-            Clear all
+            {ui('clearAll', 'Clear all', lang)}
           </button>
         </div>
       )}

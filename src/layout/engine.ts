@@ -276,8 +276,36 @@ export function layout(
   // grows rightward until it meets the nearest contemporary to its east,
   // capped so a sliver can never balloon into a slab. Two passes, west to
   // east, because a widened rect closes its neighbour's measurement.
+  // --- Seal passes: make the body read as solid masonry ---------------
+  // The reference's blocks touch. Alternate two passes: a left-pull that
+  // snaps each rect onto its nearest western contemporary when the gap is
+  // small, and a widening that grows each rect east to its neighbour.
+  // Small gaps are seams and get sealed completely; large ones are the
+  // composed whitespace around sparse-era towers and survive.
+  const SEAL = 55
   const baseWidth = new Map(work.map((r) => [r, r.width]))
-  for (let pass = 0; pass < 2; pass++) {
+  const leftPull = () => {
+    const byX = [...work].sort((a, b) => a.x - b.x || byStartThenId(a, b))
+    for (const r of byX) {
+      let westEdge = -Infinity
+      for (const p of work) {
+        if (p === r || !overlaps(p, r)) continue
+        const mustBeWest =
+          p.laneOrder < r.laneOrder ||
+          (p.laneOrder === r.laneOrder && p.subCol < r.subCol)
+        if (mustBeWest) westEdge = Math.max(westEdge, p.x + p.width)
+      }
+      if (westEdge === -Infinity) continue
+      const reserveFloor =
+        config.titleReserve && r.effStart < config.titleReserve.untilYear
+          ? config.titleReserve.width
+          : 0
+      const target = Math.max(westEdge + config.gap, reserveFloor)
+      const gapWest = r.x - target
+      if (gapWest > 0 && gapWest <= SEAL) r.x = target
+    }
+  }
+  const widen = () => {
     const byX = [...work].sort((a, b) => a.x - b.x || byStartThenId(a, b))
     for (const r of byX) {
       let nearestEast = Infinity
@@ -290,15 +318,21 @@ export function layout(
       if (nearestEast === Infinity) continue
       const gap = nearestEast - (r.x + r.width) - config.gap
       if (gap <= 0) continue
-      // Era-aware cap, always measured against the ORIGINAL width so the
-      // two passes cannot compound: in a crowded century a rect may grow
-      // to seal the mosaic; in an empty millennium it stays a narrow
-      // tower and the whitespace becomes part of the composition.
       const base = baseWidth.get(r)!
       const density = Math.min(r.meanTotal / DEMAND_FLOOR, 2)
+      // A small eastward gap is a seam: seal it completely. A large one
+      // is composed whitespace: grow only up to the era-aware cap.
+      if (gap <= SEAL) {
+        r.width = r.width + gap
+        continue
+      }
       const maxTotal = base * (1.3 + density * 1.4)
       r.width = Math.min(r.width + gap, Math.max(maxTotal, r.width))
     }
+  }
+  for (let round = 0; round < 2; round++) {
+    leftPull()
+    widen()
   }
 
   // --- Emit rects, recursing into children ----------------------------

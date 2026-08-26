@@ -19,6 +19,7 @@ import { CompareBar } from './ui/CompareBar'
 import { PulseOverlay } from './ui/PulseOverlay'
 import { PosterChrome } from './render/PosterChrome'
 import { TipsOverlay } from './ui/TipsOverlay'
+import { LangToggle } from './ui/LangToggle'
 import { DebugSvg } from './debug/DebugSvg'
 import { useAppStore } from './store/app'
 
@@ -92,6 +93,7 @@ function Chronos() {
       <CompareBar polities={polityMap} />
       <SearchPalette layout={result} polities={polityMap} />
       <TipsOverlay />
+      <LangToggle />
     </div>
   )
 }

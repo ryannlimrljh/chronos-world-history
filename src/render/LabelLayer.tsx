@@ -4,6 +4,7 @@ import { labelColorOn } from '../config/color'
 import { useViewStore } from '../store/view'
 import { useAppStore } from '../store/app'
 import { isDimmed } from '../interact/dim'
+import { polityName, politySecondary, textWidthEm } from '../i18n'
 import { styleFor } from './paint'
 
 /**
@@ -43,6 +44,7 @@ export function LabelLayer({
   const viewport = useViewStore((s) => s.viewport)
   const filters = useAppStore((s) => s.filters)
   const timeCursor = useAppStore((s) => s.timeCursor)
+  const lang = useAppStore((s) => s.lang)
 
   const labels = useMemo(() => {
     const out: LabelSpec[] = []
@@ -65,18 +67,11 @@ export function LabelLayer({
       // rect, never overflow it. Uppercase Barlow Condensed runs ~0.52em
       // per character; a label needing less than 7px is dropped.
       const vertical = h > w * 2.2
+      const name = polityName(polity, lang)
+      const nameEm = textWidthEm(name)
       const rawSize = vertical
-        ? Math.min(
-            22,
-            w * 0.72,
-            (h * 0.92) / (polity.name.length * 0.52),
-          )
-        : Math.min(
-            26,
-            Math.sqrt(w * h) / 7,
-            (w * 0.94) / (polity.name.length * 0.52),
-            h * 0.8,
-          )
+        ? Math.min(22, w * 0.72, (h * 0.92) / nameEm)
+        : Math.min(26, Math.sqrt(w * h) / 7, (w * 0.94) / nameEm, h * 0.8)
       if (rawSize < 7 || (!vertical && w < 26) || (vertical && w < 10)) continue
       // Quantize to five tiers: the reference reads as five deliberate
       // label sizes on screen at once, not a continuous smear.
@@ -96,17 +91,17 @@ export function LabelLayer({
         h: vh,
         fontSize,
         color: labelColorOn(styleFor(rect).fill),
-        name: polity.name,
-        nameNative: polity.nameNative,
+        name,
+        nameNative: politySecondary(polity, lang),
         showNative:
-          Boolean(polity.nameNative) &&
+          Boolean(politySecondary(polity, lang)) &&
           (vertical ? w > fontSize * 2.4 : h > fontSize * 2.6),
         vertical,
       })
     }
     out.sort((a, b) => b.w * b.h - a.w * a.h)
     return out.slice(0, MAX_LABELS)
-  }, [layout, polities, camera, viewport, filters, timeCursor])
+  }, [layout, polities, camera, viewport, filters, timeCursor, lang])
 
   return (
     <div

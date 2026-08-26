@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import type { LayoutResult, Polity } from '../types'
 import { useAppStore } from '../store/app'
 import { formatRange, durationYears } from '../interact/format'
+import { polityName, politySecondary, ui } from '../i18n'
 
 /**
  * Lightweight hover tooltip following the cursor: name, native name, dated
@@ -14,6 +15,7 @@ export function Tooltip({
   polities: ReadonlyMap<string, Polity>
 }) {
   const hoveredId = useAppStore((s) => s.hoveredId)
+  const lang = useAppStore((s) => s.lang)
   const [pos, setPos] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
@@ -43,14 +45,18 @@ export function Tooltip({
       }}
     >
       <div style={{ fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.03em' }}>
-        {p.name}
+        {polityName(p, lang)}
       </div>
-      {p.nameNative && (
-        <div style={{ fontSize: 12, opacity: 0.75 }}>{p.nameNative}</div>
+      {politySecondary(p, lang) && (
+        <div style={{ fontSize: 12, opacity: 0.75 }}>
+          {politySecondary(p, lang)}
+        </div>
       )}
       <div style={{ fontSize: 12, marginTop: 2 }}>
         {formatRange(p)}
-        <span style={{ opacity: 0.6 }}> · {durationYears(p)} yrs</span>
+        <span style={{ opacity: 0.6 }}>
+          {' '}· {durationYears(p)} {ui('years', 'yrs', lang)}
+        </span>
       </div>
     </div>
   )

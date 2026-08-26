@@ -2,6 +2,8 @@ import { useMemo } from 'react'
 import type { LayoutResult } from '../types'
 import { REGIONS } from '../config/regions'
 import { useViewStore } from '../store/view'
+import { useAppStore } from '../store/app'
+import { regionName, textWidthEm } from '../i18n'
 import { AXIS_WIDTH } from './TimeAxis'
 
 export const HEADER_HEIGHT = 30
@@ -14,6 +16,7 @@ export const HEADER_HEIGHT = 30
 export function RegionHeader({ layout }: { layout: LayoutResult }) {
   const camera = useViewStore((s) => s.camera)
   const viewport = useViewStore((s) => s.viewport)
+  const lang = useAppStore((s) => s.lang)
 
   const entries = useMemo(() => {
     const { k, tx, ty } = camera
@@ -38,10 +41,11 @@ export function RegionHeader({ layout }: { layout: LayoutResult }) {
       sw = right - sx
       // No room for the full name in the visible span: show nothing
       // rather than a clipped fragment.
-      if (sw < 30 || region.name.length * 6.4 + 10 > sw) continue
+      const label = regionName(region.id, lang, region.name)
+      if (sw < 30 || textWidthEm(label) * 10 + 10 > sw) continue
       out.push({
         id: region.id,
-        name: region.name,
+        name: label,
         color: region.colorFamily,
         x: sx,
         w: sw,
@@ -52,16 +56,16 @@ export function RegionHeader({ layout }: { layout: LayoutResult }) {
     out.sort((a, b) => b.w - a.w)
     const kept: typeof out = []
     for (const e of out) {
-      const textW = e.name.length * 6.4 + 16
+      const textW = textWidthEm(e.name) * 10 + 16
       const cx = e.x + e.w / 2
       const collides = kept.some((k2) => {
-        const kw = k2.name.length * 6.4 + 16
+        const kw = textWidthEm(k2.name) * 10 + 16
         return Math.abs(cx - (k2.x + k2.w / 2)) < (textW + kw) / 2
       })
       if (!collides) kept.push(e)
     }
     return kept
-  }, [layout, camera, viewport])
+  }, [layout, camera, viewport, lang])
 
   return (
     <div
