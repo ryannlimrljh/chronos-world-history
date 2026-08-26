@@ -140,22 +140,25 @@ export interface TimeScale {
 
 export interface LayoutConfig {
   scale: TimeScale
-  /** Total horizontal pixels available to the mosaic. */
+  /**
+   * Target horizontal pixels for the mosaic at the busiest moment in
+   * history. Actual bounds can differ slightly; the renderer fits to them.
+   */
   width: number
   /** Height in years of each horizontal analysis slice. */
   sliceYears: number
-  /** Minimum width in pixels an occupied lane may be squeezed to. */
-  laneMinWidth: number
-  /** Horizontal gap in pixels between adjacent lanes. */
-  laneGap: number
+  /** Horizontal gap in pixels between adjacent rects. 0 = shared hairlines. */
+  gap: number
   /** Inset in pixels applied on each side when nesting a child in a parent. */
   nestInset: number
+  /** Narrowest a rect may render, so significance-1 slivers stay visible. */
+  minRectWidth: number
   /**
-   * How many slices the lane-boundary smoother averages over. Larger means
-   * longer steady stretches and blockier steps. This is the tuning knob for
-   * the stepped silhouette.
+   * 0..1. How strongly a rect is pulled toward its lane's demand-weighted
+   * home position versus packed hard left against its neighbours. Higher
+   * keeps geography honest; lower packs tighter.
    */
-  smoothingWindow: number
+  anchorStrength: number
 }
 
 export interface PositionedRect {
