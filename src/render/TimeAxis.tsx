@@ -92,7 +92,7 @@ export function TimeAxis({ scale }: { scale: TimeScale }) {
               scale.yearToY(era.end),
             )
           }
-          title={eraName(era, lang)}
+          data-tip={`${eraName(era, lang)} →`}
           style={{
             position: 'absolute',
             left: 0,

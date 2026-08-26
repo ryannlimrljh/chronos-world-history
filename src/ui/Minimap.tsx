@@ -78,7 +78,7 @@ export function Minimap({ layout }: { layout: LayoutResult }) {
         if (e.buttons === 1) jump(e)
       }}
       aria-label="Overview map"
-      title={ui('minimapTip', 'Overview map · click or drag to jump', lang)}
+      data-tip={ui('minimapTip', 'Overview map · click or drag to jump', lang)}
       className="chronos-shift"
       style={{
         position: 'absolute',

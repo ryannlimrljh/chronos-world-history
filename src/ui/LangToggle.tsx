@@ -11,7 +11,7 @@ export function LangToggle() {
     <button
       onClick={() => setLang(value)}
       aria-pressed={lang === value}
-      title={
+      data-tip={
         value === 'en'
           ? lang === 'en'
             ? 'English (current)'

@@ -78,7 +78,7 @@ export function TipsOverlay() {
       <button
         onClick={() => (open ? dismiss() : setOpen(true))}
         aria-label="Navigation tips"
-        title={`${ui('helpTip', 'Help: how to explore', lang)} · ?`}
+        data-tip={`${ui('helpTip', 'Help: how to explore', lang)} · ?`}
         className="cbtn chronos-shift"
         style={{
           position: 'absolute',

@@ -92,7 +92,7 @@ export function FilterBar() {
           <button
             key={r.id}
             className="cbtn"
-            title={`${ui('filterFocus', 'Highlight only', lang)}: ${regionName(r.id, lang, r.name)}`}
+            data-tip={`${ui('filterFocus', 'Highlight only', lang)}: ${regionName(r.id, lang, r.name)}`}
             style={chipStyle(filters.regions.has(r.id))}
             onClick={() =>
               setFilters({ regions: toggleSet<RegionId>(filters.regions, r.id) })
@@ -108,7 +108,7 @@ export function FilterBar() {
           <button
             key={c}
             className="cbtn"
-            title={categoryDescription(c, lang)}
+            data-tip={categoryDescription(c, lang)}
             style={chipStyle(filters.categories.has(c))}
             onClick={() => setFilters({ categories: toggleSet(filters.categories, c) })}
           >
@@ -122,7 +122,7 @@ export function FilterBar() {
           <button
             key={e.id}
             className="cbtn"
-            title={`${eraName(e, lang)} · ${formatYear(e.start)} – ${formatYear(e.end)}`}
+            data-tip={`${eraName(e, lang)} · ${formatYear(e.start)} – ${formatYear(e.end)}`}
             style={chipStyle(filters.eras.has(e.id))}
             onClick={() => setFilters({ eras: toggleSet(filters.eras, e.id) })}
           >
@@ -136,7 +136,7 @@ export function FilterBar() {
           <button
             key={n}
             className="cbtn"
-            title={
+            data-tip={
               n === 1
                 ? ui('sigAll', 'Show everything', lang)
                 : `${ui('sigOnly', 'Highlight only polities of significance', lang)} ${n}+`

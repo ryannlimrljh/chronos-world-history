@@ -49,7 +49,7 @@ export function Toolbar() {
   ) => (
     <button
       onClick={onClick}
-      title={title}
+      data-tip={title}
       aria-label={title}
       className="cbtn"
       style={{
