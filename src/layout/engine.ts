@@ -183,62 +183,44 @@ export function layout(
   const rowScale = (demand: number): number =>
     Math.min((maxDemand / Math.max(demand, 1)) ** 0.25, 2.2)
 
-  // --- Two-level tiling: lanes hold steady, members re-tile inside ----
-  // Zero holes come from tiling; calm comes from WHERE re-tiling happens.
-  // A birth in one lane squeezes only that lane's members. The lane's own
-  // width follows demand through a hysteresis: it holds constant until
-  // demand drifts far enough, then steps — which is what gives the
-  // reference its long straight lane boundaries and Tang China its
-  // dead-straight edges while medieval Europe churns beside it.
-  const laneCount = REGION_ORDER.length
-  // Natural per-lane demand per slice.
-  const laneDemand: number[][] = Array.from({ length: nSlices }, () =>
-    new Array<number>(laneCount).fill(0),
-  )
+  // --- Track tiling: columns stay put, successors stack ---------------
+  // Alignment comes from tracks (a lane's sub-columns). A track's width
+  // is HELD constant for as long as it stays occupied — successors stack
+  // vertically at the same x, which is what makes the reference's Rome
+  // column read as one straight bar through Kingdom, Republic and Empire.
+  // The width steps only when a track empties or its occupant's natural
+  // size departs drastically from the held value. Rows still tile with
+  // zero gaps: every held width is packed edge to edge.
   const globalDemand: number[] = new Array(nSlices).fill(0)
   for (let i = 0; i < nSlices; i++) {
-    for (const s of alivePerSlice[i]!) {
-      laneDemand[i]![s.laneOrder]! += s.weight
-      globalDemand[i]! += s.weight
-    }
+    for (const s of alivePerSlice[i]!) globalDemand[i]! += s.weight
   }
-  // Held lane widths with hysteresis.
-  const laneW: number[][] = Array.from({ length: nSlices }, () =>
-    new Array<number>(laneCount).fill(0),
-  )
-  for (let lane = 0; lane < laneCount; lane++) {
-    let held = 0
-    for (let i = 0; i < nSlices; i++) {
-      const demand = laneDemand[i]![lane]!
-      if (demand === 0) {
-        held = 0
-        continue
-      }
-      const natural = demand * unit * rowScale(globalDemand[i]!)
-      if (held === 0 || Math.abs(natural - held) > Math.max(14, held * 0.28)) {
-        held = natural
-      }
-      laneW[i]![lane] = held
-    }
-  }
-  // Tile each slice: lanes in fixed order, members within their lane.
+  const heldW = new Map<string, number>()
   for (let i = 0; i < nSlices; i++) {
     const year = sliceStartYear(i)
     const reserve = config.titleReserve
     let cum = reserve && year < reserve.untilYear ? reserve.width : 0
-    const alive = alivePerSlice[i]!
-    for (let lane = 0; lane < laneCount; lane++) {
-      const width = laneW[i]![lane]!
-      if (width === 0) continue
-      const members = alive.filter((s) => s.laneOrder === lane)
-      const demand = members.reduce((sum, s) => sum + s.weight, 0)
-      let mcum = cum
-      for (const s of members) {
-        const w = (s.weight / demand) * width
-        s.extents.set(i, [mcum, mcum + w])
-        mcum += w
+    const boost = rowScale(globalDemand[i]!)
+    const seen = new Set<string>()
+    for (const s of alivePerSlice[i]!) {
+      const key = `${s.laneOrder}:${s.subCol}`
+      seen.add(key)
+      const natural = Math.max(s.weight * unit * boost, config.minRectWidth)
+      const prev = heldW.get(key)
+      let w: number
+      if (prev === undefined || Math.abs(natural - prev) > Math.max(12, prev * 0.45)) {
+        w = natural
+        heldW.set(key, natural)
+      } else {
+        w = prev
       }
-      cum += width + config.gap
+      s.extents.set(i, [cum, cum + w])
+      cum += w + config.gap
+    }
+    // A track that fell empty forgets its width; the next occupant
+    // starts a fresh column.
+    for (const key of [...heldW.keys()]) {
+      if (!seen.has(key)) heldW.delete(key)
     }
   }
 

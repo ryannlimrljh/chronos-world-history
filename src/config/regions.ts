@@ -14,20 +14,20 @@ import { deriveTints } from './color'
  * deliberate and matches the reference; the eye never compares them directly.
  */
 const FAMILIES: Record<RegionId, { name: string; color: string }> = {
-  'europe-west': { name: 'Western Europe', color: '#6E8FC7' },
-  'europe-central': { name: 'Central & Northern Europe', color: '#8FAF6E' },
-  mediterranean: { name: 'Mediterranean', color: '#E4886A' },
-  'north-africa': { name: 'North Africa', color: '#DDA45E' },
-  'sub-saharan-africa': { name: 'Sub-Saharan Africa', color: '#C07C42' },
-  'near-east': { name: 'Near East & Anatolia', color: '#6FB39B' },
-  'iran-mesopotamia': { name: 'Iran & Mesopotamia', color: '#93B571' },
-  'central-asia-steppe': { name: 'Central Asian Steppe', color: '#7C93A8' },
-  'south-asia': { name: 'South Asia', color: '#4E9E9E' },
-  'southeast-asia': { name: 'Southeast Asia', color: '#8FC4A8' },
-  'east-asia': { name: 'East Asia', color: '#C0453C' },
-  'korea-japan': { name: 'Korea & Japan', color: '#E0954F' },
-  americas: { name: 'The Americas', color: '#7A7FBF' },
-  oceania: { name: 'Oceania', color: '#9FB9AD' },
+  'europe-west': { name: 'Western Europe', color: '#4E7FD9' },
+  'europe-central': { name: 'Central & Northern Europe', color: '#77B34C' },
+  mediterranean: { name: 'Mediterranean', color: '#F2724C' },
+  'north-africa': { name: 'North Africa', color: '#F2A32E' },
+  'sub-saharan-africa': { name: 'Sub-Saharan Africa', color: '#D07A28' },
+  'near-east': { name: 'Near East & Anatolia', color: '#2FAE8A' },
+  'iran-mesopotamia': { name: 'Iran & Mesopotamia', color: '#94BE42' },
+  'central-asia-steppe': { name: 'Central Asian Steppe', color: '#5E96C4' },
+  'south-asia': { name: 'South Asia', color: '#22A6A6' },
+  'southeast-asia': { name: 'Southeast Asia', color: '#4EC48D' },
+  'east-asia': { name: 'East Asia', color: '#D63F38' },
+  'korea-japan': { name: 'Korea & Japan', color: '#F28638' },
+  americas: { name: 'The Americas', color: '#6A6FD6' },
+  oceania: { name: 'Oceania', color: '#66BAA2' },
 }
 
 /**

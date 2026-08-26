@@ -58,7 +58,7 @@ export const strokeFor = (fill: string): string => darken(fill, 0.25)
  * alternate through these so they stay distinguishable but obviously related.
  */
 export function deriveTints(base: string): readonly string[] {
-  return [lighten(base, 0.38), lighten(base, 0.18), base, darken(base, 0.18)]
+  return [lighten(base, 0.3), lighten(base, 0.14), base, darken(base, 0.16)]
 }
 
 /** Relative luminance, per WCAG. */
