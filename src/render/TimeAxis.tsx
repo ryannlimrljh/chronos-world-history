@@ -111,7 +111,13 @@ export function TimeAxis({ scale }: { scale: TimeScale }) {
                 position: 'absolute',
                 top: '50%',
                 left: '50%',
-                transform: 'translate(-50%,-50%) rotate(180deg)',
+                // Latin reads bottom-to-top on a left axis (book-spine
+                // style); CJK vertical text is already upright, so the
+                // 180-degree flip would turn it upside down.
+                transform:
+                  lang === 'zh'
+                    ? 'translate(-50%,-50%)'
+                    : 'translate(-50%,-50%) rotate(180deg)',
                 writingMode: 'vertical-rl',
                 fontSize: 9,
                 letterSpacing: '0.14em',
