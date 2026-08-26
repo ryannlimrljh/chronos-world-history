@@ -32,16 +32,16 @@ if (import.meta.env.DEV) {
 }
 
 // width + titleReserve tuned so the finished sheet lands on A-series
-// portrait proportions (world ≈ 1141x1762, aspect 0.65 ≈ 1:1.5).
+// portrait proportions (~1:1.4 against the 1762px-tall scale).
 const CONFIG: LayoutConfig = {
   scale: DEFAULT_SCALE,
-  width: 800,
+  width: 1250,
   sliceYears: 25,
   gap: 0,
   nestInset: 3,
   minRectWidth: 6,
   anchorStrength: 0.85,
-  titleReserve: { untilYear: -950, width: 340 },
+  titleReserve: { untilYear: -950, width: 420 },
 }
 
 export function App() {

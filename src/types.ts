@@ -166,12 +166,27 @@ export interface LayoutConfig {
   titleReserve?: { untilYear: Year; width: number }
 }
 
+/** One horizontal band of a stepped shape. */
+export interface Run {
+  y0: number
+  y1: number
+  x0: number
+  x1: number
+}
+
+/**
+ * A laid-out polity. Not necessarily a rectangle: `runs` is the stepped
+ * outline (Histomap-style), top to bottom; x/y/width/height is its
+ * bounding box, kept for camera framing, pulses and comparisons.
+ */
 export interface PositionedRect {
   polityId: string
   x: number
   y: number
   width: number
   height: number
+  /** Stepped outline, top to bottom. A plain rectangle has one run. */
+  runs: Run[]
   region: RegionId
   significance: Significance
   /** Nesting depth. 0 is a top-level rect, 1 is a child inside a parent. */

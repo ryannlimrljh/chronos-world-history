@@ -1,12 +1,13 @@
-import type { LayoutResult, PositionedRect, RegionId } from '../types'
+import type { LayoutResult, PositionedRect, Run } from '../types'
 import { getRegion } from '../config/regions'
-import { strokeFor, lighten } from '../config/color'
+import { strokeFor } from '../config/color'
 import type { Camera } from '../store/view'
 
 /**
  * Pure canvas painting. No React in here: given a context, a layout and a
- * camera, draw the mosaic. Called from a rAF loop, so it must be cheap —
- * fills and strokes are precomputed per rect the first time and cached.
+ * camera, draw the mosaic. Shapes are stepped outlines (Histomap-style);
+ * each is filled and stroked as ONE path so hairlines trace only the true
+ * border, never internal step seams.
  */
 
 export interface PaintStyle {
@@ -15,20 +16,10 @@ export interface PaintStyle {
 }
 
 const styleCache = new Map<string, PaintStyle>()
-const underlayCache = new Map<RegionId, string>()
-
-function underlayFor(region: RegionId): string {
-  let c = underlayCache.get(region)
-  if (!c) {
-    c = lighten(getRegion(region).colorFamily, 0.76)
-    underlayCache.set(region, c)
-  }
-  return c
-}
 
 export function styleFor(rect: PositionedRect): PaintStyle {
-  // Alternate tints down each sub-column chain so adjacent same-lane blocks
-  // stay distinguishable but related. Deterministic: derived from position.
+  // Alternate tints so adjacent same-lane blocks stay distinguishable but
+  // related. Deterministic: derived from position.
   const region = getRegion(rect.region)
   const tintIndex =
     (Math.abs(Math.round(rect.x * 7 + rect.y * 13)) + rect.depth) %
@@ -41,6 +32,30 @@ export function styleFor(rect: PositionedRect): PaintStyle {
     styleCache.set(key, style)
   }
   return style
+}
+
+function tracePath(
+  ctx: CanvasRenderingContext2D,
+  runs: Run[],
+  k: number,
+  tx: number,
+  ty: number,
+): void {
+  const sx = (v: number) => Math.round(v * k + tx) + 0.5
+  const sy = (v: number) => Math.round(v * k + ty) + 0.5
+  ctx.beginPath()
+  // Down the left edge with jogs, then up the right edge.
+  ctx.moveTo(sx(runs[0]!.x0), sy(runs[0]!.y0))
+  for (const r of runs) {
+    ctx.lineTo(sx(r.x0), sy(r.y0))
+    ctx.lineTo(sx(r.x0), sy(r.y1))
+  }
+  for (let i = runs.length - 1; i >= 0; i--) {
+    const r = runs[i]!
+    ctx.lineTo(sx(r.x1), sy(r.y1))
+    ctx.lineTo(sx(r.x1), sy(r.y0))
+  }
+  ctx.closePath()
 }
 
 export interface PaintState {
@@ -64,21 +79,8 @@ export function paintMosaic(
   ctx.clearRect(0, 0, viewportW, viewportH)
   ctx.lineWidth = 1
 
-  // Lane underlays: a pale wash of each lane's family across its active
-  // span, so the unavoidable notches between rigid rects read as lane
-  // ground rather than holes in the poster.
-  for (const band of layout.bands) {
-    const x = band.x * k + tx
-    const y = band.yStart * k + ty
-    const w = band.width * k
-    const h = (band.yEnd - band.yStart) * k
-    if (x + w < 0 || y + h < 0 || x > viewportW || y > viewportH) continue
-    ctx.fillStyle = underlayFor(band.region)
-    ctx.fillRect(x, y, w, h + 0.5)
-  }
-
-  // Dimmed rects first, then live ones, then highlight rings, so dimming
-  // never washes out a live rect drawn beside it.
+  // Dimmed shapes first, then live ones, so dimming never washes out a
+  // live shape drawn beside it.
   for (const pass of [true, false] as const) {
     ctx.globalAlpha = pass ? 0.15 : 1
     for (const rect of layout.rects) {
@@ -87,18 +89,13 @@ export function paintMosaic(
       const y = rect.y * k + ty
       const w = rect.width * k
       const h = rect.height * k
-      // Cull everything off-screen.
       if (x + w < 0 || y + h < 0 || x > viewportW || y > viewportH) continue
       const { fill, stroke } = styleFor(rect)
+      tracePath(ctx, rect.runs, k, tx, ty)
       ctx.fillStyle = fill
-      // Crisp hairlines: snap to half-pixel grid.
-      const sx = Math.round(x) + 0.5
-      const sy = Math.round(y) + 0.5
-      const sw = Math.max(Math.round(w) - 1, 1)
-      const sh = Math.max(Math.round(h) - 1, 1)
-      ctx.fillRect(sx, sy, sw, sh)
+      ctx.fill()
       ctx.strokeStyle = stroke
-      ctx.strokeRect(sx, sy, sw, sh)
+      ctx.stroke()
     }
   }
   ctx.globalAlpha = 1
@@ -116,7 +113,8 @@ export function paintMosaic(
       const w = rect.width * k
       const h = rect.height * k
       if (x + w < 0 || y + h < 0 || x > viewportW || y > viewportH) continue
-      ctx.strokeRect(Math.round(x) - 1.5, Math.round(y) - 1.5, w + 3, h + 3)
+      tracePath(ctx, rect.runs, k, tx, ty)
+      ctx.stroke()
     }
     ctx.lineWidth = 1
   }

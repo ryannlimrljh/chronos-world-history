@@ -50,10 +50,32 @@ export function LabelLayer({
     const out: LabelSpec[] = []
     const { k, tx, ty } = camera
     for (const rect of layout.rects) {
-      const x = rect.x * k + tx
-      const y = rect.y * k + ty
-      const w = rect.width * k
-      const h = rect.height * k
+      // Label box: the tallest stack of consecutive runs that still share
+      // most of their width. Small steps then no longer shrink the label
+      // to a single band.
+      let best = rect.runs[0]!
+      let bestArea = 0
+      for (let i = 0; i < rect.runs.length; i++) {
+        let x0 = rect.runs[i]!.x0
+        let x1 = rect.runs[i]!.x1
+        for (let j = i; j < rect.runs.length; j++) {
+          const r = rect.runs[j]!
+          const nx0 = Math.max(x0, r.x0)
+          const nx1 = Math.min(x1, r.x1)
+          if (nx1 - nx0 < (rect.runs[i]!.x1 - rect.runs[i]!.x0) * 0.55) break
+          x0 = nx0
+          x1 = nx1
+          const area = (x1 - x0) * (r.y1 - rect.runs[i]!.y0)
+          if (area > bestArea) {
+            bestArea = area
+            best = { x0, x1, y0: rect.runs[i]!.y0, y1: r.y1 }
+          }
+        }
+      }
+      const x = best.x0 * k + tx
+      const y = best.y0 * k + ty
+      const w = (best.x1 - best.x0) * k
+      const h = (best.y1 - best.y0) * k
       if (x + w < 0 || y + h < 0 || x > viewport.width || y > viewport.height)
         continue
       // Entry threshold scales with significance: giants label first.

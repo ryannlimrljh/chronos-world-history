@@ -5,89 +5,82 @@ import type {
   Polity,
   PositionedRect,
   RegionId,
+  Run,
 } from '../types'
 import { REGION_ORDER } from '../config/regions'
 
 /**
- * The layout engine. Pure TypeScript: no React, no DOM, no randomness,
- * no clocks. Same input, same output, every time.
+ * The layout engine, Histomap edition. Pure TypeScript: no React, no DOM,
+ * no randomness, no clocks. Same input, same output, every time.
  *
- * The algorithm, in one breath: every polity becomes a rectangle whose
- * height is its lifespan on the time scale and whose width is its share of
- * the world's total significance *during its own lifetime*. Rectangles are
- * then pushed as far left as they can go, subject to two ordering rules —
- * a contemporary in a more western lane must sit fully to your west, and a
- * same-lane contemporary in an earlier sub-column must too — and one
- * gravitational pull: each rect is anchored near its lane's demand-weighted
- * home position, so geography stays readable even in sparse eras.
+ * The reference poster has no holes because its blocks are not rectangles:
+ * they are stepped shapes, and at every horizontal slice of the sheet the
+ * blocks alive at that moment tile the row completely. Its fine print
+ * confesses the other half of the trick: dates are rounded to a grid so
+ * that handoffs happen exactly at slice boundaries.
  *
- * Lane widths are never chosen; they emerge from where the rects land.
- * That is what produces the soft lanes, the ragged skyline and the
- * near-solid mosaic without ever letting a rectangle bend.
+ * This engine does the same. Time is cut into slices; each slice's row
+ * width is the summed weight of everyone alive in it; the row is tiled
+ * west to east with each polity's constant-width slot. A polity's edges
+ * therefore move only when a neighbour is born or dies, which produces
+ * the reference's long steady edges and crisp steps. Geometry snaps each
+ * polity's years to the slice grid (exact dates stay in the data and the
+ * UI); tiling makes gaps impossible by construction.
  */
 
-interface WorkRect {
+interface WorkShape {
   polity: Polity
   laneOrder: number
-  /**
-   * Interval used for collision and demand. For parents this is stretched
-   * to cover every descendant, so nothing packs into a child's footprint.
-   */
+  /** Interval covering the polity plus every nested descendant. */
   effStart: number
   effEnd: number
+  /** Effective (subtree) years snapped to the grid; the slot lives this long. */
+  snapStart: number
+  snapEnd: number
+  /** The polity's OWN snapped years; its painted shape is clipped to these. */
+  ownSnapStart: number
+  ownSnapEnd: number
   subCol: number
-  width: number
-  anchor: number
-  x: number
-  /** Mean global demand across this rect's lifetime; low = sparse era. */
-  meanTotal: number
+  weight: number
+  /** Per-slice horizontal extent, filled by the tiling pass. */
+  extents: Map<number, [number, number]>
 }
 
 const laneOrderOf = (region: RegionId): number => REGION_ORDER.indexOf(region)
 
-/** Strict interval overlap. Touching endpoints do not collide, which lets a
- *  successor state continue vertically in the same column as its parent. */
-const overlaps = (a: WorkRect, b: WorkRect): boolean =>
-  a.effStart < b.effEnd && b.effStart < a.effEnd
-
-/** Deterministic ordering used everywhere a tie needs breaking. */
-const byStartThenId = (a: WorkRect, b: WorkRect): number =>
+const byStartThenId = (a: WorkShape, b: WorkShape): number =>
   a.effStart - b.effStart ||
   a.effEnd - b.effEnd ||
   (a.polity.id < b.polity.id ? -1 : 1)
+
+/** Width grows superlinearly with significance so era-defining empires
+ *  dominate their rows the way the reference's do. */
+const weightOf = (sig: number): number => sig ** 1.5
 
 export function layout(
   polities: readonly Polity[],
   config: LayoutConfig,
 ): LayoutResult {
-  const { scale } = config
+  const { scale, sliceYears } = config
   const byId = new Map(polities.map((p) => [p.id, p]))
 
-  // --- Separate nested children from continuation children -----------
-  // Two kinds of parent/child relation, layouted differently:
-  //   Nested: the child lived during the parent (Diadochi inside a
-  //     Hellenistic band). Renders as an inset band inside the parent.
-  //   Continuation: the child begins at or after the parent's end
-  //     (Byzantium after Rome). It is packed as an ordinary rect — the
-  //     succession-anchor rule makes it continue the parent's column —
-  //     because forcing it inside the parent's footprint would let the
-  //     child's later neighbours push the parent around.
+  // --- Nested children vs continuation children -----------------------
+  // A child alive during its parent nests inside the parent's shape. A
+  // child beginning at or after the parent's end is a continuation and
+  // packs as an ordinary top-level shape.
   const childrenOf = new Map<string, Polity[]>()
   for (const p of polities) {
     if (!p.parent) continue
     const parent = byId.get(p.parent)
     if (!parent) throw new Error(`${p.id}: unknown parent`)
-    if (p.start >= parent.end) continue // continuation: packed top-level
+    if (p.start >= parent.end) continue
     const list = childrenOf.get(p.parent) ?? []
     list.push(p)
     childrenOf.set(p.parent, list)
   }
-  const nestedIds = new Set(
-    [...childrenOf.values()].flat().map((p) => p.id),
-  )
+  const nestedIds = new Set([...childrenOf.values()].flat().map((p) => p.id))
   const topLevel = polities.filter((p) => !nestedIds.has(p.id))
 
-  /** A parent's effective interval covers its whole subtree. */
   function effectiveInterval(p: Polity): [number, number] {
     let start = p.start
     let end = p.end
@@ -99,331 +92,280 @@ export function layout(
     return [start, end]
   }
 
-  const work: WorkRect[] = topLevel.map((polity) => {
+  // The reference's fine print rounds dates to a 50-year grid in the
+  // ancient stretch. Coarser snapping clusters births and deaths onto
+  // shared boundaries, which is what turns edge jitter into the crisp
+  // collective steps of the original.
+  const snap = (year: number): number => {
+    const grid = year < 1000 ? Math.max(sliceYears * 2, 50) : sliceYears
+    return Math.round(year / grid) * grid
+  }
+
+  const work: WorkShape[] = topLevel.map((polity) => {
     const [effStart, effEnd] = effectiveInterval(polity)
+    let snapStart = snap(effStart)
+    let snapEnd = snap(effEnd)
+    if (snapEnd <= snapStart) snapEnd = snapStart + sliceYears
+    let ownSnapStart = snap(polity.start)
+    let ownSnapEnd = snap(polity.end)
+    if (ownSnapEnd <= ownSnapStart) ownSnapEnd = ownSnapStart + sliceYears
     return {
       polity,
       laneOrder: laneOrderOf(polity.region),
       effStart,
       effEnd,
+      snapStart,
+      snapEnd,
+      ownSnapStart,
+      ownSnapEnd,
       subCol: 0,
-      width: 0,
-      anchor: 0,
-      x: 0,
-      meanTotal: 0,
+      weight: weightOf(polity.significance),
+      extents: new Map(),
     }
   })
 
-  // --- Demand per slice ----------------------------------------------
-  // A slice is a horizontal band of years. Demand in a slice is the summed
-  // significance of everything alive in it, per lane. This is the engine's
-  // picture of "how much is happening, where, when".
-  const minYear = scale.minYear
-  const maxYear = scale.maxYear
-  const nSlices = Math.max(
-    1,
-    Math.ceil((maxYear - minYear) / config.sliceYears),
-  )
-  const laneCount = REGION_ORDER.length
-  // demand[slice][lane]
-  const demand: number[][] = Array.from({ length: nSlices }, () =>
-    new Array<number>(laneCount).fill(0),
-  )
-  const sliceOf = (year: number): number =>
-    Math.min(
-      nSlices - 1,
-      Math.max(0, Math.floor((year - minYear) / config.sliceYears)),
-    )
-
-  for (const r of work) {
-    const s0 = sliceOf(r.effStart)
-    const s1 = sliceOf(r.effEnd - 1e-9)
-    for (let s = s0; s <= s1; s++) {
-      demand[s]![r.laneOrder]! += r.polity.significance
-    }
-  }
-  const totalDemand = demand.map((row) => row.reduce((a, b) => a + b, 0))
-  // Demand west of each lane, per slice, for anchor computation.
-  const westDemand: number[][] = demand.map((row) => {
-    const cum = new Array<number>(laneCount).fill(0)
-    let acc = 0
-    for (let l = 0; l < laneCount; l++) {
-      cum[l] = acc
-      acc += row[l]!
-    }
-    return cum
-  })
-
-  // --- Width and anchor per rect --------------------------------------
-  // Width = my significance as a fraction of the world's mean total
-  // significance across my lifetime, of the target canvas width. Rome with
-  // few rivals is broad; a small kingdom in a crowded century is a sliver.
-  //
-  // The divisor is floored so that near-empty millennia produce narrow
-  // isolated towers rather than full-canvas slabs: in a sparse era a rect's
-  // width is driven by its own significance, not by the emptiness around it.
-  const DEMAND_FLOOR = 40
-
-  // Each lane's all-of-history home position, used to keep geography honest
-  // when a rect's own lifetime is too sparse to say where west ends.
-  const grandTotal = totalDemand.reduce((a, b) => a + b, 0) || 1
-  const staticWestFraction: number[] = []
-  for (let l = 0; l < laneCount; l++) {
-    let west = 0
-    for (let s = 0; s < nSlices; s++) west += westDemand[s]![l]!
-    staticWestFraction.push(west / grandTotal)
-  }
-
-  for (const r of work) {
-    const s0 = sliceOf(r.effStart)
-    const s1 = sliceOf(r.effEnd - 1e-9)
-    let sumTotal = 0
-    let sumWest = 0
-    const n = s1 - s0 + 1
-    for (let s = s0; s <= s1; s++) {
-      sumTotal += Math.max(totalDemand[s]!, 1)
-      sumWest += westDemand[s]![r.laneOrder]!
-    }
-    const meanTotal = Math.max(sumTotal / n, DEMAND_FLOOR)
-    r.meanTotal = sumTotal / n
-    const lifeWestFraction = sumWest / n / meanTotal
-    const westFraction =
-      0.5 * lifeWestFraction + 0.5 * staticWestFraction[r.laneOrder]!
-    r.width = Math.max(
-      config.minRectWidth,
-      (r.polity.significance ** 0.85 / meanTotal) * config.width,
-    )
-    r.anchor = westFraction * config.width * config.anchorStrength
-  }
-
-  // --- Sub-column assignment within each lane -------------------------
-  // Classic greedy interval colouring: sort by start, take the leftmost
-  // sub-column whose previous occupant has already ended.
-  const lanes = new Map<number, WorkRect[]>()
-  for (const r of work) {
-    const list = lanes.get(r.laneOrder) ?? []
-    list.push(r)
-    lanes.set(r.laneOrder, list)
+  // --- Sub-columns: a stable west-to-east order within each lane ------
+  const lanes = new Map<number, WorkShape[]>()
+  for (const s of work) {
+    const list = lanes.get(s.laneOrder) ?? []
+    list.push(s)
+    lanes.set(s.laneOrder, list)
   }
   for (const list of lanes.values()) {
     list.sort(byStartThenId)
     const colEnds: number[] = []
-    for (const r of list) {
+    for (const s of list) {
       let placed = false
       for (let c = 0; c < colEnds.length; c++) {
-        if (r.effStart >= colEnds[c]!) {
-          r.subCol = c
-          colEnds[c] = r.effEnd
+        if (s.snapStart >= colEnds[c]!) {
+          s.subCol = c
+          colEnds[c] = s.snapEnd
           placed = true
           break
         }
       }
       if (!placed) {
-        r.subCol = colEnds.length
-        colEnds.push(r.effEnd)
+        s.subCol = colEnds.length
+        colEnds.push(s.snapEnd)
       }
     }
   }
 
-  // --- Constraint pass: leftmost feasible x ---------------------------
-  // Process west to east. Each rect starts at its anchor and is pushed
-  // right just far enough to clear every contemporary that must sit to
-  // its west. Sorting by (lane, subCol, start) guarantees all such
-  // predecessors are already placed.
-  const ordered = [...work].sort(
-    (a, b) =>
-      a.laneOrder - b.laneOrder || a.subCol - b.subCol || byStartThenId(a, b),
+  // --- Slices and demand ----------------------------------------------
+  const minYear = scale.minYear
+  const maxYear = scale.maxYear
+  const nSlices = Math.max(1, Math.ceil((maxYear - minYear) / sliceYears))
+  const sliceStartYear = (i: number): number => minYear + i * sliceYears
+  const aliveAt = (s: WorkShape, i: number): boolean =>
+    s.snapStart < sliceStartYear(i) + sliceYears &&
+    s.snapEnd > sliceStartYear(i)
+
+  const alivePerSlice: WorkShape[][] = []
+  let maxDemand = 0
+  for (let i = 0; i < nSlices; i++) {
+    const alive = work
+      .filter((s) => aliveAt(s, i))
+      .sort(
+        (a, b) =>
+          a.laneOrder - b.laneOrder ||
+          a.subCol - b.subCol ||
+          byStartThenId(a, b),
+      )
+    alivePerSlice.push(alive)
+    maxDemand = Math.max(
+      maxDemand,
+      alive.reduce((sum, s) => sum + s.weight, 0),
+    )
+  }
+  const unit = config.width / Math.max(maxDemand, 1)
+  // Sparse rows get a width boost so the ancient towers hold their own
+  // against the crowded medieval mass, as they do in the reference.
+  const rowScale = (demand: number): number =>
+    Math.min((maxDemand / Math.max(demand, 1)) ** 0.25, 2.2)
+
+  // --- Two-level tiling: lanes hold steady, members re-tile inside ----
+  // Zero holes come from tiling; calm comes from WHERE re-tiling happens.
+  // A birth in one lane squeezes only that lane's members. The lane's own
+  // width follows demand through a hysteresis: it holds constant until
+  // demand drifts far enough, then steps — which is what gives the
+  // reference its long straight lane boundaries and Tang China its
+  // dead-straight edges while medieval Europe churns beside it.
+  const laneCount = REGION_ORDER.length
+  // Natural per-lane demand per slice.
+  const laneDemand: number[][] = Array.from({ length: nSlices }, () =>
+    new Array<number>(laneCount).fill(0),
   )
-  const placed: WorkRect[] = []
-  // Last placed occupant of each (lane, subCol), for succession chains.
-  const lastInCol = new Map<string, WorkRect>()
-  for (const r of ordered) {
-    // A rect that begins exactly where its column's previous occupant ended
-    // is a succession (Republic -> Empire, Sumer -> Akkad). Inherit the
-    // predecessor's x as the anchor so the chain reads as one vertical run
-    // instead of drifting with each era's demand profile.
-    const colKey = `${r.laneOrder}:${r.subCol}`
-    const prev = lastInCol.get(colKey)
-    // In a crowded era the west-of-east constraints already enforce
-    // geography, so the anchor's pull is damped and rects pack tight; in
-    // an empty era the anchor is all that holds geography, so it holds.
-    const density = Math.min(r.meanTotal / DEMAND_FLOOR, 2)
-    const anchorEff = r.anchor * Math.max(0.2, 1 - density * 0.45)
-    let x =
-      prev && prev.effEnd === r.effStart
-        ? Math.min(anchorEff, prev.x)
-        : anchorEff
-    // The title block owns the poster's top-left corner.
-    const reserve = config.titleReserve
-    if (reserve && r.effStart < reserve.untilYear) {
-      x = Math.max(x, reserve.width)
-    }
-    for (const p of placed) {
-      const mustBeWest =
-        p.laneOrder < r.laneOrder ||
-        (p.laneOrder === r.laneOrder && p.subCol < r.subCol)
-      if (mustBeWest && overlaps(p, r)) {
-        x = Math.max(x, p.x + p.width + config.gap)
-      }
-    }
-    r.x = x
-    placed.push(r)
-    lastInCol.set(colKey, r)
-  }
-
-  // --- Widening pass: fill horizontal holes ---------------------------
-  // The mosaic must read near-solid. Nothing moves; instead each rect
-  // grows rightward until it meets the nearest contemporary to its east,
-  // capped so a sliver can never balloon into a slab. Two passes, west to
-  // east, because a widened rect closes its neighbour's measurement.
-  // --- Seal passes: make the body read as solid masonry ---------------
-  // The reference's blocks touch. Alternate two passes: a left-pull that
-  // snaps each rect onto its nearest western contemporary when the gap is
-  // small, and a widening that grows each rect east to its neighbour.
-  // Small gaps are seams and get sealed completely; large ones are the
-  // composed whitespace around sparse-era towers and survive.
-  const SEAL = 55
-  const baseWidth = new Map(work.map((r) => [r, r.width]))
-  const leftPull = () => {
-    const byX = [...work].sort((a, b) => a.x - b.x || byStartThenId(a, b))
-    for (const r of byX) {
-      let westEdge = -Infinity
-      for (const p of work) {
-        if (p === r || !overlaps(p, r)) continue
-        const mustBeWest =
-          p.laneOrder < r.laneOrder ||
-          (p.laneOrder === r.laneOrder && p.subCol < r.subCol)
-        if (mustBeWest) westEdge = Math.max(westEdge, p.x + p.width)
-      }
-      if (westEdge === -Infinity) continue
-      const reserveFloor =
-        config.titleReserve && r.effStart < config.titleReserve.untilYear
-          ? config.titleReserve.width
-          : 0
-      const target = Math.max(westEdge + config.gap, reserveFloor)
-      const gapWest = r.x - target
-      if (gapWest > 0 && gapWest <= SEAL) r.x = target
+  const globalDemand: number[] = new Array(nSlices).fill(0)
+  for (let i = 0; i < nSlices; i++) {
+    for (const s of alivePerSlice[i]!) {
+      laneDemand[i]![s.laneOrder]! += s.weight
+      globalDemand[i]! += s.weight
     }
   }
-  const widen = () => {
-    const byX = [...work].sort((a, b) => a.x - b.x || byStartThenId(a, b))
-    for (const r of byX) {
-      let nearestEast = Infinity
-      for (const e of work) {
-        if (e === r || !overlaps(e, r)) continue
-        if (e.x >= r.x + r.width - 0.001) {
-          nearestEast = Math.min(nearestEast, e.x)
-        }
-      }
-      if (nearestEast === Infinity) continue
-      const gap = nearestEast - (r.x + r.width) - config.gap
-      if (gap <= 0) continue
-      const base = baseWidth.get(r)!
-      const density = Math.min(r.meanTotal / DEMAND_FLOOR, 2)
-      // A small eastward gap is a seam: seal it completely. A large one
-      // is composed whitespace: grow only up to the era-aware cap.
-      if (gap <= SEAL) {
-        r.width = r.width + gap
+  // Held lane widths with hysteresis.
+  const laneW: number[][] = Array.from({ length: nSlices }, () =>
+    new Array<number>(laneCount).fill(0),
+  )
+  for (let lane = 0; lane < laneCount; lane++) {
+    let held = 0
+    for (let i = 0; i < nSlices; i++) {
+      const demand = laneDemand[i]![lane]!
+      if (demand === 0) {
+        held = 0
         continue
       }
-      const maxTotal = base * (1.3 + density * 1.4)
-      r.width = Math.min(r.width + gap, Math.max(maxTotal, r.width))
+      const natural = demand * unit * rowScale(globalDemand[i]!)
+      if (held === 0 || Math.abs(natural - held) > Math.max(14, held * 0.28)) {
+        held = natural
+      }
+      laneW[i]![lane] = held
     }
   }
-  for (let round = 0; round < 2; round++) {
-    leftPull()
-    widen()
+  // Tile each slice: lanes in fixed order, members within their lane.
+  for (let i = 0; i < nSlices; i++) {
+    const year = sliceStartYear(i)
+    const reserve = config.titleReserve
+    let cum = reserve && year < reserve.untilYear ? reserve.width : 0
+    const alive = alivePerSlice[i]!
+    for (let lane = 0; lane < laneCount; lane++) {
+      const width = laneW[i]![lane]!
+      if (width === 0) continue
+      const members = alive.filter((s) => s.laneOrder === lane)
+      const demand = members.reduce((sum, s) => sum + s.weight, 0)
+      let mcum = cum
+      for (const s of members) {
+        const w = (s.weight / demand) * width
+        s.extents.set(i, [mcum, mcum + w])
+        mcum += w
+      }
+      cum += width + config.gap
+    }
   }
 
-  // --- Emit rects, recursing into children ----------------------------
+  // --- Emit shapes, merging identical consecutive slices into runs ----
   const rects: PositionedRect[] = []
+
+  function runsFromExtents(
+    extents: Map<number, [number, number]>,
+    clipStartYear: number,
+    clipEndYear: number,
+  ): Run[] {
+    const indices = [...extents.keys()].sort((a, b) => a - b)
+    const runs: Run[] = []
+    for (const i of indices) {
+      const [x0, x1] = extents.get(i)!
+      const y0 = scale.yearToY(Math.max(sliceStartYear(i), clipStartYear))
+      const y1 = scale.yearToY(
+        Math.min(sliceStartYear(i) + sliceYears, clipEndYear),
+      )
+      if (y1 <= y0) continue
+      const prev = runs[runs.length - 1]
+      if (prev && Math.abs(prev.x0 - x0) < 0.01 && Math.abs(prev.x1 - x1) < 0.01) {
+        prev.y1 = y1
+      } else {
+        runs.push({ y0, y1, x0, x1 })
+      }
+    }
+    return runs
+  }
 
   function emit(
     polity: Polity,
-    x: number,
-    width: number,
+    extents: Map<number, [number, number]>,
+    snapStart: number,
+    snapEnd: number,
     depth: number,
+    /** How long the slot itself lives (covers continuation children). */
+    slotEnd: number = snapEnd,
   ): void {
-    const y0 = scale.yearToY(polity.start)
-    const y1 = scale.yearToY(polity.end)
+    void slotEnd
+    const runs = runsFromExtents(extents, snapStart, snapEnd)
+    if (runs.length === 0) return
+    const x = Math.min(...runs.map((r) => r.x0))
+    const right = Math.max(...runs.map((r) => r.x1))
+    const y = runs[0]!.y0
+    const bottom = runs[runs.length - 1]!.y1
     rects.push({
       polityId: polity.id,
       x,
-      y: y0,
-      width,
-      height: Math.max(y1 - y0, 1),
+      y,
+      width: right - x,
+      height: Math.max(bottom - y, 1),
+      runs,
       region: polity.region,
       significance: polity.significance,
       depth,
     })
+
+    // Nested children split the parent's inner width per slice.
     const kids = childrenOf.get(polity.id)
     if (!kids || kids.length === 0) return
-
-    // Children pack into sub-columns inside the parent's inner width,
-    // splitting it proportionally to significance per sub-column.
-    const innerX = x + config.nestInset
-    const innerW = Math.max(width - config.nestInset * 2, config.minRectWidth)
     const sorted = [...kids].sort(
       (a, b) => a.start - b.start || (a.id < b.id ? -1 : 1),
     )
-    const colEnds: number[] = []
-    const colOf = new Map<string, number>()
-    const colSig: number[] = []
-    for (const k of sorted) {
-      let placed2 = false
-      for (let c = 0; c < colEnds.length; c++) {
-        if (k.start >= colEnds[c]!) {
-          colOf.set(k.id, c)
-          colEnds[c] = k.end
-          colSig[c] = Math.max(colSig[c]!, k.significance)
-          placed2 = true
-          break
-        }
-      }
-      if (!placed2) {
-        colOf.set(k.id, colEnds.length)
-        colEnds.push(k.end)
-        colSig.push(k.significance)
+    const kidShapes = sorted.map((k) => {
+      let ks = snap(k.start)
+      let ke = snap(k.end)
+      if (ke <= ks) ke = ks + sliceYears
+      return { k, ks, ke, extents: new Map<number, [number, number]>() }
+    })
+    for (const i of extents.keys()) {
+      const [px0, px1] = extents.get(i)!
+      const year = sliceStartYear(i)
+      // While the parent lives, children are inset bands inside it; after
+      // it ends they inherit the full slot, exactly as Byzantium fills
+      // Rome's footprint in the reference.
+      const inset = year < snapEnd ? config.nestInset : 0
+      const inner0 = px0 + inset
+      const inner1 = px1 - inset
+      const aliveKids = kidShapes.filter(
+        (ks2) => ks2.ks < year + sliceYears && ks2.ke > year,
+      )
+      if (aliveKids.length === 0) continue
+      const total = aliveKids.reduce(
+        (sum, ks2) => sum + weightOf(ks2.k.significance),
+        0,
+      )
+      let cum = inner0
+      for (const ks2 of aliveKids) {
+        const w = ((inner1 - inner0) * weightOf(ks2.k.significance)) / total
+        ks2.extents.set(i, [cum, cum + w])
+        cum += w
       }
     }
-    const sigSum = colSig.reduce((a, b) => a + b, 0)
-    const colX: number[] = []
-    let acc = innerX
-    for (const sig of colSig) {
-      colX.push(acc)
-      acc += (sig / sigSum) * innerW
-    }
-    for (const k of sorted) {
-      const c = colOf.get(k.id)!
-      emit(k, colX[c]!, (colSig[c]! / sigSum) * innerW, depth + 1)
+    for (const ks2 of kidShapes) {
+      emit(ks2.k, ks2.extents, ks2.ks, ks2.ke, depth + 1)
     }
   }
 
-  for (const r of work) emit(r.polity, r.x, r.width, 0)
+  for (const s of work) {
+    emit(s.polity, s.extents, s.ownSnapStart, s.ownSnapEnd, 0, s.snapEnd)
+  }
 
-  // --- Lane bands: emergent, read off the placed rects ----------------
+  // --- Lane bands for the sticky region header ------------------------
   const bands: LaneBand[] = []
-  for (let s = 0; s < nSlices; s++) {
-    const yStart = scale.yearToY(minYear + s * config.sliceYears)
-    const yEnd = scale.yearToY(
-      Math.min(minYear + (s + 1) * config.sliceYears, maxYear),
-    )
-    for (const [laneOrder, list] of lanes) {
-      const sliceStart = minYear + s * config.sliceYears
-      const sliceEnd = sliceStart + config.sliceYears
-      const alive = list.filter(
-        (r) => r.effStart < sliceEnd && r.effEnd > sliceStart,
+  for (let i = 0; i < nSlices; i++) {
+    const perLane = new Map<number, [number, number]>()
+    for (const s of alivePerSlice[i]!) {
+      const [x0, x1] = s.extents.get(i)!
+      const cur = perLane.get(s.laneOrder)
+      perLane.set(
+        s.laneOrder,
+        cur ? [Math.min(cur[0], x0), Math.max(cur[1], x1)] : [x0, x1],
       )
-      if (alive.length === 0) continue
-      const x = Math.min(...alive.map((r) => r.x))
-      const right = Math.max(...alive.map((r) => r.x + r.width))
+    }
+    const yStart = scale.yearToY(sliceStartYear(i))
+    const yEnd = scale.yearToY(
+      Math.min(sliceStartYear(i) + sliceYears, maxYear),
+    )
+    for (const [laneOrder, [x0, x1]] of perLane) {
       bands.push({
         region: REGION_ORDER[laneOrder]!,
-        sliceIndex: s,
+        sliceIndex: i,
         yStart,
         yEnd,
-        x,
-        width: right - x,
+        x: x0,
+        width: x1 - x0,
       })
     }
   }

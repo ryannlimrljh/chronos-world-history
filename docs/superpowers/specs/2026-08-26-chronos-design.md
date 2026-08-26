@@ -29,6 +29,22 @@ Known cosmetic gap, deferred to Phase 3: with only 20 fixture polities, Byzantiu
 
 The brief's smoothing step is dropped entirely: stepped silhouettes emerge from rect edges. The brief's explicit compaction pass is dropped because leftmost-feasible placement subsumes it. `LayoutConfig` gained `anchorStrength`/`minRectWidth`/`gap` and lost `laneMinWidth`/`laneGap`/`smoothingWindow`.
 
+## Engine v2: Histomap tiling (supersedes the constraint-graph engine)
+
+The user's requirement of a hole-free mosaic exposed the constraint-graph engine's ceiling: rigid rectangles with exact dates mathematically guarantee leftover notches. Close study of the reference showed its two tricks: blocks are stepped shapes, not rectangles, and dates are rounded to a grid (its own fine print admits 50-year rounding before 1000 CE).
+
+Engine v2 does the same, and is simpler than v1:
+
+1. Time is sliced (25y). Polity years snap to the slice grid (50y before 1000 CE, matching the reference), so handoffs land exactly on slice boundaries. Exact dates remain in the data and every UI surface.
+2. Per slice, each lane's width = its members' summed significance^1.5 x a global unit, passed through a hysteresis: the width holds constant until natural demand drifts >28%, then steps. Long straight lane boundaries; crisp occasional steps.
+3. Lanes tile the row in fixed west-to-east order with no space between; members tile within their lane. Holes are impossible by construction (a vitest test samples every row and fails on any gap).
+4. Re-tiling is lane-local: a birth in Europe squeezes only Europeans; Tang China's edges stay dead straight. This was the decisive difference between calm and jitter.
+5. A polity's shape is its per-slice extents merged into runs -- a stepped rectilinear polygon, painted as one path so hairlines trace only true borders. Bounding boxes are kept for camera framing.
+6. Sparse rows get a width boost ((maxDemand/demand)^0.25, capped 2.2x) so ancient towers hold their own; the title reserve still pushes pre-950 BCE shapes east of the title block.
+7. Nested children split the parent's inner width while it lives and inherit the full slot after its end (Byzantium filling Rome's footprint). Continuation children remain ordinary top-level shapes.
+
+The v1 apparatus (anchors, left-pull, widening, seal passes, lane underlays) is deleted; tiling makes it all unnecessary.
+
 ## Everything else
 
 Unchanged from the brief: stack, phases 0 through 7, phase gate check-ins with a screenshot, the fidelity check's five questions before any visual phase is called done, determinism in the engine, and the instruction to say so if something in the brief turns out to be wrong once I am in the code.

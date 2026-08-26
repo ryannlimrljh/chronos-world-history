@@ -68,15 +68,18 @@ export function DebugSvg() {
           const fill = region.tints[2 - Math.min(r.depth, 2)]!
           return (
             <g key={r.polityId}>
-              <rect
-                x={r.x}
-                y={r.y}
-                width={r.width}
-                height={r.height}
-                fill={fill}
-                stroke={strokeFor(fill)}
-                strokeWidth={1}
-              />
+              {r.runs.map((run, i) => (
+                <rect
+                  key={i}
+                  x={run.x0}
+                  y={run.y0}
+                  width={run.x1 - run.x0}
+                  height={run.y1 - run.y0}
+                  fill={fill}
+                  stroke={strokeFor(fill)}
+                  strokeWidth={0.5}
+                />
+              ))}
               {r.width > 28 && r.height > 10 && (
                 <text
                   x={r.x + r.width / 2}
