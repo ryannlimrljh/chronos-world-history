@@ -12,7 +12,11 @@ import { centerOnYearRange } from '../interact/camera'
  * document is read against. Year 1 CE gets the emphatic filled pill.
  */
 
-export const AXIS_WIDTH = 92
+// Narrow screens get a slimmer ruler and fold the era-bracket rail away;
+// the era name still lives in the position readout.
+const NARROW = typeof window !== 'undefined' && window.innerWidth < 640
+export const AXIS_WIDTH = NARROW ? 58 : 92
+const SHOW_ERA_RAIL = !NARROW
 
 function formatYear(year: number): string {
   if (year < 0) return `${-year}`
@@ -79,7 +83,7 @@ export function TimeAxis({ scale }: { scale: TimeScale }) {
       }}
     >
       {/* Era brackets, rotated, far left */}
-      {eraBands.map(({ era, y0, y1 }) => (
+      {SHOW_ERA_RAIL && eraBands.map(({ era, y0, y1 }) => (
         <div
           key={era.id}
           onClick={() =>

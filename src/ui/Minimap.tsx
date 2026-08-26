@@ -11,7 +11,7 @@ import { useRightOffset } from './chrome'
  * The thumbnail is painted once per layout; only the rectangle moves.
  */
 
-const MINI_W = 132
+const MINI_W = typeof window !== 'undefined' && window.innerWidth < 640 ? 88 : 132
 
 export function Minimap({ layout }: { layout: LayoutResult }) {
   const baseRef = useRef<HTMLCanvasElement>(null)

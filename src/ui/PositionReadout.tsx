@@ -4,6 +4,7 @@ import { useViewStore } from '../store/view'
 import { DEFAULT_SCALE } from '../layout/scale'
 import { formatYear } from '../interact/format'
 import { eraName } from '../i18n'
+import { AXIS_WIDTH } from '../render/TimeAxis'
 
 /**
  * You-are-here chip: the year at the viewport's centre and its era.
@@ -23,7 +24,7 @@ export function PositionReadout() {
     <div
       style={{
         position: 'absolute',
-        left: 102,
+        left: AXIS_WIDTH + 10,
         bottom: 14,
         zIndex: 20,
         background: 'var(--paper)',

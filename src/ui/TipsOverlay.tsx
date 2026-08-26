@@ -9,17 +9,32 @@ import { useRightOffset } from './chrome'
  * Never blocks: click anywhere, Esc, or the ? key closes it.
  */
 
-const TIP_KEYS: [string, string, string][] = [
-  ['tipPan', 'Scroll / drag', 'Pan around the poster'],
-  ['tipZoom', '⌘ or Ctrl + scroll · pinch', 'Zoom at the cursor'],
-  ['tipDbl', 'Double-click a block', 'Zoom to that polity'],
-  ['tipClick', 'Click a block', 'Open its story, lineage and contemporaries'],
-  ['tipShift', '⇧ Shift + click', 'Pin up to 4 polities to compare lifespans'],
-  ['tipSearch', '⌘K / Ctrl+K', 'Search any polity or capital'],
-  ['tipCursor', 'T', 'Drop the time cursor: see everything alive in one year'],
-  ['tipKeys', '← → ↑ ↓ · + −', 'Pan and zoom with the keyboard'],
-  ['tipFit', '0', 'Fit the whole poster'],
-]
+const COARSE =
+  typeof window !== 'undefined' &&
+  window.matchMedia('(pointer: coarse)').matches
+
+/** Touch users get touch instructions, not keyboard shortcuts. */
+const TIP_KEYS: [string, string, string][] = COARSE
+  ? [
+      ['tipTouchPan', 'Drag', 'Move around the poster'],
+      ['tipTouchZoom', 'Pinch with two fingers', 'Zoom in and out'],
+      ['tipTouchTap', 'Tap a block', 'Open its story, lineage and contemporaries'],
+      ['tipTouchDbl', 'Double-tap a block', 'Zoom to that polity'],
+      ['tipTouchHold', 'Press and hold a block', 'Pin up to 4 polities to compare lifespans'],
+      ['tipTouchTools', 'Buttons on the right', 'Search, zoom, fit the poster, time cursor'],
+      ['tipTouchMap', 'Small map, bottom right', 'Shows where you are; tap it to jump'],
+    ]
+  : [
+      ['tipPan', 'Scroll / drag', 'Pan around the poster'],
+      ['tipZoom', '⌘ or Ctrl + scroll · pinch', 'Zoom at the cursor'],
+      ['tipDbl', 'Double-click a block', 'Zoom to that polity'],
+      ['tipClick', 'Click a block', 'Open its story, lineage and contemporaries'],
+      ['tipShift', '⇧ Shift + click', 'Pin up to 4 polities to compare lifespans'],
+      ['tipSearch', '⌘K / Ctrl+K', 'Search any polity or capital'],
+      ['tipCursor', 'T', 'Drop the time cursor: see everything alive in one year'],
+      ['tipKeys', '← → ↑ ↓ · + −', 'Pan and zoom with the keyboard'],
+      ['tipFit', '0', 'Fit the whole poster'],
+    ]
 
 const SEEN_KEY = 'chronos-tips-seen'
 

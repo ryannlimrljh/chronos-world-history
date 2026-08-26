@@ -155,6 +155,13 @@ export const UI_ZH: Record<string, string> = {
   subtitle: '五千年互动年表',
   toolSearch: '搜索', toolZoomIn: '放大', toolZoomOut: '缩小',
   toolFit: '适配全图', toolCursor: '时间光标',
+  tipTouchPan: '拖动', tipTouchPanWhat: '在海报上移动',
+  tipTouchZoom: '双指捏合', tipTouchZoomWhat: '放大与缩小',
+  tipTouchTap: '点按色块', tipTouchTapWhat: '查看简介、承继与同时代政权',
+  tipTouchDbl: '双击色块', tipTouchDblWhat: '缩放至该政权',
+  tipTouchHold: '长按色块', tipTouchHoldWhat: '固定最多 4 个政权对比国祚',
+  tipTouchTools: '右侧按钮', tipTouchToolsWhat: '搜索、缩放、适配全图、时间光标',
+  tipTouchMap: '右下角小地图', tipTouchMapWhat: '显示当前位置，点按即可跳转',
   footnote:
     '矩形高度为存续时间，宽度反映相对同时代的重要程度。时间轴为非线性：上古纪元被压缩，近现代被展开。年代在多种学术体系并存时取其一；约略年代以 c. 标注。 · © 2026 Chronos',
 }

@@ -3,6 +3,7 @@ import { useAppStore } from '../store/app'
 import { getRegion } from '../config/regions'
 import { durationYears, formatRange } from '../interact/format'
 import { polityName, ui } from '../i18n'
+import { AXIS_WIDTH } from '../render/TimeAxis'
 
 /**
  * Bottom compare strip: up to four shift-clicked polities with duration
@@ -29,10 +30,10 @@ export function CompareBar({
       className="chronos-pop"
       style={{
         position: 'absolute',
-        left: 102,
+        left: AXIS_WIDTH + 10,
         bottom: 48,
         zIndex: 20,
-        width: 'min(440px, calc(100vw - 130px))',
+        width: `min(440px, calc(100vw - ${AXIS_WIDTH + 38}px))`,
         background: 'var(--paper)',
         border: '1px solid rgba(26,22,20,0.45)',
         padding: '8px 12px 10px',

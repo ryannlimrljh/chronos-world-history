@@ -44,3 +44,24 @@ body {
 .cbtn:hover { background-color: rgba(26, 22, 20, 0.08) !important; }
 .cbtn:active { background-color: rgba(26, 22, 20, 0.16) !important; }
 .cbtn-dark:hover { background-color: rgba(26, 22, 20, 0.85) !important; }
+
+/* ---- Accessibility: keyboard focus is always visible ---- */
+.mosaic-surface { outline: none; }
+.mosaic-surface:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+}
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+/* ---- Touch: 44px minimum targets on coarse pointers ---- */
+@media (pointer: coarse) {
+  .cbtn, .cbtn-dark {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    font-size: 17px !important;
+  }
+}
