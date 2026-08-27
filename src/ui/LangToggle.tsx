@@ -1,8 +1,12 @@
 import { useAppStore } from '../store/app'
 import { useRightOffset } from './chrome'
 
-/** EN | 中文 switch, top-right, styled like the other floating chrome. */
-export function LangToggle() {
+/**
+ * EN | 中文 switch, top-right. `compact` tucks it into the mobile
+ * header instead of the desktop right rail, where it would otherwise
+ * land on the region switcher.
+ */
+export function LangToggle({ compact = false }: { compact?: boolean }) {
   const lang = useAppStore((s) => s.lang)
   const setLang = useAppStore((s) => s.setLang)
   const right = useRightOffset()
@@ -39,11 +43,11 @@ export function LangToggle() {
 
   return (
     <div
-      className="chronos-shift"
+      className={compact ? undefined : 'chronos-shift'}
       style={{
         position: 'absolute',
-        top: 40,
-        right,
+        top: compact ? 10 : 40,
+        right: compact ? 10 : right,
         zIndex: 25,
         display: 'flex',
         border: '1px solid rgba(26,22,20,0.45)',

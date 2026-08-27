@@ -16,6 +16,8 @@
 import { readFileSync } from 'node:fs'
 import type { Polity, RegionId } from '../src/types'
 import { REGION_ORDER, isRegionId } from '../src/config/regions'
+import { POLITY_ZH } from '../src/i18n/zh'
+import { BLURB_ZH } from '../src/i18n/blurbs'
 
 const MAX_LANE_GAP = 300
 const CURRENT = 2026
@@ -63,6 +65,20 @@ for (const region of REGION_ORDER) {
     }
     coveredTo = Math.max(coveredTo, p.end)
   }
+}
+
+// --- Bilingual coverage ---------------------------------------------
+// Chinese is the default language, so a missing translation is a visible
+// bug, not a nicety.
+for (const p of polities) {
+  if (!POLITY_ZH[p.id]) errors.push(`${p.id}: no Chinese name`)
+  if (!BLURB_ZH[p.id]) errors.push(`${p.id}: no Chinese blurb`)
+}
+for (const key of Object.keys(POLITY_ZH)) {
+  if (!ids.has(key)) errors.push(`POLITY_ZH has unknown id '${key}'`)
+}
+for (const key of Object.keys(BLURB_ZH)) {
+  if (!ids.has(key)) errors.push(`BLURB_ZH has unknown id '${key}'`)
 }
 
 // --- Global century coverage ----------------------------------------

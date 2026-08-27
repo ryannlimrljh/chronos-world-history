@@ -52,21 +52,6 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Olmecs"
   },
   {
-   "id": "chavin",
-   "name": "Chavín Culture",
-   "start": -900,
-   "end": -200,
-   "startPrecision": "century",
-   "endPrecision": "century",
-   "region": "americas",
-   "subregion": "Andes",
-   "category": "confederation",
-   "significance": 2,
-   "blurb": "A religious and artistic tradition radiating from the temple complex of Chavín de Huántar across the central Andes.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Chav%C3%ADn_culture"
-  },
-  {
    "id": "maya",
    "name": "Maya Civilisation",
    "start": -1000,
@@ -86,6 +71,36 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Maya_civilization"
   },
   {
+   "id": "chavin",
+   "name": "Chavín Culture",
+   "start": -900,
+   "end": -200,
+   "startPrecision": "century",
+   "endPrecision": "century",
+   "region": "americas",
+   "subregion": "Andes",
+   "category": "confederation",
+   "significance": 2,
+   "blurb": "A religious and artistic tradition radiating from the temple complex of Chavín de Huántar across the central Andes.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Chav%C3%ADn_culture"
+  },
+  {
+   "id": "zapotec",
+   "name": "Zapotec Civilisation",
+   "start": -700,
+   "end": 1521,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "americas",
+   "category": "city-state",
+   "significance": 2,
+   "capital": "Monte Albán",
+   "blurb": "Builders of Monte Albán in Oaxaca, with one of the earliest writing systems in the Americas.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Zapotec_Civilisation"
+  },
+  {
    "id": "teotihuacan",
    "name": "Teotihuacan",
    "start": -100,
@@ -99,6 +114,20 @@
    "blurb": "For centuries the largest city in the Americas, its Pyramid of the Sun anchoring an influence that reached deep into Maya country.",
    "confidence": "medium",
    "wikipedia": "https://en.wikipedia.org/wiki/Teotihuacan"
+  },
+  {
+   "id": "moche-nazca",
+   "name": "Moche & Nazca",
+   "start": 100,
+   "end": 800,
+   "startPrecision": "century",
+   "endPrecision": "century",
+   "region": "americas",
+   "category": "city-state",
+   "significance": 2,
+   "blurb": "Coastal Peruvian cultures known for irrigation, portrait pottery and the desert lines.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Moche_and_Nazca"
   },
   {
    "id": "tiwanaku",
@@ -116,6 +145,20 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Tiwanaku"
   },
   {
+   "id": "wari",
+   "name": "Wari Empire",
+   "start": 600,
+   "end": 1000,
+   "startPrecision": "century",
+   "endPrecision": "century",
+   "region": "americas",
+   "category": "empire",
+   "significance": 2,
+   "blurb": "An Andean highland empire of roads and colonies that prefigured Inca administration.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Wari_Empire"
+  },
+  {
    "id": "mississippian",
    "name": "Mississippian Culture",
    "start": 800,
@@ -130,6 +173,36 @@
    "blurb": "Mound-building chiefdoms across the American Southeast and Midwest. Cahokia, near modern St Louis, was larger than contemporary London.",
    "confidence": "medium",
    "wikipedia": "https://en.wikipedia.org/wiki/Mississippian_culture"
+  },
+  {
+   "id": "toltec",
+   "name": "Toltec",
+   "start": 900,
+   "end": 1168,
+   "startPrecision": "century",
+   "endPrecision": "circa",
+   "region": "americas",
+   "category": "city-state",
+   "significance": 1,
+   "capital": "Tula",
+   "blurb": "A central Mexican power the Aztecs claimed as their prestigious ancestors.",
+   "confidence": "low",
+   "wikipedia": "https://en.wikipedia.org/wiki/Toltec"
+  },
+  {
+   "id": "chimu",
+   "name": "Chimú Kingdom",
+   "start": 900,
+   "end": 1470,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "americas",
+   "category": "kingdom",
+   "significance": 1,
+   "capital": "Chan Chan",
+   "blurb": "The Inca's largest rival, whose adobe capital was the biggest mud-brick city in the Americas.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Chimú_Kingdom"
   },
   {
    "id": "aztec",
@@ -169,6 +242,36 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Inca_Empire"
   },
   {
+   "id": "haudenosaunee",
+   "name": "Haudenosaunee Confederacy",
+   "start": 1450,
+   "end": 1784,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "americas",
+   "category": "confederation",
+   "significance": 2,
+   "blurb": "The Iroquois League of five, later six, nations, whose council governed the eastern woodlands for centuries.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Haudenosaunee_Confederacy"
+  },
+  {
+   "id": "brazil",
+   "name": "Brazil",
+   "nameNative": "Brasil",
+   "start": 1500,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "americas",
+   "category": "modern-state",
+   "significance": 3,
+   "capital": "Brasília",
+   "blurb": "Portuguese colony, then the only monarchy in the Americas, then the continent's largest republic.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Brazil"
+  },
+  {
    "id": "new-spain",
    "name": "New Spain",
    "nameNative": "Nueva España",
@@ -203,97 +306,1320 @@
    "wikipedia": "https://en.wikipedia.org/wiki/United_States"
   },
   {
-   "id": "lapita",
-   "name": "Lapita Culture",
-   "start": -1300,
-   "end": -750,
-   "startPrecision": "century",
-   "endPrecision": "century",
-   "region": "oceania",
-   "category": "confederation",
-   "significance": 2,
-   "blurb": "Seafaring pottery-makers who carried people, pigs and languages from Near Oceania out into the remote Pacific.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Lapita_culture"
-  },
-  {
-   "id": "polynesian-expansion",
-   "name": "Polynesian Expansion",
-   "start": -750,
-   "end": 1250,
-   "startPrecision": "century",
-   "endPrecision": "century",
-   "region": "oceania",
-   "category": "confederation",
-   "significance": 2,
-   "predecessors": [
-    "lapita"
-   ],
-   "blurb": "The longest voyages of the pre-modern world, settling islands from Samoa to Hawaiʻi, Rapa Nui and finally Aotearoa by double-hulled canoe.",
-   "confidence": "low",
-   "wikipedia": "https://en.wikipedia.org/wiki/Polynesians"
-  },
-  {
-   "id": "tui-tonga",
-   "name": "Tuʻi Tonga Empire",
-   "start": 950,
-   "end": 1865,
-   "startPrecision": "century",
-   "endPrecision": "exact",
-   "region": "oceania",
-   "category": "empire",
-   "significance": 2,
-   "capital": "Muʻa",
-   "blurb": "A Tongan maritime chiefdom whose influence and tribute networks reached across a wide arc of the central Pacific.",
-   "confidence": "low",
-   "wikipedia": "https://en.wikipedia.org/wiki/Tu%CA%BBi_Tonga_Empire"
-  },
-  {
-   "id": "maori-iwi",
-   "name": "Māori Iwi",
-   "start": 1320,
-   "end": 1840,
-   "startPrecision": "century",
-   "endPrecision": "exact",
-   "region": "oceania",
-   "category": "confederation",
-   "significance": 2,
-   "predecessors": [
-    "polynesian-expansion"
-   ],
-   "blurb": "The tribal nations of Aotearoa New Zealand, from first settlement to the Treaty of Waitangi.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Iwi"
-  },
-  {
-   "id": "hawaii",
-   "name": "Kingdom of Hawaiʻi",
-   "start": 1795,
-   "end": 1893,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "oceania",
-   "category": "kingdom",
-   "significance": 1,
-   "capital": "Honolulu",
-   "blurb": "Kamehameha I unified the islands into a recognised monarchy that lasted until a planter-led coup backed by American interests.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Hawaiian_Kingdom"
-  },
-  {
-   "id": "australia",
-   "name": "Australia",
-   "start": 1901,
+   "id": "argentina-chile",
+   "name": "Argentina & Chile",
+   "start": 1818,
    "end": 2026,
    "startPrecision": "exact",
    "endPrecision": "exact",
-   "region": "oceania",
+   "region": "americas",
    "category": "modern-state",
    "significance": 2,
-   "capital": "Canberra",
-   "blurb": "The federated Commonwealth of six British colonies, on a continent inhabited by Aboriginal peoples for tens of millennia before 1788.",
+   "blurb": "Southern Cone republics that won independence together under San Martín.",
    "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Australia"
+   "wikipedia": "https://en.wikipedia.org/wiki/Argentina_and_Chile"
+  },
+  {
+   "id": "gran-colombia",
+   "name": "Gran Colombia & Andean Republics",
+   "start": 1819,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "americas",
+   "category": "modern-state",
+   "significance": 2,
+   "predecessors": [
+    "inca"
+   ],
+   "blurb": "Bolívar's union broke into Colombia, Venezuela, Ecuador, Peru and Bolivia within a decade.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Gran_Colombia_and_Andean_Republics"
+  },
+  {
+   "id": "mexico",
+   "name": "Mexico",
+   "nameNative": "México",
+   "start": 1821,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "americas",
+   "category": "modern-state",
+   "significance": 2,
+   "predecessors": [
+    "new-spain"
+   ],
+   "capital": "Mexico City",
+   "blurb": "Independent from Spain in 1821, reshaped by revolution a century later.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Mexico"
+  },
+  {
+   "id": "canada",
+   "name": "Canada",
+   "start": 1867,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "americas",
+   "category": "modern-state",
+   "significance": 2,
+   "capital": "Ottawa",
+   "blurb": "A confederation of British North American colonies, bilingual from the start.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Canada"
+  },
+  {
+   "id": "andronovo",
+   "name": "Andronovo Culture",
+   "start": -2000,
+   "end": -900,
+   "startPrecision": "century",
+   "endPrecision": "century",
+   "region": "central-asia-steppe",
+   "category": "confederation",
+   "significance": 2,
+   "blurb": "Bronze Age herders of the western steppe, likely speakers of Indo-Iranian languages ancestral to Persian and Sanskrit.",
+   "confidence": "low",
+   "wikipedia": "https://en.wikipedia.org/wiki/Andronovo_culture"
+  },
+  {
+   "id": "scythians",
+   "name": "Scythians",
+   "nameNative": "Σκύθαι",
+   "start": -900,
+   "end": -200,
+   "startPrecision": "century",
+   "endPrecision": "century",
+   "region": "central-asia-steppe",
+   "category": "confederation",
+   "significance": 3,
+   "predecessors": [
+    "andronovo"
+   ],
+   "blurb": "Nomad horse-archers of the Pontic and Central Asian steppe, famous for gold animal art and for defeating every army sent after them.",
+   "confidence": "low",
+   "wikipedia": "https://en.wikipedia.org/wiki/Scythians"
+  },
+  {
+   "id": "xiongnu",
+   "name": "Xiongnu Empire",
+   "nameNative": "匈奴",
+   "start": -209,
+   "end": 93,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "central-asia-steppe",
+   "category": "khanate",
+   "significance": 3,
+   "predecessors": [
+    "scythians"
+   ],
+   "blurb": "The first great steppe confederation, whose pressure on Han China shaped the Great Wall and the Silk Road alike.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Xiongnu"
+  },
+  {
+   "id": "kushan",
+   "name": "Kushan Empire",
+   "nameNative": "Κυϸανο",
+   "start": 30,
+   "end": 375,
+   "startPrecision": "circa",
+   "endPrecision": "circa",
+   "region": "central-asia-steppe",
+   "category": "empire",
+   "significance": 3,
+   "blurb": "A Central Asian empire spanning Bactria and northern India, a crossroads state that carried Buddhism toward China.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kushan_Empire"
+  },
+  {
+   "id": "gokturk",
+   "name": "Göktürk Khaganate",
+   "nameNative": "𐰜𐰇𐰚 𐱅𐰇𐰼𐰰",
+   "start": 552,
+   "end": 744,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "central-asia-steppe",
+   "category": "khanate",
+   "significance": 3,
+   "successors": [
+    "uyghur-khaganate"
+   ],
+   "blurb": "The first empire to rule the steppe under the Turkic name, leaving the oldest written Turkic monuments on the Orkhon.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/First_Turkic_Khaganate"
+  },
+  {
+   "id": "khazars",
+   "name": "Khazar Khaganate",
+   "start": 650,
+   "end": 969,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "central-asia-steppe",
+   "category": "khanate",
+   "significance": 2,
+   "capital": "Atil",
+   "blurb": "A steppe empire between Byzantium and the caliphate whose elite converted to Judaism.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Khazar_Khaganate"
+  },
+  {
+   "id": "uyghur-khaganate",
+   "name": "Uyghur Khaganate",
+   "start": 744,
+   "end": 840,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "central-asia-steppe",
+   "category": "khanate",
+   "significance": 2,
+   "predecessors": [
+    "gokturk"
+   ],
+   "capital": "Ordu-Baliq",
+   "blurb": "The Turkic empire that succeeded the Göktürks and propped up the Tang during the An Lushan rebellion.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Uyghur_Khaganate"
+  },
+  {
+   "id": "samanid",
+   "name": "Samanid Empire",
+   "nameNative": "سامانیان",
+   "start": 819,
+   "end": 999,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "central-asia-steppe",
+   "category": "empire",
+   "significance": 2,
+   "successors": [
+    "ghaznavid"
+   ],
+   "capital": "Bukhara",
+   "blurb": "The Persian revival in Central Asia, where Bukhara's libraries trained Avicenna and New Persian literature began.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Samanid_Empire"
+  },
+  {
+   "id": "cumans",
+   "name": "Cumans & Pechenegs",
+   "start": 860,
+   "end": 1241,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "central-asia-steppe",
+   "category": "confederation",
+   "significance": 2,
+   "blurb": "Turkic nomad confederations of the Pontic steppe, scattered by the Mongol advance.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Cumans_and_Pechenegs"
+  },
+  {
+   "id": "ghaznavid",
+   "name": "Ghaznavid Empire",
+   "nameNative": "غزنویان",
+   "start": 977,
+   "end": 1186,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "central-asia-steppe",
+   "category": "empire",
+   "significance": 2,
+   "predecessors": [
+    "samanid"
+   ],
+   "capital": "Ghazni",
+   "blurb": "Turkic slave-soldiers turned emperors, whose raids opened northern India to Muslim rule.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Ghaznavid_Empire"
+  },
+  {
+   "id": "khwarazmian",
+   "name": "Khwarazmian Empire",
+   "nameNative": "خوارزمشاهیان",
+   "start": 1077,
+   "end": 1231,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "central-asia-steppe",
+   "category": "empire",
+   "significance": 2,
+   "blurb": "A Persianate empire of Central Asia and Iran whose execution of Mongol envoys invited the most devastating invasion of the age.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Khwarazmian_Empire"
+  },
+  {
+   "id": "kara-khitan",
+   "name": "Qara Khitai",
+   "nameNative": "西遼",
+   "start": 1124,
+   "end": 1218,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "central-asia-steppe",
+   "category": "khanate",
+   "significance": 1,
+   "predecessors": [
+    "liao"
+   ],
+   "blurb": "Liao refugees who rebuilt an empire in Central Asia and reached Europe as the legend of Prester John.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Qara_Khitai"
+  },
+  {
+   "id": "mongol-empire",
+   "name": "Mongol Empire",
+   "nameNative": "ᠮᠣᠩᠭᠣᠯ ᠤᠯᠤᠰ",
+   "start": 1206,
+   "end": 1368,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "central-asia-steppe",
+   "category": "khanate",
+   "significance": 5,
+   "predecessors": [
+    "khwarazmian"
+   ],
+   "successors": [
+    "golden-horde",
+    "ilkhanate",
+    "yuan"
+   ],
+   "capital": "Karakorum",
+   "blurb": "Genghis Khan's empire became the largest contiguous one in history, linking China to Europe under a single peace and a single postal relay.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Mongol_Empire"
+  },
+  {
+   "id": "golden-horde",
+   "name": "Golden Horde",
+   "nameNative": "Алтан Орд",
+   "start": 1242,
+   "end": 1502,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "central-asia-steppe",
+   "category": "khanate",
+   "significance": 3,
+   "parent": "mongol-empire",
+   "predecessors": [
+    "mongol-empire"
+   ],
+   "capital": "Sarai",
+   "blurb": "The Mongol khanate of the western steppe, overlord of the Russian principalities for over two centuries.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Golden_Horde"
+  },
+  {
+   "id": "timurid",
+   "name": "Timurid Empire",
+   "nameNative": "تیموریان",
+   "start": 1370,
+   "end": 1507,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "central-asia-steppe",
+   "category": "empire",
+   "significance": 3,
+   "successors": [
+    "mughal"
+   ],
+   "capital": "Samarkand",
+   "blurb": "Timur's conquests rebuilt a Mongol-scale empire with Persian high culture; his descendants made Samarkand and Herat brilliant.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Timurid_Empire"
+  },
+  {
+   "id": "kazakh-khanate",
+   "name": "Kazakh Khanate",
+   "nameNative": "Қазақ хандығы",
+   "start": 1465,
+   "end": 1847,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "central-asia-steppe",
+   "category": "khanate",
+   "significance": 2,
+   "predecessors": [
+    "golden-horde"
+   ],
+   "successors": [
+    "kazakhstan"
+   ],
+   "blurb": "The steppe khanate whose three hordes defined Kazakh identity before absorption into the Russian Empire.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kazakh_Khanate"
+  },
+  {
+   "id": "uzbek-khanates",
+   "name": "Khanates of Bukhara & Khiva",
+   "start": 1500,
+   "end": 1920,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "central-asia-steppe",
+   "category": "khanate",
+   "significance": 2,
+   "blurb": "Uzbek successor states along the Silk Road oases, absorbed by Russia in the nineteenth century.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Khanates_of_Bukhara_and_Khiva"
+  },
+  {
+   "id": "dzungar",
+   "name": "Dzungar Khanate",
+   "start": 1634,
+   "end": 1758,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "central-asia-steppe",
+   "category": "khanate",
+   "significance": 2,
+   "capital": "Ghulja",
+   "blurb": "The last steppe empire, destroyed by the Qing in a campaign that emptied the Ili valley.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Dzungar_Khanate"
+  },
+  {
+   "id": "kazakhstan",
+   "name": "Kazakhstan",
+   "nameNative": "Қазақстан",
+   "start": 1991,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "central-asia-steppe",
+   "category": "modern-state",
+   "significance": 2,
+   "predecessors": [
+    "kazakh-khanate",
+    "ussr"
+   ],
+   "capital": "Astana",
+   "blurb": "The largest of the post-Soviet Central Asian republics, spanning the old steppe heartland.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kazakhstan"
+  },
+  {
+   "id": "xia-erlitou",
+   "name": "Xia / Erlitou",
+   "nameNative": "夏",
+   "start": -1900,
+   "end": -1600,
+   "startPrecision": "disputed",
+   "endPrecision": "circa",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 2,
+   "successors": [
+    "shang"
+   ],
+   "blurb": "The bronze-working Erlitou culture on the Yellow River, identified by many with the semi-legendary Xia dynasty.",
+   "confidence": "low",
+   "wikipedia": "https://en.wikipedia.org/wiki/Erlitou_culture"
+  },
+  {
+   "id": "shang",
+   "name": "Shang Dynasty",
+   "nameNative": "商朝",
+   "start": -1600,
+   "end": -1046,
+   "startPrecision": "circa",
+   "endPrecision": "circa",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 3,
+   "predecessors": [
+    "xia-erlitou"
+   ],
+   "successors": [
+    "western-zhou"
+   ],
+   "capital": "Yin",
+   "blurb": "China's first historical dynasty, whose oracle-bone inscriptions are the earliest Chinese writing.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Shang_dynasty"
+  },
+  {
+   "id": "western-zhou",
+   "name": "Western Zhou",
+   "nameNative": "西周",
+   "start": -1046,
+   "end": -771,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 3,
+   "predecessors": [
+    "shang"
+   ],
+   "successors": [
+    "eastern-zhou"
+   ],
+   "capital": "Haojing",
+   "blurb": "The dynasty of the Mandate of Heaven, parcelling the realm among kin in a pattern later ages idealised.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Western_Zhou"
+  },
+  {
+   "id": "eastern-zhou",
+   "name": "Eastern Zhou",
+   "nameNative": "東周",
+   "start": -770,
+   "end": -256,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 3,
+   "predecessors": [
+    "western-zhou"
+   ],
+   "successors": [
+    "qin"
+   ],
+   "capital": "Luoyang",
+   "blurb": "Five centuries of a nominal king and warring states, and simultaneously the age of Confucius, Laozi and the hundred schools.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Eastern_Zhou"
+  },
+  {
+   "id": "qin",
+   "name": "Qin Dynasty",
+   "nameNative": "秦朝",
+   "start": -221,
+   "end": -206,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 3,
+   "predecessors": [
+    "eastern-zhou"
+   ],
+   "successors": [
+    "han-dynasty"
+   ],
+   "capital": "Xianyang",
+   "blurb": "The brief, ferocious unification: one script, one currency, one emperor, and the terracotta army guarding his tomb.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Qin_dynasty"
+  },
+  {
+   "id": "han-dynasty",
+   "name": "Han Dynasty",
+   "nameNative": "漢朝",
+   "start": -202,
+   "end": 220,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 5,
+   "predecessors": [
+    "qin"
+   ],
+   "successors": [
+    "jin-dynasty"
+   ],
+   "capital": "Chang'an",
+   "blurb": "The dynasty that fixed the template of the Chinese imperial state, contemporary with Rome and connected to it by the Silk Road.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Han_dynasty"
+  },
+  {
+   "id": "three-kingdoms-china",
+   "name": "Three Kingdoms",
+   "nameNative": "三國",
+   "start": 220,
+   "end": 280,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "kingdom",
+   "significance": 3,
+   "predecessors": [
+    "han-dynasty"
+   ],
+   "successors": [
+    "jin-dynasty"
+   ],
+   "capital": "Luoyang",
+   "blurb": "Wei, Shu and Wu divided the Han inheritance, a brief era that became China's most retold story.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Three_Kingdoms"
+  },
+  {
+   "id": "jin-dynasty",
+   "name": "Jin Dynasty",
+   "nameNative": "晉朝",
+   "start": 266,
+   "end": 420,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 2,
+   "predecessors": [
+    "han-dynasty"
+   ],
+   "successors": [
+    "sui"
+   ],
+   "capital": "Luoyang",
+   "blurb": "A short reunification after the Three Kingdoms, then a court in exile south of the Yangtze as the north fragmented.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Jin_dynasty_(266%E2%80%93420)"
+  },
+  {
+   "id": "sixteen-kingdoms",
+   "name": "Sixteen Kingdoms",
+   "nameNative": "十六國",
+   "start": 304,
+   "end": 439,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "kingdom",
+   "significance": 2,
+   "predecessors": [
+    "jin-dynasty"
+   ],
+   "successors": [
+    "northern-southern"
+   ],
+   "blurb": "Northern China fragmented among short-lived states founded largely by steppe peoples.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Sixteen_Kingdoms"
+  },
+  {
+   "id": "northern-southern",
+   "name": "Northern & Southern Dynasties",
+   "nameNative": "南北朝",
+   "start": 420,
+   "end": 589,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 3,
+   "predecessors": [
+    "sixteen-kingdoms"
+   ],
+   "successors": [
+    "sui"
+   ],
+   "blurb": "China split along the Yangtze for a century and a half, the north under Xianbei rulers, the south under exiled Han courts.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Northern_and_Southern_Dynasties"
+  },
+  {
+   "id": "sui",
+   "name": "Sui Dynasty",
+   "nameNative": "隋朝",
+   "start": 581,
+   "end": 618,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 2,
+   "successors": [
+    "tang-dynasty"
+   ],
+   "capital": "Chang'an",
+   "blurb": "Reunified China after four centuries of division and dug the Grand Canal, exhausting itself in the process.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Sui_dynasty"
+  },
+  {
+   "id": "tang-dynasty",
+   "name": "Tang Dynasty",
+   "nameNative": "唐朝",
+   "start": 618,
+   "end": 907,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 5,
+   "predecessors": [
+    "sui"
+   ],
+   "successors": [
+    "song"
+   ],
+   "capital": "Chang'an",
+   "blurb": "A cosmopolitan high point of imperial China, its capital the largest city on earth and its poetry still memorised today.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Tang_dynasty"
+  },
+  {
+   "id": "tibetan-empire",
+   "name": "Tibetan Empire",
+   "nameNative": "བོད་ཆེན་པོ",
+   "start": 618,
+   "end": 842,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "empire",
+   "significance": 3,
+   "capital": "Lhasa",
+   "blurb": "From the Himalayan plateau Tibet contested Central Asia with Tang China and briefly took its capital.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Tibetan_Empire"
+  },
+  {
+   "id": "nanzhao-dali",
+   "name": "Nanzhao & Dali",
+   "nameNative": "南詔·大理",
+   "start": 738,
+   "end": 1253,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "kingdom",
+   "significance": 2,
+   "capital": "Dali",
+   "blurb": "Successive kingdoms in Yunnan that held off Tang armies and traded between China, Tibet and Burma.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Nanzhao_and_Dali"
+  },
+  {
+   "id": "five-dynasties",
+   "name": "Five Dynasties & Ten Kingdoms",
+   "nameNative": "五代十國",
+   "start": 907,
+   "end": 979,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 2,
+   "predecessors": [
+    "tang-dynasty"
+   ],
+   "successors": [
+    "song"
+   ],
+   "blurb": "Five northern dynasties and ten southern states filled the seventy years between Tang and Song.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Five_Dynasties_and_Ten_Kingdoms"
+  },
+  {
+   "id": "liao",
+   "name": "Liao Dynasty",
+   "nameNative": "遼朝",
+   "start": 916,
+   "end": 1125,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 3,
+   "successors": [
+    "jin-jurchen"
+   ],
+   "capital": "Shangjing",
+   "blurb": "The Khitan empire of the northern steppe and north China, whose name became the Russian word for China.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Liao_Dynasty"
+  },
+  {
+   "id": "song",
+   "name": "Song Dynasty",
+   "nameNative": "宋朝",
+   "start": 960,
+   "end": 1279,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 4,
+   "predecessors": [
+    "tang-dynasty"
+   ],
+   "successors": [
+    "yuan"
+   ],
+   "capital": "Kaifeng",
+   "blurb": "Paper money, printing, gunpowder weapons and an examination elite: the most economically advanced society of its era.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Song_dynasty"
+  },
+  {
+   "id": "western-xia",
+   "name": "Western Xia",
+   "nameNative": "西夏",
+   "start": 1038,
+   "end": 1227,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 2,
+   "capital": "Xingqing",
+   "blurb": "The Tangut kingdom of the Ordos and Gansu corridor, with its own script, annihilated by Genghis Khan.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Western_Xia"
+  },
+  {
+   "id": "jin-jurchen",
+   "name": "Jin Dynasty (Jurchen)",
+   "nameNative": "金朝",
+   "start": 1115,
+   "end": 1234,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 3,
+   "predecessors": [
+    "liao"
+   ],
+   "successors": [
+    "yuan"
+   ],
+   "capital": "Zhongdu",
+   "blurb": "The Jurchen state that drove the Song south of the Huai river, then fell to the Mongols.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Jin_Dynasty"
+  },
+  {
+   "id": "yuan",
+   "name": "Yuan Dynasty",
+   "nameNative": "元朝",
+   "start": 1271,
+   "end": 1368,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 4,
+   "parent": "mongol-empire",
+   "predecessors": [
+    "mongol-empire",
+    "song"
+   ],
+   "successors": [
+    "ming"
+   ],
+   "capital": "Khanbaliq",
+   "blurb": "Kublai Khan's Mongol dynasty ruling all of China from the city that became Beijing, the China Marco Polo described.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Yuan_dynasty"
+  },
+  {
+   "id": "ming",
+   "name": "Ming Dynasty",
+   "nameNative": "明朝",
+   "start": 1368,
+   "end": 1644,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 4,
+   "predecessors": [
+    "yuan"
+   ],
+   "successors": [
+    "qing"
+   ],
+   "capital": "Beijing",
+   "blurb": "The dynasty of the Forbidden City and Zheng He's treasure fleets, which then turned inward behind a rebuilt Great Wall.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Ming_dynasty"
+  },
+  {
+   "id": "qing",
+   "name": "Qing Dynasty",
+   "nameNative": "清朝",
+   "start": 1636,
+   "end": 1912,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "dynasty",
+   "significance": 5,
+   "predecessors": [
+    "ming"
+   ],
+   "successors": [
+    "china-modern"
+   ],
+   "capital": "Beijing",
+   "blurb": "The Manchu dynasty that doubled China's territory, then spent the nineteenth century besieged by rebellion and foreign powers.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Qing_dynasty"
+  },
+  {
+   "id": "china-modern",
+   "name": "China (Republic & PRC)",
+   "nameNative": "中国",
+   "start": 1912,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "east-asia",
+   "category": "modern-state",
+   "significance": 5,
+   "predecessors": [
+    "qing"
+   ],
+   "capital": "Beijing",
+   "blurb": "Republic, warlords, war and revolution, then the People's Republic from 1949, today the world's second largest economy.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/China"
+  },
+  {
+   "id": "germanic-tribes",
+   "name": "Germanic Tribes",
+   "start": -500,
+   "end": 400,
+   "startPrecision": "century",
+   "endPrecision": "century",
+   "region": "europe-central",
+   "category": "confederation",
+   "significance": 2,
+   "blurb": "The peoples beyond the Rhine and Danube whom Rome traded with, fought and finally could not hold back.",
+   "confidence": "low",
+   "wikipedia": "https://en.wikipedia.org/wiki/Germanic_peoples"
+  },
+  {
+   "id": "avars",
+   "name": "Avar Khaganate",
+   "start": 567,
+   "end": 822,
+   "startPrecision": "exact",
+   "endPrecision": "circa",
+   "region": "europe-central",
+   "category": "khanate",
+   "significance": 2,
+   "blurb": "Steppe horsemen who ruled the Carpathian basin for two and a half centuries until Charlemagne broke their power.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Pannonian_Avars"
+  },
+  {
+   "id": "bulgarian-empire",
+   "name": "Bulgarian Empire",
+   "nameNative": "Бългaрско царство",
+   "start": 681,
+   "end": 1396,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "empire",
+   "significance": 2,
+   "capital": "Tarnovo",
+   "blurb": "Byzantium's great Balkan rival, which gave the Slavs the Cyrillic alphabet before the Ottomans absorbed it.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Bulgarian_Empire"
+  },
+  {
+   "id": "norse-kingdoms",
+   "name": "Scandinavian Kingdoms",
+   "start": 793,
+   "end": 1397,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "kingdom",
+   "significance": 3,
+   "successors": [
+    "kalmar"
+   ],
+   "blurb": "Denmark, Norway and Sweden coalesced from the Viking age, raiding and settling from Dublin to Kyiv.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Scandinavian_Kingdoms"
+  },
+  {
+   "id": "east-francia",
+   "name": "East Francia",
+   "start": 843,
+   "end": 962,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "kingdom",
+   "significance": 2,
+   "predecessors": [
+    "franks"
+   ],
+   "successors": [
+    "holy-roman-empire"
+   ],
+   "capital": "Regensburg",
+   "blurb": "The eastern third of the Frankish partition, which grew into the German kingdom and then the Holy Roman Empire.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/East_Francia"
+  },
+  {
+   "id": "kievan-rus",
+   "name": "Kievan Rus'",
+   "nameNative": "Русь",
+   "start": 882,
+   "end": 1240,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "confederation",
+   "significance": 3,
+   "successors": [
+    "muscovy-russia"
+   ],
+   "capital": "Kyiv",
+   "blurb": "The river-trade federation of Norse princes and Slavic cities that took Christianity from Byzantium, destroyed by the Mongols.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kievan_Rus%27"
+  },
+  {
+   "id": "holy-roman-empire",
+   "name": "Holy Roman Empire",
+   "nameNative": "Sacrum Imperium Romanum",
+   "start": 962,
+   "end": 1806,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "empire",
+   "significance": 4,
+   "predecessors": [
+    "east-francia"
+   ],
+   "successors": [
+    "germany"
+   ],
+   "capital": "Vienna",
+   "blurb": "A loose federation of German and Italian lands under an elected emperor, more durable than centralised, dissolved by Napoleon.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Holy_Roman_Empire"
+  },
+  {
+   "id": "kingdom-hungary",
+   "name": "Kingdom of Hungary",
+   "nameNative": "Magyar Királyság",
+   "start": 1000,
+   "end": 1918,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "kingdom",
+   "significance": 3,
+   "capital": "Buda",
+   "blurb": "Founded by Stephen I on the Avars' old plain, a bulwark kingdom that endured Mongols, Ottomans and Habsburg rule.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Hungary"
+  },
+  {
+   "id": "bohemia",
+   "name": "Kingdom of Bohemia",
+   "nameNative": "Království české",
+   "start": 1198,
+   "end": 1918,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "kingdom",
+   "significance": 2,
+   "successors": [
+    "czechoslovakia"
+   ],
+   "capital": "Prague",
+   "blurb": "A Slavic kingdom inside the Holy Roman Empire, birthplace of the Hussite revolt and later a Habsburg crown land.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Bohemia"
+  },
+  {
+   "id": "serbian-empire",
+   "name": "Serbian Empire",
+   "nameNative": "Српско царство",
+   "start": 1217,
+   "end": 1459,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "empire",
+   "significance": 1,
+   "blurb": "A short-lived Balkan power at its height under Dušan, broken at Kosovo and after.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Serbian_Empire"
+  },
+  {
+   "id": "teutonic-order",
+   "name": "Teutonic Order State",
+   "nameNative": "Deutschordensstaat",
+   "start": 1226,
+   "end": 1525,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "kingdom",
+   "significance": 1,
+   "capital": "Marienburg",
+   "blurb": "A crusading order that conquered and ruled the Baltic coast until Poland-Lithuania broke it.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Teutonic_Order_State"
+  },
+  {
+   "id": "muscovy-russia",
+   "name": "Muscovy & Tsardom of Russia",
+   "start": 1283,
+   "end": 1721,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "kingdom",
+   "significance": 3,
+   "predecessors": [
+    "kievan-rus"
+   ],
+   "successors": [
+    "russian-empire"
+   ],
+   "capital": "Moscow",
+   "blurb": "A minor principality that outmanoeuvred rivals under Mongol overlordship, then expanded east across Siberia at astonishing speed.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Tsardom_of_Russia"
+  },
+  {
+   "id": "switzerland",
+   "name": "Switzerland",
+   "nameNative": "Schweiz",
+   "start": 1291,
+   "end": 2026,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "confederation",
+   "significance": 2,
+   "capital": "Bern",
+   "blurb": "A confederation of cantons that turned mountain terrain and neutrality into seven centuries of independence.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Switzerland"
+  },
+  {
+   "id": "poland-lithuania",
+   "name": "Poland-Lithuania",
+   "nameNative": "Rzeczpospolita",
+   "start": 1386,
+   "end": 1795,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "confederation",
+   "significance": 3,
+   "capital": "Warsaw",
+   "blurb": "A vast elective commonwealth of two nations, with an unusually powerful nobility, partitioned out of existence by its neighbours.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Polish%E2%80%93Lithuanian_Commonwealth"
+  },
+  {
+   "id": "kalmar",
+   "name": "Kalmar Union",
+   "start": 1397,
+   "end": 1523,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "confederation",
+   "significance": 2,
+   "predecessors": [
+    "norse-kingdoms"
+   ],
+   "successors": [
+    "sweden"
+   ],
+   "blurb": "Denmark, Norway and Sweden under one crown, dissolved when Gustav Vasa took Sweden out.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kalmar_Union"
+  },
+  {
+   "id": "sweden",
+   "name": "Sweden",
+   "nameNative": "Sverige",
+   "start": 1523,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "modern-state",
+   "significance": 2,
+   "predecessors": [
+    "kalmar"
+   ],
+   "capital": "Stockholm",
+   "blurb": "A Baltic great power in the seventeenth century, neutral and prosperous in the twentieth.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Sweden"
+  },
+  {
+   "id": "prussia",
+   "name": "Kingdom of Prussia",
+   "nameNative": "Königreich Preußen",
+   "start": 1701,
+   "end": 1871,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "kingdom",
+   "significance": 3,
+   "successors": [
+    "germany"
+   ],
+   "capital": "Berlin",
+   "blurb": "A militarised state on poor soil that out-organised its neighbours and unified Germany around itself.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Prussia"
+  },
+  {
+   "id": "russian-empire",
+   "name": "Russian Empire",
+   "nameNative": "Российская империя",
+   "start": 1721,
+   "end": 1917,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "empire",
+   "significance": 4,
+   "predecessors": [
+    "muscovy-russia"
+   ],
+   "successors": [
+    "ussr"
+   ],
+   "capital": "Saint Petersburg",
+   "blurb": "Peter the Great's westernised empire, spanning eleven time zones from Warsaw to the Pacific by the nineteenth century.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Russian_Empire"
+  },
+  {
+   "id": "austria-hungary",
+   "name": "Austria-Hungary",
+   "nameNative": "Österreich-Ungarn",
+   "start": 1867,
+   "end": 1918,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "empire",
+   "significance": 3,
+   "predecessors": [
+    "holy-roman-empire"
+   ],
+   "successors": [
+    "czechoslovakia",
+    "yugoslavia"
+   ],
+   "capital": "Vienna",
+   "blurb": "The Habsburg dual monarchy of a dozen nationalities, dissolved by defeat in 1918.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Austria-Hungary"
+  },
+  {
+   "id": "germany",
+   "name": "Germany",
+   "nameNative": "Deutschland",
+   "start": 1871,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "modern-state",
+   "significance": 4,
+   "predecessors": [
+    "holy-roman-empire"
+   ],
+   "capital": "Berlin",
+   "blurb": "Unified under Prussia in 1871, twice defeated and divided in the twentieth century, reunified in 1990.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Germany"
+  },
+  {
+   "id": "czechoslovakia",
+   "name": "Czechoslovakia",
+   "start": 1918,
+   "end": 1992,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "modern-state",
+   "significance": 2,
+   "predecessors": [
+    "austria-hungary",
+    "bohemia"
+   ],
+   "capital": "Prague",
+   "blurb": "Created from Habsburg lands, occupied, restored, then peacefully split in two.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Czechoslovakia"
+  },
+  {
+   "id": "yugoslavia",
+   "name": "Yugoslavia",
+   "start": 1918,
+   "end": 1992,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "modern-state",
+   "significance": 2,
+   "predecessors": [
+    "austria-hungary",
+    "serbian-empire"
+   ],
+   "capital": "Belgrade",
+   "blurb": "A union of south Slavic peoples that held together under Tito and broke apart in war after him.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Yugoslavia"
+  },
+  {
+   "id": "ussr",
+   "name": "Soviet Union",
+   "nameNative": "СССР",
+   "start": 1922,
+   "end": 1991,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "modern-state",
+   "significance": 5,
+   "predecessors": [
+    "russian-empire"
+   ],
+   "successors": [
+    "russia-modern"
+   ],
+   "capital": "Moscow",
+   "blurb": "The world's first communist state and one pole of the Cold War, dissolved into fifteen republics in 1991.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Soviet_Union"
+  },
+  {
+   "id": "russia-modern",
+   "name": "Russian Federation",
+   "nameNative": "Россия",
+   "start": 1991,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-central",
+   "category": "modern-state",
+   "significance": 4,
+   "predecessors": [
+    "ussr"
+   ],
+   "capital": "Moscow",
+   "blurb": "The largest successor state of the Soviet Union and the largest country on earth by area.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Russia"
   },
   {
    "id": "celtic-tribes",
@@ -325,6 +1651,25 @@
    "blurb": "Caesar's conquests brought Gaul, and later Britain, into the Roman world of roads, villas and Latin for five centuries.",
    "confidence": "high",
    "wikipedia": "https://en.wikipedia.org/wiki/Roman_Gaul"
+  },
+  {
+   "id": "visigoths",
+   "name": "Visigothic Kingdom",
+   "nameNative": "Regnum Gothorum",
+   "start": 418,
+   "end": 711,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-west",
+   "category": "kingdom",
+   "significance": 2,
+   "successors": [
+    "al-andalus"
+   ],
+   "capital": "Toledo",
+   "blurb": "Gothic rulers of Iberia for three centuries, swept away by the Umayyad landing at Gibraltar.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Visigothic_Kingdom"
   },
   {
    "id": "franks",
@@ -366,6 +1711,25 @@
    "blurb": "The West Saxon kingdom that outlasted the Viking invasions and unified the English under Alfred's heirs.",
    "confidence": "medium",
    "wikipedia": "https://en.wikipedia.org/wiki/Wessex"
+  },
+  {
+   "id": "al-andalus",
+   "name": "Al-Andalus",
+   "nameNative": "الأندلس",
+   "start": 711,
+   "end": 1492,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "europe-west",
+   "category": "caliphate",
+   "significance": 3,
+   "successors": [
+    "spain"
+   ],
+   "capital": "Córdoba",
+   "blurb": "Muslim Iberia, at its height the most urbane corner of western Europe, shrinking over centuries of Reconquista until Granada fell.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Al-Andalus"
   },
   {
    "id": "england",
@@ -411,42 +1775,19 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_France"
   },
   {
-   "id": "france-modern",
-   "name": "France",
-   "nameNative": "République française",
-   "start": 1792,
+   "id": "portugal",
+   "name": "Portugal",
+   "start": 1139,
    "end": 2026,
    "startPrecision": "exact",
    "endPrecision": "exact",
    "region": "europe-west",
    "category": "modern-state",
-   "significance": 4,
-   "predecessors": [
-    "kingdom-of-france"
-   ],
-   "capital": "Paris",
-   "blurb": "Republic, empire and republic again. Through five constitutions France remained a first-rank European power.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/France"
-  },
-  {
-   "id": "al-andalus",
-   "name": "Al-Andalus",
-   "nameNative": "الأندلس",
-   "start": 711,
-   "end": 1492,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "europe-west",
-   "category": "caliphate",
    "significance": 3,
-   "successors": [
-    "spain"
-   ],
-   "capital": "Córdoba",
-   "blurb": "Muslim Iberia, at its height the most urbane corner of western Europe, shrinking over centuries of Reconquista until Granada fell.",
+   "capital": "Lisbon",
+   "blurb": "A small Atlantic kingdom that opened the sea routes to Africa, India and Brazil, and kept its independence beside a larger neighbour.",
    "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Al-Andalus"
+   "wikipedia": "https://en.wikipedia.org/wiki/Portugal"
   },
   {
    "id": "spain",
@@ -466,21 +1807,6 @@
    "blurb": "The union of Castile and Aragon that built the first empire on which the sun never set, funded by American silver.",
    "confidence": "high",
    "wikipedia": "https://en.wikipedia.org/wiki/Spain"
-  },
-  {
-   "id": "portugal",
-   "name": "Portugal",
-   "start": 1139,
-   "end": 2026,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "europe-west",
-   "category": "modern-state",
-   "significance": 3,
-   "capital": "Lisbon",
-   "blurb": "A small Atlantic kingdom that opened the sea routes to Africa, India and Brazil, and kept its independence beside a larger neighbour.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Portugal"
   },
   {
    "id": "netherlands",
@@ -516,1182 +1842,42 @@
    "wikipedia": "https://en.wikipedia.org/wiki/United_Kingdom"
   },
   {
-   "id": "germanic-tribes",
-   "name": "Germanic Tribes",
-   "start": -500,
-   "end": 400,
-   "startPrecision": "century",
-   "endPrecision": "century",
-   "region": "europe-central",
-   "category": "confederation",
-   "significance": 2,
-   "blurb": "The peoples beyond the Rhine and Danube whom Rome traded with, fought and finally could not hold back.",
-   "confidence": "low",
-   "wikipedia": "https://en.wikipedia.org/wiki/Germanic_peoples"
-  },
-  {
-   "id": "avars",
-   "name": "Avar Khaganate",
-   "start": 567,
-   "end": 822,
-   "startPrecision": "exact",
-   "endPrecision": "circa",
-   "region": "europe-central",
-   "category": "khanate",
-   "significance": 2,
-   "blurb": "Steppe horsemen who ruled the Carpathian basin for two and a half centuries until Charlemagne broke their power.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Pannonian_Avars"
-  },
-  {
-   "id": "east-francia",
-   "name": "East Francia",
-   "start": 843,
-   "end": 962,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "europe-central",
-   "category": "kingdom",
-   "significance": 2,
-   "predecessors": [
-    "franks"
-   ],
-   "successors": [
-    "holy-roman-empire"
-   ],
-   "capital": "Regensburg",
-   "blurb": "The eastern third of the Frankish partition, which grew into the German kingdom and then the Holy Roman Empire.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/East_Francia"
-  },
-  {
-   "id": "holy-roman-empire",
-   "name": "Holy Roman Empire",
-   "nameNative": "Sacrum Imperium Romanum",
-   "start": 962,
-   "end": 1806,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "europe-central",
-   "category": "empire",
-   "significance": 4,
-   "predecessors": [
-    "east-francia"
-   ],
-   "successors": [
-    "germany"
-   ],
-   "capital": "Vienna",
-   "blurb": "A loose federation of German and Italian lands under an elected emperor, more durable than centralised, dissolved by Napoleon.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Holy_Roman_Empire"
-  },
-  {
-   "id": "kievan-rus",
-   "name": "Kievan Rus'",
-   "nameNative": "Русь",
-   "start": 882,
-   "end": 1240,
-   "startPrecision": "circa",
-   "endPrecision": "exact",
-   "region": "europe-central",
-   "category": "confederation",
-   "significance": 3,
-   "successors": [
-    "muscovy-russia"
-   ],
-   "capital": "Kyiv",
-   "blurb": "The river-trade federation of Norse princes and Slavic cities that took Christianity from Byzantium, destroyed by the Mongols.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Kievan_Rus%27"
-  },
-  {
-   "id": "kingdom-hungary",
-   "name": "Kingdom of Hungary",
-   "nameNative": "Magyar Királyság",
-   "start": 1000,
-   "end": 1918,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "europe-central",
-   "category": "kingdom",
-   "significance": 3,
-   "capital": "Buda",
-   "blurb": "Founded by Stephen I on the Avars' old plain, a bulwark kingdom that endured Mongols, Ottomans and Habsburg rule.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Hungary"
-  },
-  {
-   "id": "poland-lithuania",
-   "name": "Poland-Lithuania",
-   "nameNative": "Rzeczpospolita",
-   "start": 1386,
-   "end": 1795,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "europe-central",
-   "category": "confederation",
-   "significance": 3,
-   "capital": "Warsaw",
-   "blurb": "A vast elective commonwealth of two nations, with an unusually powerful nobility, partitioned out of existence by its neighbours.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Polish%E2%80%93Lithuanian_Commonwealth"
-  },
-  {
-   "id": "muscovy-russia",
-   "name": "Muscovy & Tsardom of Russia",
-   "start": 1283,
-   "end": 1721,
-   "startPrecision": "circa",
-   "endPrecision": "exact",
-   "region": "europe-central",
-   "category": "kingdom",
-   "significance": 3,
-   "predecessors": [
-    "kievan-rus"
-   ],
-   "successors": [
-    "russian-empire"
-   ],
-   "capital": "Moscow",
-   "blurb": "A minor principality that outmanoeuvred rivals under Mongol overlordship, then expanded east across Siberia at astonishing speed.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Tsardom_of_Russia"
-  },
-  {
-   "id": "russian-empire",
-   "name": "Russian Empire",
-   "nameNative": "Российская империя",
-   "start": 1721,
-   "end": 1917,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "europe-central",
-   "category": "empire",
-   "significance": 4,
-   "predecessors": [
-    "muscovy-russia"
-   ],
-   "successors": [
-    "ussr"
-   ],
-   "capital": "Saint Petersburg",
-   "blurb": "Peter the Great's westernised empire, spanning eleven time zones from Warsaw to the Pacific by the nineteenth century.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Russian_Empire"
-  },
-  {
-   "id": "ussr",
-   "name": "Soviet Union",
-   "nameNative": "СССР",
-   "start": 1922,
-   "end": 1991,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "europe-central",
-   "category": "modern-state",
-   "significance": 5,
-   "predecessors": [
-    "russian-empire"
-   ],
-   "successors": [
-    "russia-modern"
-   ],
-   "capital": "Moscow",
-   "blurb": "The world's first communist state and one pole of the Cold War, dissolved into fifteen republics in 1991.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Soviet_Union"
-  },
-  {
-   "id": "russia-modern",
-   "name": "Russian Federation",
-   "nameNative": "Россия",
-   "start": 1991,
+   "id": "france-modern",
+   "name": "France",
+   "nameNative": "République française",
+   "start": 1792,
    "end": 2026,
    "startPrecision": "exact",
    "endPrecision": "exact",
-   "region": "europe-central",
+   "region": "europe-west",
    "category": "modern-state",
    "significance": 4,
    "predecessors": [
-    "ussr"
+    "kingdom-of-france"
    ],
-   "capital": "Moscow",
-   "blurb": "The largest successor state of the Soviet Union and the largest country on earth by area.",
+   "capital": "Paris",
+   "blurb": "Republic, empire and republic again. Through five constitutions France remained a first-rank European power.",
    "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Russia"
+   "wikipedia": "https://en.wikipedia.org/wiki/France"
   },
   {
-   "id": "germany",
-   "name": "Germany",
-   "nameNative": "Deutschland",
-   "start": 1871,
-   "end": 2026,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "europe-central",
-   "category": "modern-state",
-   "significance": 4,
-   "predecessors": [
-    "holy-roman-empire"
-   ],
-   "capital": "Berlin",
-   "blurb": "Unified under Prussia in 1871, twice defeated and divided in the twentieth century, reunified in 1990.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Germany"
-  },
-  {
-   "id": "minoan",
-   "name": "Minoan Civilisation",
-   "start": -2700,
-   "end": -1450,
-   "startPrecision": "century",
-   "endPrecision": "century",
-   "region": "mediterranean",
-   "category": "city-state",
-   "significance": 3,
-   "successors": [
-    "mycenaean"
-   ],
-   "capital": "Knossos",
-   "blurb": "Europe's first literate civilisation, palace towns on Crete trading across the Aegean until eruption, earthquake and Mycenaean takeover.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Minoan_civilization"
-  },
-  {
-   "id": "mycenaean",
-   "name": "Mycenaean Greece",
-   "start": -1600,
-   "end": -1100,
-   "startPrecision": "century",
-   "endPrecision": "century",
-   "region": "mediterranean",
-   "category": "city-state",
-   "significance": 3,
-   "predecessors": [
-    "minoan"
-   ],
-   "successors": [
-    "greek-city-states"
-   ],
-   "capital": "Mycenae",
-   "blurb": "The palace kingdoms of Homer's heroes, undone in the general collapse of the Bronze Age eastern Mediterranean.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Mycenaean_Greece"
-  },
-  {
-   "id": "greek-city-states",
-   "name": "Greek City-States",
-   "nameNative": "Πόλεις",
-   "start": -800,
-   "end": -338,
-   "startPrecision": "century",
-   "endPrecision": "exact",
-   "region": "mediterranean",
-   "category": "city-state",
-   "significance": 4,
-   "predecessors": [
-    "mycenaean"
-   ],
-   "successors": [
-    "macedon"
-   ],
-   "blurb": "Athens, Sparta and hundreds of rivals invented citizenship, drama, philosophy and history writing between their wars.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Polis"
-  },
-  {
-   "id": "macedon",
-   "name": "Kingdom of Macedon",
-   "nameNative": "Μακεδονία",
-   "start": -359,
-   "end": -168,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "mediterranean",
-   "category": "kingdom",
-   "significance": 4,
-   "predecessors": [
-    "greek-city-states"
-   ],
-   "successors": [
-    "seleucid-empire",
-    "ptolemaic"
-   ],
-   "capital": "Pella",
-   "blurb": "Philip II mastered Greece and his son Alexander conquered Persia to the Indus, scattering Greek culture across three continents.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Macedonia_(ancient_kingdom)"
-  },
-  {
-   "id": "carthage",
-   "name": "Carthage",
-   "nameNative": "𐤒𐤓𐤕𐤟𐤇𐤃𐤔𐤕",
-   "start": -814,
-   "end": -146,
-   "startPrecision": "circa",
-   "endPrecision": "exact",
-   "region": "mediterranean",
-   "category": "republic",
-   "significance": 3,
-   "predecessors": [
-    "canaan-phoenicia"
-   ],
-   "capital": "Carthage",
-   "blurb": "The Phoenician colony that became the western Mediterranean's naval power, destroyed by Rome after three wars.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Ancient_Carthage"
-  },
-  {
-   "id": "roman-republic",
-   "name": "Roman Republic",
-   "nameNative": "Res publica Romana",
-   "start": -509,
-   "end": -27,
-   "startPrecision": "circa",
-   "endPrecision": "exact",
-   "region": "mediterranean",
-   "category": "republic",
-   "significance": 4,
-   "successors": [
-    "roman-empire"
-   ],
-   "capital": "Rome",
-   "blurb": "The city-state that conquered the Mediterranean under an elected magistracy before collapsing into one-man rule.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Roman_Republic"
-  },
-  {
-   "id": "roman-empire",
-   "name": "Roman Empire",
-   "nameNative": "Imperium Romanum",
-   "start": -27,
-   "end": 395,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "mediterranean",
-   "category": "empire",
-   "significance": 5,
-   "predecessors": [
-    "roman-republic"
-   ],
-   "successors": [
-    "western-roman-empire",
-    "byzantine-empire"
-   ],
-   "capital": "Rome",
-   "blurb": "The Mediterranean's single largest and longest shadow, an empire of roads, law and legions ringing the entire sea.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Roman_Empire"
-  },
-  {
-   "id": "western-roman-empire",
-   "name": "Western Roman Empire",
-   "start": 395,
-   "end": 476,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "mediterranean",
-   "category": "empire",
-   "significance": 3,
-   "parent": "roman-empire",
-   "predecessors": [
-    "roman-empire"
-   ],
-   "capital": "Ravenna",
-   "blurb": "The western half of the divided empire, dismantled within a century by migrating peoples and its own generals.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Western_Roman_Empire"
-  },
-  {
-   "id": "byzantine-empire",
-   "name": "Byzantine Empire",
-   "nameNative": "Βασιλεία Ῥωμαίων",
-   "aka": [
-    "Eastern Roman Empire"
-   ],
-   "start": 395,
-   "end": 1453,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "mediterranean",
-   "category": "empire",
-   "significance": 5,
-   "parent": "roman-empire",
-   "predecessors": [
-    "roman-empire"
-   ],
-   "successors": [
-    "ottoman-empire"
-   ],
-   "capital": "Constantinople",
-   "blurb": "The eastern Roman state that outlived the west by a thousand years, Greek-speaking and Christian, anchored on Constantinople.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Byzantine_Empire"
-  },
-  {
-   "id": "papal-states",
-   "name": "Papal States",
-   "nameNative": "Stato Pontificio",
-   "start": 756,
-   "end": 1870,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "mediterranean",
-   "category": "city-state",
-   "significance": 2,
-   "capital": "Rome",
-   "blurb": "The pope's temporal kingdom across central Italy, a fixture of European politics for eleven centuries until Italian unification.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Papal_States"
-  },
-  {
-   "id": "venice",
-   "name": "Republic of Venice",
-   "nameNative": "Serenissima",
-   "start": 697,
-   "end": 1797,
-   "startPrecision": "circa",
-   "endPrecision": "exact",
-   "region": "mediterranean",
-   "category": "republic",
-   "significance": 3,
-   "capital": "Venice",
-   "blurb": "A lagoon city that ran the eastern Mediterranean's trade for centuries, its arsenal the largest industrial site in Europe.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Republic_of_Venice"
-  },
-  {
-   "id": "italy",
-   "name": "Italy",
-   "nameNative": "Italia",
-   "start": 1861,
-   "end": 2026,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "mediterranean",
-   "category": "modern-state",
-   "significance": 3,
-   "capital": "Rome",
-   "blurb": "The peninsula's patchwork of kingdoms and duchies unified under Piedmont, completed when Rome fell in 1870.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Italy"
-  },
-  {
-   "id": "greece-modern",
-   "name": "Greece",
-   "nameNative": "Ελλάδα",
-   "start": 1830,
-   "end": 2026,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "mediterranean",
-   "category": "modern-state",
-   "significance": 2,
-   "predecessors": [
-    "ottoman-empire"
-   ],
-   "capital": "Athens",
-   "blurb": "The first new state carved from the Ottoman Empire, recognised after a decade of revolutionary war.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Greece"
-  },
-  {
-   "id": "old-kingdom-egypt",
-   "name": "Old Kingdom Egypt",
-   "start": -2686,
-   "end": -2181,
-   "startPrecision": "century",
-   "endPrecision": "circa",
-   "region": "north-africa",
-   "category": "kingdom",
-   "significance": 4,
-   "successors": [
-    "middle-kingdom-egypt"
-   ],
-   "capital": "Memphis",
-   "blurb": "The pyramid-building age of Egypt, when the state along the Nile reached its first peak of centralised power.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Old_Kingdom_of_Egypt"
-  },
-  {
-   "id": "middle-kingdom-egypt",
-   "name": "Middle Kingdom Egypt",
-   "start": -2055,
-   "end": -1650,
-   "startPrecision": "circa",
-   "endPrecision": "circa",
-   "region": "north-africa",
-   "category": "kingdom",
-   "significance": 3,
-   "predecessors": [
-    "old-kingdom-egypt"
-   ],
-   "successors": [
-    "new-kingdom-egypt"
-   ],
-   "capital": "Thebes",
-   "blurb": "Egypt reunified after a century of fragmentation, a classical age of literature and administration.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Middle_Kingdom_of_Egypt"
-  },
-  {
-   "id": "new-kingdom-egypt",
-   "name": "New Kingdom Egypt",
-   "start": -1550,
-   "end": -1069,
-   "startPrecision": "circa",
-   "endPrecision": "circa",
-   "region": "north-africa",
-   "category": "kingdom",
-   "significance": 4,
-   "predecessors": [
-    "middle-kingdom-egypt"
-   ],
-   "successors": [
-    "third-intermediate-egypt"
-   ],
-   "capital": "Thebes",
-   "blurb": "Egypt's imperial era under rulers like Thutmose III and Ramesses II, projecting power into the Levant and Nubia.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/New_Kingdom_of_Egypt"
-  },
-  {
-   "id": "third-intermediate-egypt",
-   "name": "Third Intermediate Period",
-   "start": -1069,
-   "end": -664,
-   "startPrecision": "circa",
-   "endPrecision": "circa",
-   "region": "north-africa",
-   "category": "kingdom",
-   "significance": 2,
-   "predecessors": [
-    "new-kingdom-egypt"
-   ],
-   "successors": [
-    "late-period-egypt"
-   ],
-   "blurb": "Egypt divided among rival dynasties, including a century of rule by the Kushite kings of the south.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Third_Intermediate_Period_of_Egypt"
-  },
-  {
-   "id": "late-period-egypt",
-   "name": "Late Period Egypt",
-   "start": -664,
-   "end": -332,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "north-africa",
-   "category": "kingdom",
-   "significance": 2,
-   "predecessors": [
-    "third-intermediate-egypt"
-   ],
-   "successors": [
-    "ptolemaic"
-   ],
-   "capital": "Sais",
-   "blurb": "The last native dynasties, alternating with Persian rule, before Alexander took Egypt without a fight.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Late_Period_of_ancient_Egypt"
-  },
-  {
-   "id": "ptolemaic",
-   "name": "Ptolemaic Egypt",
-   "nameNative": "Πτολεμαϊκὴ βασιλεία",
-   "start": -305,
-   "end": -30,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "north-africa",
-   "category": "kingdom",
-   "significance": 3,
-   "predecessors": [
-    "macedon",
-    "late-period-egypt"
-   ],
-   "successors": [
-    "roman-egypt"
-   ],
-   "capital": "Alexandria",
-   "blurb": "The Greek dynasty of Alexander's general Ptolemy, ending with Cleopatra. Alexandria was the ancient world's great library city.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Ptolemaic_Kingdom"
-  },
-  {
-   "id": "roman-egypt",
-   "name": "Roman Egypt",
-   "nameNative": "Aegyptus",
-   "start": -30,
-   "end": 641,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "north-africa",
-   "category": "colonial",
-   "significance": 2,
-   "predecessors": [
-    "ptolemaic"
-   ],
-   "blurb": "Rome's breadbasket province, then Byzantine, until the Arab conquest carried it into a different world.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Roman_Egypt"
-  },
-  {
-   "id": "fatimid",
-   "name": "Fatimid Caliphate",
-   "nameNative": "الفاطميون",
-   "start": 909,
-   "end": 1171,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "north-africa",
-   "category": "caliphate",
-   "significance": 3,
-   "successors": [
-    "mamluk"
-   ],
-   "capital": "Cairo",
-   "blurb": "An Ismaili Shia caliphate that founded Cairo and ruled from Tunisia to Syria at its height.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Fatimid_Caliphate"
-  },
-  {
-   "id": "mamluk",
-   "name": "Mamluk Sultanate",
-   "nameNative": "دولة المماليك",
-   "start": 1250,
-   "end": 1517,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "north-africa",
-   "category": "kingdom",
-   "significance": 3,
-   "predecessors": [
-    "fatimid"
-   ],
-   "successors": [
-    "ottoman-egypt"
-   ],
-   "capital": "Cairo",
-   "blurb": "A regime of slave-soldiers who stopped the Mongols at Ain Jalut and ruled Egypt and Syria until the Ottomans took Cairo.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Mamluk_Sultanate"
-  },
-  {
-   "id": "ottoman-egypt",
-   "name": "Ottoman & Khedival Egypt",
-   "start": 1517,
-   "end": 1882,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "north-africa",
-   "category": "colonial",
-   "significance": 2,
-   "predecessors": [
-    "mamluk"
-   ],
-   "successors": [
-    "egypt-modern"
-   ],
-   "capital": "Cairo",
-   "blurb": "Egypt under Ottoman rule and then Muhammad Ali's ambitious dynasty, ending in British occupation.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Egypt_Eyalet"
-  },
-  {
-   "id": "alaouite-morocco",
-   "name": "Morocco",
-   "nameNative": "المغرب",
-   "start": 1631,
-   "end": 2026,
-   "startPrecision": "circa",
-   "endPrecision": "exact",
-   "region": "north-africa",
-   "category": "kingdom",
-   "significance": 2,
-   "capital": "Rabat",
-   "blurb": "The Alaouite dynasty has ruled Morocco from the seventeenth century through a French protectorate to the present kingdom.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Alaouite_dynasty"
-  },
-  {
-   "id": "egypt-modern",
-   "name": "Egypt",
-   "nameNative": "مصر",
+   "id": "ireland",
+   "name": "Ireland",
+   "nameNative": "Éire",
    "start": 1922,
    "end": 2026,
    "startPrecision": "exact",
    "endPrecision": "exact",
-   "region": "north-africa",
+   "region": "europe-west",
    "category": "modern-state",
-   "significance": 3,
-   "predecessors": [
-    "ottoman-egypt"
-   ],
-   "capital": "Cairo",
-   "blurb": "Nominal independence from Britain in 1922, full sovereignty after 1952, and the Arab world's most populous state.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Egypt"
-  },
-  {
-   "id": "kerma",
-   "name": "Kingdom of Kerma",
-   "start": -2500,
-   "end": -1500,
-   "startPrecision": "century",
-   "endPrecision": "century",
-   "region": "sub-saharan-africa",
-   "category": "kingdom",
-   "significance": 2,
-   "successors": [
-    "egyptian-nubia"
-   ],
-   "capital": "Kerma",
-   "blurb": "The first Nubian kingdom, a rival to Egypt on the upper Nile with monumental mud-brick architecture of its own.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Kerma"
-  },
-  {
-   "id": "egyptian-nubia",
-   "name": "Egyptian Nubia",
-   "start": -1500,
-   "end": -1070,
-   "startPrecision": "circa",
-   "endPrecision": "circa",
-   "region": "sub-saharan-africa",
-   "category": "colonial",
    "significance": 1,
    "predecessors": [
-    "kerma"
+    "great-britain"
    ],
-   "successors": [
-    "kush"
-   ],
-   "blurb": "Nubia under New Kingdom viceroys, its gold funding Egypt's imperial age.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/History_of_Nubia"
-  },
-  {
-   "id": "kush",
-   "name": "Kingdom of Kush",
-   "start": -1070,
-   "end": 350,
-   "startPrecision": "century",
-   "endPrecision": "circa",
-   "region": "sub-saharan-africa",
-   "category": "kingdom",
-   "significance": 3,
-   "predecessors": [
-    "egyptian-nubia"
-   ],
-   "capital": "Meroë",
-   "blurb": "The Nubian kingdom that conquered and briefly ruled Egypt itself, then flourished at Meroë as an iron-working power for centuries.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Kush"
-  },
-  {
-   "id": "aksum",
-   "name": "Kingdom of Aksum",
-   "nameNative": "አክሱም",
-   "start": 100,
-   "end": 940,
-   "startPrecision": "century",
-   "endPrecision": "century",
-   "region": "sub-saharan-africa",
-   "category": "kingdom",
-   "significance": 3,
-   "successors": [
-    "ethiopian-empire"
-   ],
-   "capital": "Aksum",
-   "blurb": "A Red Sea trading empire that minted its own coins and adopted Christianity in the fourth century, among the first states to do so.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Aksum"
-  },
-  {
-   "id": "ghana-empire",
-   "name": "Ghana Empire",
-   "nameNative": "Wagadu",
-   "start": 300,
-   "end": 1240,
-   "startPrecision": "century",
-   "endPrecision": "circa",
-   "region": "sub-saharan-africa",
-   "category": "empire",
-   "significance": 3,
-   "successors": [
-    "mali-empire"
-   ],
-   "capital": "Koumbi Saleh",
-   "blurb": "The first great Sahel trading empire, taxing the gold and salt caravans between the forest and the Sahara.",
-   "confidence": "low",
-   "wikipedia": "https://en.wikipedia.org/wiki/Ghana_Empire"
-  },
-  {
-   "id": "kanem-bornu",
-   "name": "Kanem-Bornu Empire",
-   "start": 700,
-   "end": 1893,
-   "startPrecision": "century",
-   "endPrecision": "exact",
-   "region": "sub-saharan-africa",
-   "category": "empire",
-   "significance": 2,
-   "capital": "Ngazargamu",
-   "blurb": "A Saharan empire around Lake Chad that endured under one dynastic tradition for over a thousand years.",
-   "confidence": "low",
-   "wikipedia": "https://en.wikipedia.org/wiki/Kanem%E2%80%93Bornu_Empire"
-  },
-  {
-   "id": "mali-empire",
-   "name": "Mali Empire",
-   "start": 1235,
-   "end": 1670,
-   "startPrecision": "circa",
-   "endPrecision": "circa",
-   "region": "sub-saharan-africa",
-   "category": "empire",
-   "significance": 4,
-   "predecessors": [
-    "ghana-empire"
-   ],
-   "successors": [
-    "songhai"
-   ],
-   "capital": "Niani",
-   "blurb": "Sundiata's empire on the upper Niger. Mansa Musa's gold-laden pilgrimage to Mecca made it a byword for wealth across the old world.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Mali_Empire"
-  },
-  {
-   "id": "songhai",
-   "name": "Songhai Empire",
-   "start": 1464,
-   "end": 1591,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "sub-saharan-africa",
-   "category": "empire",
-   "significance": 3,
-   "predecessors": [
-    "mali-empire"
-   ],
-   "capital": "Gao",
-   "blurb": "The largest state in West African history, with Timbuktu as its scholarly centre, broken by a Moroccan musket army.",
+   "capital": "Dublin",
+   "blurb": "Independent after a war and a treaty that partitioned the island.",
    "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Songhai_Empire"
-  },
-  {
-   "id": "great-zimbabwe",
-   "name": "Great Zimbabwe",
-   "start": 1220,
-   "end": 1450,
-   "startPrecision": "century",
-   "endPrecision": "century",
-   "region": "sub-saharan-africa",
-   "category": "kingdom",
-   "significance": 2,
-   "blurb": "The stone-walled capital of a Shona kingdom grown rich on gold and Indian Ocean trade through Kilwa.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Great_Zimbabwe"
-  },
-  {
-   "id": "benin-kingdom",
-   "name": "Kingdom of Benin",
-   "start": 1180,
-   "end": 1897,
-   "startPrecision": "century",
-   "endPrecision": "exact",
-   "region": "sub-saharan-africa",
-   "category": "kingdom",
-   "significance": 2,
-   "capital": "Benin City",
-   "blurb": "A forest kingdom in present-day Nigeria famous for its bronze casting, sacked by a British expedition in 1897.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Benin"
-  },
-  {
-   "id": "ethiopian-empire",
-   "name": "Ethiopian Empire",
-   "nameNative": "መንግሥተ ኢትዮጵያ",
-   "start": 1270,
-   "end": 1974,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "sub-saharan-africa",
-   "category": "empire",
-   "significance": 3,
-   "predecessors": [
-    "aksum"
-   ],
-   "capital": "Addis Ababa",
-   "blurb": "The Solomonic dynasty's Christian highland empire, the one African state to defeat a European coloniser at Adwa in 1896.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Ethiopian_Empire"
-  },
-  {
-   "id": "ashanti",
-   "name": "Ashanti Empire",
-   "start": 1701,
-   "end": 1901,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "sub-saharan-africa",
-   "category": "empire",
-   "significance": 2,
-   "capital": "Kumasi",
-   "blurb": "A gold-rich Akan empire whose golden stool embodied the nation, absorbed into British Gold Coast after five wars.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Ashanti_Empire"
-  },
-  {
-   "id": "south-africa",
-   "name": "South Africa",
-   "start": 1910,
-   "end": 2026,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "sub-saharan-africa",
-   "category": "modern-state",
-   "significance": 2,
-   "capital": "Pretoria",
-   "blurb": "The union of British colonies and Boer republics, under apartheid from 1948 until the 1994 elections.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/South_Africa"
-  },
-  {
-   "id": "canaan-phoenicia",
-   "name": "Canaanite & Phoenician Cities",
-   "nameNative": "𐤊𐤍𐤏𐤍",
-   "start": -2750,
-   "end": -332,
-   "startPrecision": "century",
-   "endPrecision": "exact",
-   "region": "near-east",
-   "category": "city-state",
-   "significance": 3,
-   "successors": [
-    "carthage"
-   ],
-   "capital": "Tyre",
-   "blurb": "The merchant cities of the Levant coast, Byblos to Tyre, who spread the alphabet along their sea lanes.",
-   "confidence": "low",
-   "wikipedia": "https://en.wikipedia.org/wiki/Phoenicia"
-  },
-  {
-   "id": "hittite",
-   "name": "Hittite Empire",
-   "nameNative": "𒄩𒀜𒌅𒊭",
-   "start": -1650,
-   "end": -1180,
-   "startPrecision": "circa",
-   "endPrecision": "circa",
-   "region": "near-east",
-   "category": "empire",
-   "significance": 3,
-   "capital": "Hattusa",
-   "blurb": "The Anatolian great power that fought Egypt to a standstill at Kadesh and signed history's first surviving peace treaty.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Hittites"
-  },
-  {
-   "id": "mitanni",
-   "name": "Mitanni",
-   "start": -1500,
-   "end": -1260,
-   "startPrecision": "century",
-   "endPrecision": "circa",
-   "region": "near-east",
-   "category": "kingdom",
-   "significance": 2,
-   "blurb": "A Hurrian kingdom of northern Mesopotamia and Syria, a fourth player among the Bronze Age great powers until Assyria absorbed it.",
-   "confidence": "low",
-   "wikipedia": "https://en.wikipedia.org/wiki/Mitanni"
-  },
-  {
-   "id": "israel-judah",
-   "name": "Israel & Judah",
-   "nameNative": "ישראל ויהודה",
-   "start": -1047,
-   "end": -586,
-   "startPrecision": "disputed",
-   "endPrecision": "exact",
-   "region": "near-east",
-   "category": "kingdom",
-   "significance": 2,
-   "blurb": "The Hebrew kingdoms of the southern Levant, whose scriptures long outlived the states themselves.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Israel_(Samaria)"
-  },
-  {
-   "id": "lydia",
-   "name": "Kingdom of Lydia",
-   "nameNative": "𐤮𐤱𐤠𐤭𐤣",
-   "start": -680,
-   "end": -546,
-   "startPrecision": "circa",
-   "endPrecision": "exact",
-   "region": "near-east",
-   "category": "kingdom",
-   "significance": 2,
-   "capital": "Sardis",
-   "blurb": "An Anatolian kingdom credited with minting the first true coinage, its last king Croesus a proverb for wealth.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Lydia"
-  },
-  {
-   "id": "armenia-ancient",
-   "name": "Kingdom of Armenia",
-   "nameNative": "Հայք",
-   "start": -321,
-   "end": 428,
-   "startPrecision": "circa",
-   "endPrecision": "exact",
-   "region": "near-east",
-   "category": "kingdom",
-   "significance": 2,
-   "capital": "Artaxata",
-   "blurb": "A highland kingdom between Rome and Persia, the first state to adopt Christianity as its official religion.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Armenia_(antiquity)"
-  },
-  {
-   "id": "rashidun",
-   "name": "Rashidun Caliphate",
-   "nameNative": "الخلافة الراشدة",
-   "start": 632,
-   "end": 661,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "near-east",
-   "category": "caliphate",
-   "significance": 3,
-   "successors": [
-    "umayyad"
-   ],
-   "capital": "Medina",
-   "blurb": "The first four caliphs after Muhammad, under whom Arab armies took the Levant, Egypt and Persia within a generation.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Rashidun_Caliphate"
-  },
-  {
-   "id": "umayyad",
-   "name": "Umayyad Caliphate",
-   "nameNative": "الخلافة الأموية",
-   "start": 661,
-   "end": 750,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "near-east",
-   "category": "caliphate",
-   "significance": 4,
-   "predecessors": [
-    "rashidun"
-   ],
-   "successors": [
-    "abbasid",
-    "al-andalus"
-   ],
-   "capital": "Damascus",
-   "blurb": "The dynasty that carried Islam from the Atlantic to the Indus, the largest empire the world had yet seen.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Umayyad_Caliphate"
-  },
-  {
-   "id": "bagratid-armenia",
-   "name": "Bagratid Armenia",
-   "nameNative": "Բագրատունյաց",
-   "start": 884,
-   "end": 1045,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "near-east",
-   "category": "kingdom",
-   "significance": 1,
-   "capital": "Ani",
-   "blurb": "A restored Armenian kingdom whose capital Ani was called the city of a thousand and one churches.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Bagratid_Armenia"
-  },
-  {
-   "id": "rum-seljuks",
-   "name": "Sultanate of Rum",
-   "nameNative": "سلجوقیان روم",
-   "start": 1077,
-   "end": 1308,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "near-east",
-   "category": "kingdom",
-   "significance": 2,
-   "successors": [
-    "ottoman-empire"
-   ],
-   "capital": "Konya",
-   "blurb": "The Seljuk successor state in Anatolia that turkified Asia Minor, ancestor of the beyliks from which the Ottomans rose.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Sultanate_of_Rum"
-  },
-  {
-   "id": "crusader-states",
-   "name": "Crusader States",
-   "nameNative": "Outremer",
-   "start": 1099,
-   "end": 1291,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "near-east",
-   "category": "kingdom",
-   "significance": 2,
-   "capital": "Jerusalem",
-   "blurb": "Latin Christian statelets planted in the Levant by the First Crusade, ending when Acre fell to the Mamluks.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Crusader_states"
-  },
-  {
-   "id": "ottoman-empire",
-   "name": "Ottoman Empire",
-   "nameNative": "دولت عليه عثمانيه",
-   "start": 1299,
-   "end": 1922,
-   "startPrecision": "circa",
-   "endPrecision": "exact",
-   "region": "near-east",
-   "category": "empire",
-   "significance": 5,
-   "predecessors": [
-    "rum-seljuks",
-    "byzantine-empire"
-   ],
-   "successors": [
-    "turkey",
-    "greece-modern"
-   ],
-   "capital": "Constantinople",
-   "blurb": "The Turkish empire that took Constantinople and ruled the eastern Mediterranean, the Balkans and the Hejaz for six centuries.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Ottoman_Empire"
-  },
-  {
-   "id": "turkey",
-   "name": "Turkey",
-   "nameNative": "Türkiye",
-   "start": 1923,
-   "end": 2026,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "near-east",
-   "category": "modern-state",
-   "significance": 3,
-   "predecessors": [
-    "ottoman-empire"
-   ],
-   "capital": "Ankara",
-   "blurb": "Atatürk's secular republic built from the Ottoman core after the empire's partition.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Turkey"
+   "wikipedia": "https://en.wikipedia.org/wiki/Ireland"
   },
   {
    "id": "sumer",
@@ -1713,6 +1899,22 @@
    "blurb": "The earliest urban civilisation, a patchwork of rival city-states in southern Mesopotamia that produced writing, the wheel and codified law.",
    "confidence": "medium",
    "wikipedia": "https://en.wikipedia.org/wiki/Sumer"
+  },
+  {
+   "id": "elam",
+   "name": "Elam",
+   "nameNative": "𒁹𒄬𒆷𒁶",
+   "start": -2700,
+   "end": -539,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "iran-mesopotamia",
+   "category": "kingdom",
+   "significance": 3,
+   "capital": "Susa",
+   "blurb": "The civilisation of the Iranian southwest, contemporary with Sumer and outlasting it by two thousand years.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Elam"
   },
   {
    "id": "akkadian-empire",
@@ -1944,6 +2146,40 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Abbasid_Caliphate"
   },
   {
+   "id": "buyid",
+   "name": "Buyid Dynasty",
+   "nameNative": "آل بویه",
+   "start": 934,
+   "end": 1062,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "iran-mesopotamia",
+   "category": "dynasty",
+   "significance": 2,
+   "blurb": "Shia Iranian rulers who held Baghdad and kept the Abbasid caliph as a figurehead.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Buyid_Dynasty"
+  },
+  {
+   "id": "great-seljuk",
+   "name": "Great Seljuk Empire",
+   "nameNative": "سلجوقیان",
+   "start": 1037,
+   "end": 1194,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "iran-mesopotamia",
+   "category": "empire",
+   "significance": 3,
+   "successors": [
+    "rum-seljuks"
+   ],
+   "capital": "Isfahan",
+   "blurb": "Turkic nomads who took Persia and Baghdad, beat Byzantium at Manzikert and provoked the First Crusade.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Great_Seljuk_Empire"
+  },
+  {
    "id": "ilkhanate",
    "name": "Ilkhanate",
    "nameNative": "ایلخانان",
@@ -2024,224 +2260,1392 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Iran"
   },
   {
-   "id": "andronovo",
-   "name": "Andronovo Culture",
-   "start": -2000,
-   "end": -900,
-   "startPrecision": "century",
-   "endPrecision": "century",
-   "region": "central-asia-steppe",
-   "category": "confederation",
+   "id": "gojoseon",
+   "name": "Gojoseon",
+   "nameNative": "고조선",
+   "start": -700,
+   "end": -108,
+   "startPrecision": "disputed",
+   "endPrecision": "exact",
+   "region": "korea-japan",
+   "category": "kingdom",
    "significance": 2,
-   "blurb": "Bronze Age herders of the western steppe, likely speakers of Indo-Iranian languages ancestral to Persian and Sanskrit.",
+   "successors": [
+    "three-kingdoms-korea"
+   ],
+   "capital": "Wanggeom",
+   "blurb": "The first Korean kingdom, its legendary founding dated to 2333 BCE but its verifiable history beginning much later, ended by Han conquest.",
    "confidence": "low",
-   "wikipedia": "https://en.wikipedia.org/wiki/Andronovo_culture"
+   "wikipedia": "https://en.wikipedia.org/wiki/Gojoseon"
   },
   {
-   "id": "scythians",
-   "name": "Scythians",
-   "nameNative": "Σκύθαι",
-   "start": -900,
-   "end": -200,
-   "startPrecision": "century",
-   "endPrecision": "century",
-   "region": "central-asia-steppe",
-   "category": "confederation",
-   "significance": 3,
-   "predecessors": [
-    "andronovo"
-   ],
-   "blurb": "Nomad horse-archers of the Pontic and Central Asian steppe, famous for gold animal art and for defeating every army sent after them.",
-   "confidence": "low",
-   "wikipedia": "https://en.wikipedia.org/wiki/Scythians"
-  },
-  {
-   "id": "xiongnu",
-   "name": "Xiongnu Empire",
-   "nameNative": "匈奴",
-   "start": -209,
-   "end": 93,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "central-asia-steppe",
-   "category": "khanate",
-   "significance": 3,
-   "predecessors": [
-    "scythians"
-   ],
-   "blurb": "The first great steppe confederation, whose pressure on Han China shaped the Great Wall and the Silk Road alike.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Xiongnu"
-  },
-  {
-   "id": "kushan",
-   "name": "Kushan Empire",
-   "nameNative": "Κυϸανο",
-   "start": 30,
-   "end": 375,
-   "startPrecision": "circa",
-   "endPrecision": "circa",
-   "region": "central-asia-steppe",
-   "category": "empire",
-   "significance": 3,
-   "blurb": "A Central Asian empire spanning Bactria and northern India, a crossroads state that carried Buddhism toward China.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Kushan_Empire"
-  },
-  {
-   "id": "gokturk",
-   "name": "Göktürk Khaganate",
-   "nameNative": "𐰜𐰇𐰚 𐱅𐰇𐰼𐰰",
-   "start": 552,
-   "end": 744,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "central-asia-steppe",
-   "category": "khanate",
-   "significance": 3,
-   "successors": [
-    "uyghur-khaganate"
-   ],
-   "blurb": "The first empire to rule the steppe under the Turkic name, leaving the oldest written Turkic monuments on the Orkhon.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/First_Turkic_Khaganate"
-  },
-  {
-   "id": "uyghur-khaganate",
-   "name": "Uyghur Khaganate",
-   "start": 744,
-   "end": 840,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "central-asia-steppe",
-   "category": "khanate",
-   "significance": 2,
-   "predecessors": [
-    "gokturk"
-   ],
-   "capital": "Ordu-Baliq",
-   "blurb": "The Turkic empire that succeeded the Göktürks and propped up the Tang during the An Lushan rebellion.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Uyghur_Khaganate"
-  },
-  {
-   "id": "khwarazmian",
-   "name": "Khwarazmian Empire",
-   "nameNative": "خوارزمشاهیان",
-   "start": 1077,
-   "end": 1231,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "central-asia-steppe",
-   "category": "empire",
-   "significance": 2,
-   "blurb": "A Persianate empire of Central Asia and Iran whose execution of Mongol envoys invited the most devastating invasion of the age.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Khwarazmian_Empire"
-  },
-  {
-   "id": "mongol-empire",
-   "name": "Mongol Empire",
-   "nameNative": "ᠮᠣᠩᠭᠣᠯ ᠤᠯᠤᠰ",
-   "start": 1206,
-   "end": 1368,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "central-asia-steppe",
-   "category": "khanate",
-   "significance": 5,
-   "predecessors": [
-    "khwarazmian"
-   ],
-   "successors": [
-    "golden-horde",
-    "ilkhanate",
-    "yuan"
-   ],
-   "capital": "Karakorum",
-   "blurb": "Genghis Khan's empire became the largest contiguous one in history, linking China to Europe under a single peace and a single postal relay.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Mongol_Empire"
-  },
-  {
-   "id": "golden-horde",
-   "name": "Golden Horde",
-   "nameNative": "Алтан Орд",
-   "start": 1242,
-   "end": 1502,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "central-asia-steppe",
-   "category": "khanate",
-   "significance": 3,
-   "parent": "mongol-empire",
-   "predecessors": [
-    "mongol-empire"
-   ],
-   "capital": "Sarai",
-   "blurb": "The Mongol khanate of the western steppe, overlord of the Russian principalities for over two centuries.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Golden_Horde"
-  },
-  {
-   "id": "timurid",
-   "name": "Timurid Empire",
-   "nameNative": "تیموریان",
-   "start": 1370,
-   "end": 1507,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "central-asia-steppe",
-   "category": "empire",
-   "significance": 3,
-   "successors": [
-    "mughal"
-   ],
-   "capital": "Samarkand",
-   "blurb": "Timur's conquests rebuilt a Mongol-scale empire with Persian high culture; his descendants made Samarkand and Herat brilliant.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Timurid_Empire"
-  },
-  {
-   "id": "kazakh-khanate",
-   "name": "Kazakh Khanate",
-   "nameNative": "Қазақ хандығы",
-   "start": 1465,
-   "end": 1847,
+   "id": "three-kingdoms-korea",
+   "name": "Three Kingdoms of Korea",
+   "nameNative": "삼국시대",
+   "start": -57,
+   "end": 668,
    "startPrecision": "circa",
    "endPrecision": "exact",
-   "region": "central-asia-steppe",
-   "category": "khanate",
-   "significance": 2,
+   "region": "korea-japan",
+   "category": "kingdom",
+   "significance": 3,
    "predecessors": [
-    "golden-horde"
+    "gojoseon"
    ],
    "successors": [
-    "kazakhstan"
+    "unified-silla"
    ],
-   "blurb": "The steppe khanate whose three hordes defined Kazakh identity before absorption into the Russian Empire.",
+   "blurb": "Goguryeo, Baekje and Silla contended for the peninsula for seven centuries until Silla won with Tang help.",
    "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Kazakh_Khanate"
+   "wikipedia": "https://en.wikipedia.org/wiki/Three_Kingdoms_of_Korea"
   },
   {
-   "id": "kazakhstan",
-   "name": "Kazakhstan",
-   "nameNative": "Қазақстан",
-   "start": 1991,
+   "id": "kofun-yamato",
+   "name": "Kofun & Yamato Japan",
+   "nameNative": "大和",
+   "start": 250,
+   "end": 710,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "korea-japan",
+   "category": "kingdom",
+   "significance": 2,
+   "successors": [
+    "heian"
+   ],
+   "blurb": "The age of great keyhole tombs and the first Japanese state, importing writing and Buddhism through Korea.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kofun_period"
+  },
+  {
+   "id": "unified-silla",
+   "name": "Unified Silla",
+   "nameNative": "통일신라",
+   "start": 668,
+   "end": 935,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "korea-japan",
+   "category": "kingdom",
+   "significance": 2,
+   "predecessors": [
+    "three-kingdoms-korea"
+   ],
+   "successors": [
+    "goryeo"
+   ],
+   "capital": "Gyeongju",
+   "blurb": "The first unification of most of Korea, a Buddhist golden age centred on Gyeongju.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Unified_Silla"
+  },
+  {
+   "id": "balhae",
+   "name": "Balhae",
+   "nameNative": "발해",
+   "start": 698,
+   "end": 926,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "korea-japan",
+   "category": "kingdom",
+   "significance": 2,
+   "predecessors": [
+    "three-kingdoms-korea"
+   ],
+   "capital": "Sanggyeong",
+   "blurb": "A Goguryeo successor state in Manchuria and northern Korea, called the flourishing land in the east.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Balhae"
+  },
+  {
+   "id": "heian",
+   "name": "Heian Japan",
+   "nameNative": "平安時代",
+   "start": 794,
+   "end": 1185,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "korea-japan",
+   "category": "kingdom",
+   "significance": 3,
+   "predecessors": [
+    "kofun-yamato"
+   ],
+   "successors": [
+    "kamakura"
+   ],
+   "capital": "Kyoto",
+   "blurb": "Four centuries of courtly rule from Kyoto, the world of the Tale of Genji, ending as warrior clans took power.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Heian_period"
+  },
+  {
+   "id": "goryeo",
+   "name": "Goryeo",
+   "nameNative": "고려",
+   "start": 918,
+   "end": 1392,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "korea-japan",
+   "category": "kingdom",
+   "significance": 3,
+   "predecessors": [
+    "unified-silla"
+   ],
+   "successors": [
+    "joseon"
+   ],
+   "capital": "Kaesong",
+   "blurb": "The dynasty that gave Korea its Western name, printer of the Tripitaka Koreana and inventor of metal movable type.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Goryeo"
+  },
+  {
+   "id": "kamakura",
+   "name": "Kamakura Shogunate",
+   "nameNative": "鎌倉幕府",
+   "start": 1185,
+   "end": 1333,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "korea-japan",
+   "category": "kingdom",
+   "significance": 2,
+   "predecessors": [
+    "heian"
+   ],
+   "successors": [
+    "muromachi"
+   ],
+   "capital": "Kamakura",
+   "blurb": "Japan's first shogunate, which twice turned back Kublai Khan's invasion fleets with the help of storms named kamikaze.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kamakura_shogunate"
+  },
+  {
+   "id": "ainu-ezo",
+   "name": "Ainu Lands",
+   "nameNative": "アイヌモシリ",
+   "start": 1200,
+   "end": 1869,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "korea-japan",
+   "category": "confederation",
+   "significance": 1,
+   "blurb": "The Ainu homeland across Hokkaido and Sakhalin, absorbed into Japan during the Meiji period.",
+   "confidence": "low",
+   "wikipedia": "https://en.wikipedia.org/wiki/Ainu_Lands"
+  },
+  {
+   "id": "muromachi",
+   "name": "Ashikaga Shogunate",
+   "nameNative": "室町幕府",
+   "start": 1336,
+   "end": 1573,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "korea-japan",
+   "category": "kingdom",
+   "significance": 2,
+   "predecessors": [
+    "kamakura"
+   ],
+   "successors": [
+    "edo"
+   ],
+   "capital": "Kyoto",
+   "blurb": "A weak shogunate whose collapse into the Warring States era coincided with Zen, the tea ceremony and the first Europeans.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Ashikaga_shogunate"
+  },
+  {
+   "id": "joseon",
+   "name": "Joseon",
+   "nameNative": "조선",
+   "start": 1392,
+   "end": 1897,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "korea-japan",
+   "category": "dynasty",
+   "significance": 3,
+   "predecessors": [
+    "goryeo"
+   ],
+   "successors": [
+    "korea-modern"
+   ],
+   "capital": "Hanyang",
+   "blurb": "Five centuries of Confucian monarchy that created the hangul alphabet and weathered invasions from both Japan and the Manchus.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Joseon"
+  },
+  {
+   "id": "ryukyu",
+   "name": "Ryukyu Kingdom",
+   "nameNative": "琉球國",
+   "start": 1429,
+   "end": 1879,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "korea-japan",
+   "category": "kingdom",
+   "significance": 1,
+   "capital": "Shuri",
+   "blurb": "An island kingdom that traded between Japan, China and Southeast Asia before Japan annexed it.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Ryukyu_Kingdom"
+  },
+  {
+   "id": "sengoku",
+   "name": "Sengoku Period",
+   "nameNative": "戦国時代",
+   "start": 1467,
+   "end": 1603,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "korea-japan",
+   "category": "confederation",
+   "significance": 2,
+   "predecessors": [
+    "muromachi"
+   ],
+   "successors": [
+    "edo"
+   ],
+   "blurb": "A century of warring domains in Japan, ended by three successive unifiers and the arrival of firearms.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Sengoku_Period"
+  },
+  {
+   "id": "edo",
+   "name": "Tokugawa Shogunate",
+   "nameNative": "江戸幕府",
+   "start": 1603,
+   "end": 1868,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "korea-japan",
+   "category": "kingdom",
+   "significance": 3,
+   "predecessors": [
+    "muromachi"
+   ],
+   "successors": [
+    "japan-modern"
+   ],
+   "capital": "Edo",
+   "blurb": "Two and a half centuries of enforced peace and near-closed borders, with Edo growing into a city of a million.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Tokugawa_shogunate"
+  },
+  {
+   "id": "japan-modern",
+   "name": "Japan",
+   "nameNative": "日本",
+   "start": 1868,
    "end": 2026,
    "startPrecision": "exact",
    "endPrecision": "exact",
-   "region": "central-asia-steppe",
+   "region": "korea-japan",
+   "category": "modern-state",
+   "significance": 4,
+   "predecessors": [
+    "edo"
+   ],
+   "capital": "Tokyo",
+   "blurb": "From the Meiji Restoration through empire, defeat and reconstruction to the world's fourth largest economy.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Japan"
+  },
+  {
+   "id": "korea-modern",
+   "name": "Korea",
+   "nameNative": "한국",
+   "start": 1948,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "korea-japan",
+   "category": "modern-state",
+   "significance": 3,
+   "predecessors": [
+    "joseon"
+   ],
+   "capital": "Seoul",
+   "blurb": "The peninsula divided since 1945 into two states, the South an industrial democracy, the North a dynastic autocracy.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Korea"
+  },
+  {
+   "id": "minoan",
+   "name": "Minoan Civilisation",
+   "start": -2700,
+   "end": -1450,
+   "startPrecision": "century",
+   "endPrecision": "century",
+   "region": "mediterranean",
+   "category": "city-state",
+   "significance": 3,
+   "successors": [
+    "mycenaean"
+   ],
+   "capital": "Knossos",
+   "blurb": "Europe's first literate civilisation, palace towns on Crete trading across the Aegean until eruption, earthquake and Mycenaean takeover.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Minoan_civilization"
+  },
+  {
+   "id": "mycenaean",
+   "name": "Mycenaean Greece",
+   "start": -1600,
+   "end": -1100,
+   "startPrecision": "century",
+   "endPrecision": "century",
+   "region": "mediterranean",
+   "category": "city-state",
+   "significance": 3,
+   "predecessors": [
+    "minoan"
+   ],
+   "successors": [
+    "greek-city-states"
+   ],
+   "capital": "Mycenae",
+   "blurb": "The palace kingdoms of Homer's heroes, undone in the general collapse of the Bronze Age eastern Mediterranean.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Mycenaean_Greece"
+  },
+  {
+   "id": "carthage",
+   "name": "Carthage",
+   "nameNative": "𐤒𐤓𐤕𐤟𐤇𐤃𐤔𐤕",
+   "start": -814,
+   "end": -146,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "mediterranean",
+   "category": "republic",
+   "significance": 3,
+   "predecessors": [
+    "canaan-phoenicia"
+   ],
+   "capital": "Carthage",
+   "blurb": "The Phoenician colony that became the western Mediterranean's naval power, destroyed by Rome after three wars.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Ancient_Carthage"
+  },
+  {
+   "id": "greek-city-states",
+   "name": "Greek City-States",
+   "nameNative": "Πόλεις",
+   "start": -800,
+   "end": -338,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "mediterranean",
+   "category": "city-state",
+   "significance": 4,
+   "predecessors": [
+    "mycenaean"
+   ],
+   "successors": [
+    "macedon"
+   ],
+   "blurb": "Athens, Sparta and hundreds of rivals invented citizenship, drama, philosophy and history writing between their wars.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Polis"
+  },
+  {
+   "id": "roman-republic",
+   "name": "Roman Republic",
+   "nameNative": "Res publica Romana",
+   "start": -509,
+   "end": -27,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "mediterranean",
+   "category": "republic",
+   "significance": 4,
+   "successors": [
+    "roman-empire"
+   ],
+   "capital": "Rome",
+   "blurb": "The city-state that conquered the Mediterranean under an elected magistracy before collapsing into one-man rule.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Roman_Republic"
+  },
+  {
+   "id": "macedon",
+   "name": "Kingdom of Macedon",
+   "nameNative": "Μακεδονία",
+   "start": -359,
+   "end": -168,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "mediterranean",
+   "category": "kingdom",
+   "significance": 4,
+   "predecessors": [
+    "greek-city-states"
+   ],
+   "successors": [
+    "seleucid-empire",
+    "ptolemaic"
+   ],
+   "capital": "Pella",
+   "blurb": "Philip II mastered Greece and his son Alexander conquered Persia to the Indus, scattering Greek culture across three continents.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Macedonia_(ancient_kingdom)"
+  },
+  {
+   "id": "roman-empire",
+   "name": "Roman Empire",
+   "nameNative": "Imperium Romanum",
+   "start": -27,
+   "end": 395,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "mediterranean",
+   "category": "empire",
+   "significance": 5,
+   "predecessors": [
+    "roman-republic"
+   ],
+   "successors": [
+    "western-roman-empire",
+    "byzantine-empire"
+   ],
+   "capital": "Rome",
+   "blurb": "The Mediterranean's single largest and longest shadow, an empire of roads, law and legions ringing the entire sea.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Roman_Empire"
+  },
+  {
+   "id": "western-roman-empire",
+   "name": "Western Roman Empire",
+   "start": 395,
+   "end": 476,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "mediterranean",
+   "category": "empire",
+   "significance": 3,
+   "parent": "roman-empire",
+   "predecessors": [
+    "roman-empire"
+   ],
+   "capital": "Ravenna",
+   "blurb": "The western half of the divided empire, dismantled within a century by migrating peoples and its own generals.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Western_Roman_Empire"
+  },
+  {
+   "id": "byzantine-empire",
+   "name": "Byzantine Empire",
+   "nameNative": "Βασιλεία Ῥωμαίων",
+   "aka": [
+    "Eastern Roman Empire"
+   ],
+   "start": 395,
+   "end": 1453,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "mediterranean",
+   "category": "empire",
+   "significance": 5,
+   "parent": "roman-empire",
+   "predecessors": [
+    "roman-empire"
+   ],
+   "successors": [
+    "ottoman-empire"
+   ],
+   "capital": "Constantinople",
+   "blurb": "The eastern Roman state that outlived the west by a thousand years, Greek-speaking and Christian, anchored on Constantinople.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Byzantine_Empire"
+  },
+  {
+   "id": "lombards",
+   "name": "Lombard Kingdom",
+   "nameNative": "Regnum Langobardorum",
+   "start": 568,
+   "end": 774,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "mediterranean",
+   "category": "kingdom",
+   "significance": 2,
+   "capital": "Pavia",
+   "blurb": "Germanic rulers of most of Italy after Byzantium's brief reconquest, ended by Charlemagne.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Lombard_Kingdom"
+  },
+  {
+   "id": "venice",
+   "name": "Republic of Venice",
+   "nameNative": "Serenissima",
+   "start": 697,
+   "end": 1797,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "mediterranean",
+   "category": "republic",
+   "significance": 3,
+   "capital": "Venice",
+   "blurb": "A lagoon city that ran the eastern Mediterranean's trade for centuries, its arsenal the largest industrial site in Europe.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Republic_of_Venice"
+  },
+  {
+   "id": "papal-states",
+   "name": "Papal States",
+   "nameNative": "Stato Pontificio",
+   "start": 756,
+   "end": 1870,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "mediterranean",
+   "category": "city-state",
+   "significance": 2,
+   "capital": "Rome",
+   "blurb": "The pope's temporal kingdom across central Italy, a fixture of European politics for eleven centuries until Italian unification.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Papal_States"
+  },
+  {
+   "id": "normans-sicily",
+   "name": "Norman Kingdom of Sicily",
+   "start": 1130,
+   "end": 1194,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "mediterranean",
+   "category": "kingdom",
+   "significance": 1,
+   "capital": "Palermo",
+   "blurb": "Norman adventurers built a Latin, Greek and Arabic kingdom in the central Mediterranean.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Norman_Kingdom_of_Sicily"
+  },
+  {
+   "id": "greece-modern",
+   "name": "Greece",
+   "nameNative": "Ελλάδα",
+   "start": 1830,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "mediterranean",
    "category": "modern-state",
    "significance": 2,
    "predecessors": [
-    "kazakh-khanate",
-    "ussr"
+    "ottoman-empire"
    ],
-   "capital": "Astana",
-   "blurb": "The largest of the post-Soviet Central Asian republics, spanning the old steppe heartland.",
+   "capital": "Athens",
+   "blurb": "The first new state carved from the Ottoman Empire, recognised after a decade of revolutionary war.",
    "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Kazakhstan"
+   "wikipedia": "https://en.wikipedia.org/wiki/Greece"
+  },
+  {
+   "id": "italy",
+   "name": "Italy",
+   "nameNative": "Italia",
+   "start": 1861,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "mediterranean",
+   "category": "modern-state",
+   "significance": 3,
+   "capital": "Rome",
+   "blurb": "The peninsula's patchwork of kingdoms and duchies unified under Piedmont, completed when Rome fell in 1870.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Italy"
+  },
+  {
+   "id": "canaan-phoenicia",
+   "name": "Canaanite & Phoenician Cities",
+   "nameNative": "𐤊𐤍𐤏𐤍",
+   "start": -2750,
+   "end": -332,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "near-east",
+   "category": "city-state",
+   "significance": 3,
+   "successors": [
+    "carthage"
+   ],
+   "capital": "Tyre",
+   "blurb": "The merchant cities of the Levant coast, Byblos to Tyre, who spread the alphabet along their sea lanes.",
+   "confidence": "low",
+   "wikipedia": "https://en.wikipedia.org/wiki/Phoenicia"
+  },
+  {
+   "id": "hittite",
+   "name": "Hittite Empire",
+   "nameNative": "𒄩𒀜𒌅𒊭",
+   "start": -1650,
+   "end": -1180,
+   "startPrecision": "circa",
+   "endPrecision": "circa",
+   "region": "near-east",
+   "category": "empire",
+   "significance": 3,
+   "capital": "Hattusa",
+   "blurb": "The Anatolian great power that fought Egypt to a standstill at Kadesh and signed history's first surviving peace treaty.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Hittites"
+  },
+  {
+   "id": "mitanni",
+   "name": "Mitanni",
+   "start": -1500,
+   "end": -1260,
+   "startPrecision": "century",
+   "endPrecision": "circa",
+   "region": "near-east",
+   "category": "kingdom",
+   "significance": 2,
+   "blurb": "A Hurrian kingdom of northern Mesopotamia and Syria, a fourth player among the Bronze Age great powers until Assyria absorbed it.",
+   "confidence": "low",
+   "wikipedia": "https://en.wikipedia.org/wiki/Mitanni"
+  },
+  {
+   "id": "phrygia",
+   "name": "Phrygia",
+   "nameNative": "Φρυγία",
+   "start": -1200,
+   "end": -546,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "near-east",
+   "category": "kingdom",
+   "significance": 1,
+   "capital": "Gordium",
+   "blurb": "An Anatolian kingdom remembered through the legends of Midas and the Gordian knot.",
+   "confidence": "low",
+   "wikipedia": "https://en.wikipedia.org/wiki/Phrygia"
+  },
+  {
+   "id": "israel-judah",
+   "name": "Israel & Judah",
+   "nameNative": "ישראל ויהודה",
+   "start": -1047,
+   "end": -586,
+   "startPrecision": "disputed",
+   "endPrecision": "exact",
+   "region": "near-east",
+   "category": "kingdom",
+   "significance": 2,
+   "blurb": "The Hebrew kingdoms of the southern Levant, whose scriptures long outlived the states themselves.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Israel_(Samaria)"
+  },
+  {
+   "id": "urartu",
+   "name": "Urartu",
+   "start": -860,
+   "end": -590,
+   "startPrecision": "circa",
+   "endPrecision": "circa",
+   "region": "near-east",
+   "category": "kingdom",
+   "significance": 2,
+   "capital": "Tushpa",
+   "blurb": "A highland kingdom around Lake Van, Assyria's most persistent northern rival.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Urartu"
+  },
+  {
+   "id": "lydia",
+   "name": "Kingdom of Lydia",
+   "nameNative": "𐤮𐤱𐤠𐤭𐤣",
+   "start": -680,
+   "end": -546,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "near-east",
+   "category": "kingdom",
+   "significance": 2,
+   "capital": "Sardis",
+   "blurb": "An Anatolian kingdom credited with minting the first true coinage, its last king Croesus a proverb for wealth.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Lydia"
+  },
+  {
+   "id": "armenia-ancient",
+   "name": "Kingdom of Armenia",
+   "nameNative": "Հայք",
+   "start": -321,
+   "end": 428,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "near-east",
+   "category": "kingdom",
+   "significance": 2,
+   "capital": "Artaxata",
+   "blurb": "A highland kingdom between Rome and Persia, the first state to adopt Christianity as its official religion.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Armenia_(antiquity)"
+  },
+  {
+   "id": "nabataea",
+   "name": "Nabataean Kingdom",
+   "nameNative": "𐢕𐢃𐢋𐢈",
+   "start": -168,
+   "end": 106,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "near-east",
+   "category": "kingdom",
+   "significance": 2,
+   "capital": "Petra",
+   "blurb": "Caravan traders who cut Petra from rock and controlled the incense route until Rome annexed them.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Nabataean_Kingdom"
+  },
+  {
+   "id": "ghassanids",
+   "name": "Ghassanids & Lakhmids",
+   "start": 220,
+   "end": 638,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "near-east",
+   "category": "kingdom",
+   "significance": 1,
+   "blurb": "Arab client kingdoms on the desert frontier, one serving Byzantium and the other Persia.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Ghassanids_and_Lakhmids"
+  },
+  {
+   "id": "palmyra",
+   "name": "Palmyrene Empire",
+   "nameNative": "𐡶𐡣𐡬𐡥𐡴",
+   "start": 260,
+   "end": 273,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "near-east",
+   "category": "empire",
+   "significance": 1,
+   "capital": "Palmyra",
+   "blurb": "Zenobia's desert city briefly seized Egypt and Anatolia from a distracted Rome, then was erased by it.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Palmyrene_Empire"
+  },
+  {
+   "id": "rashidun",
+   "name": "Rashidun Caliphate",
+   "nameNative": "الخلافة الراشدة",
+   "start": 632,
+   "end": 661,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "near-east",
+   "category": "caliphate",
+   "significance": 3,
+   "successors": [
+    "umayyad"
+   ],
+   "capital": "Medina",
+   "blurb": "The first four caliphs after Muhammad, under whom Arab armies took the Levant, Egypt and Persia within a generation.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Rashidun_Caliphate"
+  },
+  {
+   "id": "umayyad",
+   "name": "Umayyad Caliphate",
+   "nameNative": "الخلافة الأموية",
+   "start": 661,
+   "end": 750,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "near-east",
+   "category": "caliphate",
+   "significance": 4,
+   "predecessors": [
+    "rashidun"
+   ],
+   "successors": [
+    "abbasid",
+    "al-andalus"
+   ],
+   "capital": "Damascus",
+   "blurb": "The dynasty that carried Islam from the Atlantic to the Indus, the largest empire the world had yet seen.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Umayyad_Caliphate"
+  },
+  {
+   "id": "bagratid-armenia",
+   "name": "Bagratid Armenia",
+   "nameNative": "Բագրատունյաց",
+   "start": 884,
+   "end": 1045,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "near-east",
+   "category": "kingdom",
+   "significance": 1,
+   "capital": "Ani",
+   "blurb": "A restored Armenian kingdom whose capital Ani was called the city of a thousand and one churches.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Bagratid_Armenia"
+  },
+  {
+   "id": "rum-seljuks",
+   "name": "Sultanate of Rum",
+   "nameNative": "سلجوقیان روم",
+   "start": 1077,
+   "end": 1308,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "near-east",
+   "category": "kingdom",
+   "significance": 2,
+   "successors": [
+    "ottoman-empire"
+   ],
+   "capital": "Konya",
+   "blurb": "The Seljuk successor state in Anatolia that turkified Asia Minor, ancestor of the beyliks from which the Ottomans rose.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Sultanate_of_Rum"
+  },
+  {
+   "id": "crusader-states",
+   "name": "Crusader States",
+   "nameNative": "Outremer",
+   "start": 1099,
+   "end": 1291,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "near-east",
+   "category": "kingdom",
+   "significance": 2,
+   "capital": "Jerusalem",
+   "blurb": "Latin Christian statelets planted in the Levant by the First Crusade, ending when Acre fell to the Mamluks.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Crusader_states"
+  },
+  {
+   "id": "ottoman-empire",
+   "name": "Ottoman Empire",
+   "nameNative": "دولت عليه عثمانيه",
+   "start": 1299,
+   "end": 1922,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "near-east",
+   "category": "empire",
+   "significance": 5,
+   "predecessors": [
+    "rum-seljuks",
+    "byzantine-empire"
+   ],
+   "successors": [
+    "turkey",
+    "greece-modern"
+   ],
+   "capital": "Constantinople",
+   "blurb": "The Turkish empire that took Constantinople and ruled the eastern Mediterranean, the Balkans and the Hejaz for six centuries.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Ottoman_Empire"
+  },
+  {
+   "id": "turkey",
+   "name": "Turkey",
+   "nameNative": "Türkiye",
+   "start": 1923,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "near-east",
+   "category": "modern-state",
+   "significance": 3,
+   "predecessors": [
+    "ottoman-empire"
+   ],
+   "capital": "Ankara",
+   "blurb": "Atatürk's secular republic built from the Ottoman core after the empire's partition.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Turkey"
+  },
+  {
+   "id": "old-kingdom-egypt",
+   "name": "Old Kingdom Egypt",
+   "start": -2686,
+   "end": -2181,
+   "startPrecision": "century",
+   "endPrecision": "circa",
+   "region": "north-africa",
+   "category": "kingdom",
+   "significance": 4,
+   "successors": [
+    "middle-kingdom-egypt"
+   ],
+   "capital": "Memphis",
+   "blurb": "The pyramid-building age of Egypt, when the state along the Nile reached its first peak of centralised power.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Old_Kingdom_of_Egypt"
+  },
+  {
+   "id": "middle-kingdom-egypt",
+   "name": "Middle Kingdom Egypt",
+   "start": -2055,
+   "end": -1650,
+   "startPrecision": "circa",
+   "endPrecision": "circa",
+   "region": "north-africa",
+   "category": "kingdom",
+   "significance": 3,
+   "predecessors": [
+    "old-kingdom-egypt"
+   ],
+   "successors": [
+    "new-kingdom-egypt"
+   ],
+   "capital": "Thebes",
+   "blurb": "Egypt reunified after a century of fragmentation, a classical age of literature and administration.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Middle_Kingdom_of_Egypt"
+  },
+  {
+   "id": "new-kingdom-egypt",
+   "name": "New Kingdom Egypt",
+   "start": -1550,
+   "end": -1069,
+   "startPrecision": "circa",
+   "endPrecision": "circa",
+   "region": "north-africa",
+   "category": "kingdom",
+   "significance": 4,
+   "predecessors": [
+    "middle-kingdom-egypt"
+   ],
+   "successors": [
+    "third-intermediate-egypt"
+   ],
+   "capital": "Thebes",
+   "blurb": "Egypt's imperial era under rulers like Thutmose III and Ramesses II, projecting power into the Levant and Nubia.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/New_Kingdom_of_Egypt"
+  },
+  {
+   "id": "third-intermediate-egypt",
+   "name": "Third Intermediate Period",
+   "start": -1069,
+   "end": -664,
+   "startPrecision": "circa",
+   "endPrecision": "circa",
+   "region": "north-africa",
+   "category": "kingdom",
+   "significance": 2,
+   "predecessors": [
+    "new-kingdom-egypt"
+   ],
+   "successors": [
+    "late-period-egypt"
+   ],
+   "blurb": "Egypt divided among rival dynasties, including a century of rule by the Kushite kings of the south.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Third_Intermediate_Period_of_Egypt"
+  },
+  {
+   "id": "late-period-egypt",
+   "name": "Late Period Egypt",
+   "start": -664,
+   "end": -332,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "north-africa",
+   "category": "kingdom",
+   "significance": 2,
+   "predecessors": [
+    "third-intermediate-egypt"
+   ],
+   "successors": [
+    "ptolemaic"
+   ],
+   "capital": "Sais",
+   "blurb": "The last native dynasties, alternating with Persian rule, before Alexander took Egypt without a fight.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Late_Period_of_ancient_Egypt"
+  },
+  {
+   "id": "ptolemaic",
+   "name": "Ptolemaic Egypt",
+   "nameNative": "Πτολεμαϊκὴ βασιλεία",
+   "start": -305,
+   "end": -30,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "north-africa",
+   "category": "kingdom",
+   "significance": 3,
+   "predecessors": [
+    "macedon",
+    "late-period-egypt"
+   ],
+   "successors": [
+    "roman-egypt"
+   ],
+   "capital": "Alexandria",
+   "blurb": "The Greek dynasty of Alexander's general Ptolemy, ending with Cleopatra. Alexandria was the ancient world's great library city.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Ptolemaic_Kingdom"
+  },
+  {
+   "id": "carthage-numidia",
+   "name": "Numidia & Mauretania",
+   "start": -202,
+   "end": 44,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "north-africa",
+   "category": "kingdom",
+   "significance": 1,
+   "blurb": "Berber kingdoms of the Maghreb that allied with and against Rome before annexation.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Numidia_and_Mauretania"
+  },
+  {
+   "id": "roman-egypt",
+   "name": "Roman Egypt",
+   "nameNative": "Aegyptus",
+   "start": -30,
+   "end": 641,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "north-africa",
+   "category": "colonial",
+   "significance": 2,
+   "predecessors": [
+    "ptolemaic"
+   ],
+   "blurb": "Rome's breadbasket province, then Byzantine, until the Arab conquest carried it into a different world.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Roman_Egypt"
+  },
+  {
+   "id": "fatimid",
+   "name": "Fatimid Caliphate",
+   "nameNative": "الفاطميون",
+   "start": 909,
+   "end": 1171,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "north-africa",
+   "category": "caliphate",
+   "significance": 3,
+   "successors": [
+    "mamluk"
+   ],
+   "capital": "Cairo",
+   "blurb": "An Ismaili Shia caliphate that founded Cairo and ruled from Tunisia to Syria at its height.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Fatimid_Caliphate"
+  },
+  {
+   "id": "almoravid",
+   "name": "Almoravid Empire",
+   "nameNative": "المرابطون",
+   "start": 1040,
+   "end": 1147,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "north-africa",
+   "category": "empire",
+   "significance": 2,
+   "successors": [
+    "almohad"
+   ],
+   "capital": "Marrakesh",
+   "blurb": "Berber reformers from the Sahara who united Morocco and rescued Muslim Spain from the Reconquista.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Almoravid_Empire"
+  },
+  {
+   "id": "almohad",
+   "name": "Almohad Caliphate",
+   "nameNative": "الموحدون",
+   "start": 1121,
+   "end": 1269,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "north-africa",
+   "category": "caliphate",
+   "significance": 2,
+   "predecessors": [
+    "almoravid"
+   ],
+   "capital": "Marrakesh",
+   "blurb": "Their successors ruled from Iberia to Libya before losing Spain at Las Navas de Tolosa.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Almohad_Caliphate"
+  },
+  {
+   "id": "ayyubid",
+   "name": "Ayyubid Sultanate",
+   "nameNative": "الأيوبيون",
+   "start": 1171,
+   "end": 1250,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "north-africa",
+   "category": "kingdom",
+   "significance": 2,
+   "predecessors": [
+    "fatimid"
+   ],
+   "successors": [
+    "mamluk"
+   ],
+   "capital": "Cairo",
+   "blurb": "Saladin's dynasty, which retook Jerusalem from the crusaders and ruled Egypt and Syria.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Ayyubid_Sultanate"
+  },
+  {
+   "id": "hafsid",
+   "name": "Hafsid & Zayyanid Maghreb",
+   "start": 1229,
+   "end": 1574,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "north-africa",
+   "category": "dynasty",
+   "significance": 1,
+   "predecessors": [
+    "almohad"
+   ],
+   "capital": "Tunis",
+   "blurb": "Successor dynasties of the Almohads in Tunisia and Algeria, later Ottoman regencies.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Hafsid_and_Zayyanid_Maghreb"
+  },
+  {
+   "id": "mamluk",
+   "name": "Mamluk Sultanate",
+   "nameNative": "دولة المماليك",
+   "start": 1250,
+   "end": 1517,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "north-africa",
+   "category": "kingdom",
+   "significance": 3,
+   "predecessors": [
+    "fatimid"
+   ],
+   "successors": [
+    "ottoman-egypt"
+   ],
+   "capital": "Cairo",
+   "blurb": "A regime of slave-soldiers who stopped the Mongols at Ain Jalut and ruled Egypt and Syria until the Ottomans took Cairo.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Mamluk_Sultanate"
+  },
+  {
+   "id": "ottoman-egypt",
+   "name": "Ottoman & Khedival Egypt",
+   "start": 1517,
+   "end": 1882,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "north-africa",
+   "category": "colonial",
+   "significance": 2,
+   "predecessors": [
+    "mamluk"
+   ],
+   "successors": [
+    "egypt-modern"
+   ],
+   "capital": "Cairo",
+   "blurb": "Egypt under Ottoman rule and then Muhammad Ali's ambitious dynasty, ending in British occupation.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Egypt_Eyalet"
+  },
+  {
+   "id": "alaouite-morocco",
+   "name": "Morocco",
+   "nameNative": "المغرب",
+   "start": 1631,
+   "end": 2026,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "north-africa",
+   "category": "kingdom",
+   "significance": 2,
+   "capital": "Rabat",
+   "blurb": "The Alaouite dynasty has ruled Morocco from the seventeenth century through a French protectorate to the present kingdom.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Alaouite_dynasty"
+  },
+  {
+   "id": "egypt-modern",
+   "name": "Egypt",
+   "nameNative": "مصر",
+   "start": 1922,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "north-africa",
+   "category": "modern-state",
+   "significance": 3,
+   "predecessors": [
+    "ottoman-egypt"
+   ],
+   "capital": "Cairo",
+   "blurb": "Nominal independence from Britain in 1922, full sovereignty after 1952, and the Arab world's most populous state.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Egypt"
+  },
+  {
+   "id": "new-guinea",
+   "name": "New Guinea Highland Societies",
+   "start": -4000,
+   "end": 1884,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "oceania",
+   "category": "confederation",
+   "significance": 1,
+   "blurb": "Among the world's earliest agriculturalists at Kuk Swamp, in valleys unknown to outsiders until the 1930s.",
+   "confidence": "low",
+   "wikipedia": "https://en.wikipedia.org/wiki/New_Guinea_Highland_Societies"
+  },
+  {
+   "id": "lapita",
+   "name": "Lapita Culture",
+   "start": -1300,
+   "end": -750,
+   "startPrecision": "century",
+   "endPrecision": "century",
+   "region": "oceania",
+   "category": "confederation",
+   "significance": 2,
+   "blurb": "Seafaring pottery-makers who carried people, pigs and languages from Near Oceania out into the remote Pacific.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Lapita_culture"
+  },
+  {
+   "id": "polynesian-expansion",
+   "name": "Polynesian Expansion",
+   "start": -750,
+   "end": 1250,
+   "startPrecision": "century",
+   "endPrecision": "century",
+   "region": "oceania",
+   "category": "confederation",
+   "significance": 2,
+   "predecessors": [
+    "lapita"
+   ],
+   "blurb": "The longest voyages of the pre-modern world, settling islands from Samoa to Hawaiʻi, Rapa Nui and finally Aotearoa by double-hulled canoe.",
+   "confidence": "low",
+   "wikipedia": "https://en.wikipedia.org/wiki/Polynesians"
+  },
+  {
+   "id": "fiji-samoa",
+   "name": "Fijian & Samoan Chiefdoms",
+   "start": 900,
+   "end": 1900,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "oceania",
+   "category": "confederation",
+   "significance": 1,
+   "blurb": "Rival chiefdoms of western Polynesia and Melanesia, linked by voyaging, marriage and war.",
+   "confidence": "low",
+   "wikipedia": "https://en.wikipedia.org/wiki/Fijian_and_Samoan_Chiefdoms"
+  },
+  {
+   "id": "tui-tonga",
+   "name": "Tuʻi Tonga Empire",
+   "start": 950,
+   "end": 1865,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "oceania",
+   "category": "empire",
+   "significance": 2,
+   "capital": "Muʻa",
+   "blurb": "A Tongan maritime chiefdom whose influence and tribute networks reached across a wide arc of the central Pacific.",
+   "confidence": "low",
+   "wikipedia": "https://en.wikipedia.org/wiki/Tu%CA%BBi_Tonga_Empire"
+  },
+  {
+   "id": "maori-iwi",
+   "name": "Māori Iwi",
+   "start": 1320,
+   "end": 1840,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "oceania",
+   "category": "confederation",
+   "significance": 2,
+   "predecessors": [
+    "polynesian-expansion"
+   ],
+   "blurb": "The tribal nations of Aotearoa New Zealand, from first settlement to the Treaty of Waitangi.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Iwi"
+  },
+  {
+   "id": "hawaii",
+   "name": "Kingdom of Hawaiʻi",
+   "start": 1795,
+   "end": 1893,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "oceania",
+   "category": "kingdom",
+   "significance": 1,
+   "capital": "Honolulu",
+   "blurb": "Kamehameha I unified the islands into a recognised monarchy that lasted until a planter-led coup backed by American interests.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Hawaiian_Kingdom"
+  },
+  {
+   "id": "new-zealand",
+   "name": "New Zealand",
+   "nameNative": "Aotearoa",
+   "start": 1840,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "oceania",
+   "category": "modern-state",
+   "significance": 2,
+   "predecessors": [
+    "maori-iwi"
+   ],
+   "capital": "Wellington",
+   "blurb": "Founded on the Treaty of Waitangi, the first country to give women the vote.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/New_Zealand"
+  },
+  {
+   "id": "australia",
+   "name": "Australia",
+   "start": 1901,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "oceania",
+   "category": "modern-state",
+   "significance": 2,
+   "capital": "Canberra",
+   "blurb": "The federated Commonwealth of six British colonies, on a continent inhabited by Aboriginal peoples for tens of millennia before 1788.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Australia"
   },
   {
    "id": "indus-valley",
@@ -2333,6 +3737,20 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Satavahana_dynasty"
   },
   {
+   "id": "pallava-chalukya",
+   "name": "Pallavas & Chalukyas",
+   "start": 275,
+   "end": 973,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "south-asia",
+   "category": "dynasty",
+   "significance": 2,
+   "blurb": "Rival southern dynasties whose rock-cut temples set the pattern for South Indian architecture.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Pallavas_and_Chalukyas"
+  },
+  {
    "id": "gupta",
    "name": "Gupta Empire",
    "nameNative": "गुप्त साम्राज्य",
@@ -2347,6 +3765,38 @@
    "blurb": "North India's classical age: Kalidasa's poetry, the zero, and astronomy that travelled west through Arabic translation.",
    "confidence": "high",
    "wikipedia": "https://en.wikipedia.org/wiki/Gupta_Empire"
+  },
+  {
+   "id": "pala",
+   "name": "Pala Empire",
+   "nameNative": "পাল সাম্রাজ্য",
+   "start": 750,
+   "end": 1161,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "south-asia",
+   "category": "empire",
+   "significance": 2,
+   "capital": "Pataliputra",
+   "blurb": "Bengal's Buddhist dynasty, patron of Nalanda and the last great sponsor of Indian Buddhism.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Pala_Empire"
+  },
+  {
+   "id": "rashtrakuta",
+   "name": "Rashtrakuta Dynasty",
+   "nameNative": "राष्ट्रकूट",
+   "start": 753,
+   "end": 982,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "south-asia",
+   "category": "dynasty",
+   "significance": 2,
+   "capital": "Manyakheta",
+   "blurb": "Deccan emperors who carved the Kailasa temple from a single rock and were praised by Arab travellers.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Rashtrakuta_Dynasty"
   },
   {
    "id": "chola",
@@ -2398,6 +3848,21 @@
    "blurb": "The last great Hindu empire of the south, its capital described by visitors as among the largest cities in the world.",
    "confidence": "high",
    "wikipedia": "https://en.wikipedia.org/wiki/Vijayanagara_Empire"
+  },
+  {
+   "id": "bengal-sultanate",
+   "name": "Bengal Sultanate",
+   "start": 1352,
+   "end": 1576,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "south-asia",
+   "category": "kingdom",
+   "significance": 2,
+   "capital": "Gaur",
+   "blurb": "An independent, wealthy delta sultanate that traded with China and was absorbed by the Mughals.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Bengal_Sultanate"
   },
   {
    "id": "mughal",
@@ -2459,6 +3924,22 @@
    "wikipedia": "https://en.wikipedia.org/wiki/British_Raj"
   },
   {
+   "id": "sikh-empire",
+   "name": "Sikh Empire",
+   "nameNative": "ਸਿੱਖ ਸਲਤਨਤ",
+   "start": 1799,
+   "end": 1849,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "south-asia",
+   "category": "empire",
+   "significance": 2,
+   "capital": "Lahore",
+   "blurb": "Ranjit Singh's Punjab state, the last major Indian power to fall to the British.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Sikh_Empire"
+  },
+  {
    "id": "india",
    "name": "India",
    "nameNative": "भारत",
@@ -2508,6 +3989,21 @@
    "blurb": "The Mekong delta's first major polity, an Indian Ocean trading state known mostly through Chinese envoys' reports.",
    "confidence": "low",
    "wikipedia": "https://en.wikipedia.org/wiki/Funan"
+  },
+  {
+   "id": "champa",
+   "name": "Champa",
+   "nameNative": "Campā",
+   "start": 192,
+   "end": 1832,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "southeast-asia",
+   "category": "kingdom",
+   "significance": 2,
+   "blurb": "A Hindu then Muslim maritime kingdom on the Vietnamese coast, absorbed over centuries by Dai Viet.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Champa"
   },
   {
    "id": "srivijaya",
@@ -2618,6 +4114,22 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Ayutthaya_Kingdom"
   },
   {
+   "id": "lan-xang",
+   "name": "Lan Xang",
+   "nameNative": "ລ້ານຊ້າງ",
+   "start": 1353,
+   "end": 1707,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "southeast-asia",
+   "category": "kingdom",
+   "significance": 1,
+   "capital": "Luang Prabang",
+   "blurb": "The kingdom of a million elephants, ancestor of modern Laos.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Lan_Xang"
+  },
+  {
    "id": "malacca",
    "name": "Malacca Sultanate",
    "nameNative": "كسلطانن ملاك",
@@ -2632,6 +4144,40 @@
    "blurb": "The strait's great entrepôt and a centre of Islam's spread through the archipelago, taken by Portugal in 1511.",
    "confidence": "high",
    "wikipedia": "https://en.wikipedia.org/wiki/Malacca_Sultanate"
+  },
+  {
+   "id": "toungoo-konbaung",
+   "name": "Toungoo & Konbaung Burma",
+   "nameNative": "တောင်ငူ·ကုန်းဘောင်",
+   "start": 1510,
+   "end": 1885,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "southeast-asia",
+   "category": "kingdom",
+   "significance": 2,
+   "predecessors": [
+    "pagan"
+   ],
+   "capital": "Ava",
+   "blurb": "Burmese dynasties that built Southeast Asia's largest empire, then lost three wars to Britain.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Toungoo_and_Konbaung_Burma"
+  },
+  {
+   "id": "philippines",
+   "name": "Philippines",
+   "start": 1565,
+   "end": 2026,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "southeast-asia",
+   "category": "modern-state",
+   "significance": 2,
+   "capital": "Manila",
+   "blurb": "Spanish for three centuries, American for four decades, independent since 1946.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Philippines"
   },
   {
    "id": "dutch-east-indies",
@@ -2690,554 +4236,355 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Indonesia"
   },
   {
-   "id": "xia-erlitou",
-   "name": "Xia / Erlitou",
-   "nameNative": "夏",
-   "start": -1900,
-   "end": -1600,
-   "startPrecision": "disputed",
-   "endPrecision": "circa",
-   "region": "east-asia",
-   "category": "dynasty",
+   "id": "kerma",
+   "name": "Kingdom of Kerma",
+   "start": -2500,
+   "end": -1500,
+   "startPrecision": "century",
+   "endPrecision": "century",
+   "region": "sub-saharan-africa",
+   "category": "kingdom",
    "significance": 2,
    "successors": [
-    "shang"
+    "egyptian-nubia"
    ],
-   "blurb": "The bronze-working Erlitou culture on the Yellow River, identified by many with the semi-legendary Xia dynasty.",
-   "confidence": "low",
-   "wikipedia": "https://en.wikipedia.org/wiki/Erlitou_culture"
+   "capital": "Kerma",
+   "blurb": "The first Nubian kingdom, a rival to Egypt on the upper Nile with monumental mud-brick architecture of its own.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Kerma"
   },
   {
-   "id": "shang",
-   "name": "Shang Dynasty",
-   "nameNative": "商朝",
-   "start": -1600,
-   "end": -1046,
+   "id": "egyptian-nubia",
+   "name": "Egyptian Nubia",
+   "start": -1500,
+   "end": -1070,
    "startPrecision": "circa",
    "endPrecision": "circa",
-   "region": "east-asia",
-   "category": "dynasty",
-   "significance": 3,
+   "region": "sub-saharan-africa",
+   "category": "colonial",
+   "significance": 1,
    "predecessors": [
-    "xia-erlitou"
+    "kerma"
    ],
    "successors": [
-    "western-zhou"
+    "kush"
    ],
-   "capital": "Yin",
-   "blurb": "China's first historical dynasty, whose oracle-bone inscriptions are the earliest Chinese writing.",
+   "blurb": "Nubia under New Kingdom viceroys, its gold funding Egypt's imperial age.",
    "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Shang_dynasty"
+   "wikipedia": "https://en.wikipedia.org/wiki/History_of_Nubia"
   },
   {
-   "id": "western-zhou",
-   "name": "Western Zhou",
-   "nameNative": "西周",
-   "start": -1046,
-   "end": -771,
-   "startPrecision": "circa",
-   "endPrecision": "exact",
-   "region": "east-asia",
-   "category": "dynasty",
-   "significance": 3,
-   "predecessors": [
-    "shang"
-   ],
-   "successors": [
-    "eastern-zhou"
-   ],
-   "capital": "Haojing",
-   "blurb": "The dynasty of the Mandate of Heaven, parcelling the realm among kin in a pattern later ages idealised.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Western_Zhou"
-  },
-  {
-   "id": "eastern-zhou",
-   "name": "Eastern Zhou",
-   "nameNative": "東周",
-   "start": -770,
-   "end": -256,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "east-asia",
-   "category": "dynasty",
-   "significance": 3,
-   "predecessors": [
-    "western-zhou"
-   ],
-   "successors": [
-    "qin"
-   ],
-   "capital": "Luoyang",
-   "blurb": "Five centuries of a nominal king and warring states, and simultaneously the age of Confucius, Laozi and the hundred schools.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Eastern_Zhou"
-  },
-  {
-   "id": "qin",
-   "name": "Qin Dynasty",
-   "nameNative": "秦朝",
-   "start": -221,
-   "end": -206,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "east-asia",
-   "category": "dynasty",
-   "significance": 3,
-   "predecessors": [
-    "eastern-zhou"
-   ],
-   "successors": [
-    "han-dynasty"
-   ],
-   "capital": "Xianyang",
-   "blurb": "The brief, ferocious unification: one script, one currency, one emperor, and the terracotta army guarding his tomb.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Qin_dynasty"
-  },
-  {
-   "id": "han-dynasty",
-   "name": "Han Dynasty",
-   "nameNative": "漢朝",
-   "start": -202,
-   "end": 220,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "east-asia",
-   "category": "dynasty",
-   "significance": 5,
-   "predecessors": [
-    "qin"
-   ],
-   "successors": [
-    "jin-dynasty"
-   ],
-   "capital": "Chang'an",
-   "blurb": "The dynasty that fixed the template of the Chinese imperial state, contemporary with Rome and connected to it by the Silk Road.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Han_dynasty"
-  },
-  {
-   "id": "jin-dynasty",
-   "name": "Jin Dynasty",
-   "nameNative": "晉朝",
-   "start": 266,
-   "end": 420,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "east-asia",
-   "category": "dynasty",
-   "significance": 2,
-   "predecessors": [
-    "han-dynasty"
-   ],
-   "successors": [
-    "sui"
-   ],
-   "capital": "Luoyang",
-   "blurb": "A short reunification after the Three Kingdoms, then a court in exile south of the Yangtze as the north fragmented.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Jin_dynasty_(266%E2%80%93420)"
-  },
-  {
-   "id": "sui",
-   "name": "Sui Dynasty",
-   "nameNative": "隋朝",
-   "start": 581,
-   "end": 618,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "east-asia",
-   "category": "dynasty",
-   "significance": 2,
-   "successors": [
-    "tang-dynasty"
-   ],
-   "capital": "Chang'an",
-   "blurb": "Reunified China after four centuries of division and dug the Grand Canal, exhausting itself in the process.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Sui_dynasty"
-  },
-  {
-   "id": "tang-dynasty",
-   "name": "Tang Dynasty",
-   "nameNative": "唐朝",
-   "start": 618,
-   "end": 907,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "east-asia",
-   "category": "dynasty",
-   "significance": 5,
-   "predecessors": [
-    "sui"
-   ],
-   "successors": [
-    "song"
-   ],
-   "capital": "Chang'an",
-   "blurb": "A cosmopolitan high point of imperial China, its capital the largest city on earth and its poetry still memorised today.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Tang_dynasty"
-  },
-  {
-   "id": "song",
-   "name": "Song Dynasty",
-   "nameNative": "宋朝",
-   "start": 960,
-   "end": 1279,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "east-asia",
-   "category": "dynasty",
-   "significance": 4,
-   "predecessors": [
-    "tang-dynasty"
-   ],
-   "successors": [
-    "yuan"
-   ],
-   "capital": "Kaifeng",
-   "blurb": "Paper money, printing, gunpowder weapons and an examination elite: the most economically advanced society of its era.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Song_dynasty"
-  },
-  {
-   "id": "yuan",
-   "name": "Yuan Dynasty",
-   "nameNative": "元朝",
-   "start": 1271,
-   "end": 1368,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "east-asia",
-   "category": "dynasty",
-   "significance": 4,
-   "parent": "mongol-empire",
-   "predecessors": [
-    "mongol-empire",
-    "song"
-   ],
-   "successors": [
-    "ming"
-   ],
-   "capital": "Khanbaliq",
-   "blurb": "Kublai Khan's Mongol dynasty ruling all of China from the city that became Beijing, the China Marco Polo described.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Yuan_dynasty"
-  },
-  {
-   "id": "ming",
-   "name": "Ming Dynasty",
-   "nameNative": "明朝",
-   "start": 1368,
-   "end": 1644,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "east-asia",
-   "category": "dynasty",
-   "significance": 4,
-   "predecessors": [
-    "yuan"
-   ],
-   "successors": [
-    "qing"
-   ],
-   "capital": "Beijing",
-   "blurb": "The dynasty of the Forbidden City and Zheng He's treasure fleets, which then turned inward behind a rebuilt Great Wall.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Ming_dynasty"
-  },
-  {
-   "id": "qing",
-   "name": "Qing Dynasty",
-   "nameNative": "清朝",
-   "start": 1636,
-   "end": 1912,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "east-asia",
-   "category": "dynasty",
-   "significance": 5,
-   "predecessors": [
-    "ming"
-   ],
-   "successors": [
-    "china-modern"
-   ],
-   "capital": "Beijing",
-   "blurb": "The Manchu dynasty that doubled China's territory, then spent the nineteenth century besieged by rebellion and foreign powers.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Qing_dynasty"
-  },
-  {
-   "id": "china-modern",
-   "name": "China (Republic & PRC)",
-   "nameNative": "中国",
-   "start": 1912,
-   "end": 2026,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "east-asia",
-   "category": "modern-state",
-   "significance": 5,
-   "predecessors": [
-    "qing"
-   ],
-   "capital": "Beijing",
-   "blurb": "Republic, warlords, war and revolution, then the People's Republic from 1949, today the world's second largest economy.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/China"
-  },
-  {
-   "id": "gojoseon",
-   "name": "Gojoseon",
-   "nameNative": "고조선",
-   "start": -700,
-   "end": -108,
-   "startPrecision": "disputed",
-   "endPrecision": "exact",
-   "region": "korea-japan",
-   "category": "kingdom",
-   "significance": 2,
-   "successors": [
-    "three-kingdoms-korea"
-   ],
-   "capital": "Wanggeom",
-   "blurb": "The first Korean kingdom, its legendary founding dated to 2333 BCE but its verifiable history beginning much later, ended by Han conquest.",
+   "id": "nok",
+   "name": "Nok Culture",
+   "start": -1500,
+   "end": 500,
+   "startPrecision": "century",
+   "endPrecision": "century",
+   "region": "sub-saharan-africa",
+   "category": "confederation",
+   "significance": 1,
+   "blurb": "West Africa's earliest known iron-working society, famous for its terracotta heads.",
    "confidence": "low",
-   "wikipedia": "https://en.wikipedia.org/wiki/Gojoseon"
+   "wikipedia": "https://en.wikipedia.org/wiki/Nok_Culture"
   },
   {
-   "id": "three-kingdoms-korea",
-   "name": "Three Kingdoms of Korea",
-   "nameNative": "삼국시대",
-   "start": -57,
-   "end": 668,
-   "startPrecision": "circa",
-   "endPrecision": "exact",
-   "region": "korea-japan",
+   "id": "kush",
+   "name": "Kingdom of Kush",
+   "start": -1070,
+   "end": 350,
+   "startPrecision": "century",
+   "endPrecision": "circa",
+   "region": "sub-saharan-africa",
    "category": "kingdom",
    "significance": 3,
    "predecessors": [
-    "gojoseon"
+    "egyptian-nubia"
    ],
-   "successors": [
-    "unified-silla"
-   ],
-   "blurb": "Goguryeo, Baekje and Silla contended for the peninsula for seven centuries until Silla won with Tang help.",
+   "capital": "Meroë",
+   "blurb": "The Nubian kingdom that conquered and briefly ruled Egypt itself, then flourished at Meroë as an iron-working power for centuries.",
    "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Three_Kingdoms_of_Korea"
+   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Kush"
   },
   {
-   "id": "unified-silla",
-   "name": "Unified Silla",
-   "nameNative": "통일신라",
-   "start": 668,
-   "end": 935,
-   "startPrecision": "exact",
+   "id": "aksum",
+   "name": "Kingdom of Aksum",
+   "nameNative": "አክሱም",
+   "start": 100,
+   "end": 940,
+   "startPrecision": "century",
+   "endPrecision": "century",
+   "region": "sub-saharan-africa",
+   "category": "kingdom",
+   "significance": 3,
+   "successors": [
+    "ethiopian-empire"
+   ],
+   "capital": "Aksum",
+   "blurb": "A Red Sea trading empire that minted its own coins and adopted Christianity in the fourth century, among the first states to do so.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Aksum"
+  },
+  {
+   "id": "ghana-empire",
+   "name": "Ghana Empire",
+   "nameNative": "Wagadu",
+   "start": 300,
+   "end": 1240,
+   "startPrecision": "century",
+   "endPrecision": "circa",
+   "region": "sub-saharan-africa",
+   "category": "empire",
+   "significance": 3,
+   "successors": [
+    "mali-empire"
+   ],
+   "capital": "Koumbi Saleh",
+   "blurb": "The first great Sahel trading empire, taxing the gold and salt caravans between the forest and the Sahara.",
+   "confidence": "low",
+   "wikipedia": "https://en.wikipedia.org/wiki/Ghana_Empire"
+  },
+  {
+   "id": "kanem-bornu",
+   "name": "Kanem-Bornu Empire",
+   "start": 700,
+   "end": 1893,
+   "startPrecision": "century",
    "endPrecision": "exact",
-   "region": "korea-japan",
+   "region": "sub-saharan-africa",
+   "category": "empire",
+   "significance": 2,
+   "capital": "Ngazargamu",
+   "blurb": "A Saharan empire around Lake Chad that endured under one dynastic tradition for over a thousand years.",
+   "confidence": "low",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kanem%E2%80%93Bornu_Empire"
+  },
+  {
+   "id": "swahili-coast",
+   "name": "Swahili City-States",
+   "nameNative": "Miji ya Uswahili",
+   "start": 800,
+   "end": 1698,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "sub-saharan-africa",
+   "category": "city-state",
+   "significance": 2,
+   "capital": "Kilwa",
+   "blurb": "Coral-stone trading towns from Mogadishu to Sofala that linked Africa to India and China.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Swahili_City-States"
+  },
+  {
+   "id": "benin-kingdom",
+   "name": "Kingdom of Benin",
+   "start": 1180,
+   "end": 1897,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "sub-saharan-africa",
    "category": "kingdom",
    "significance": 2,
-   "predecessors": [
-    "three-kingdoms-korea"
-   ],
-   "successors": [
-    "goryeo"
-   ],
-   "capital": "Gyeongju",
-   "blurb": "The first unification of most of Korea, a Buddhist golden age centred on Gyeongju.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Unified_Silla"
+   "capital": "Benin City",
+   "blurb": "A forest kingdom in present-day Nigeria famous for its bronze casting, sacked by a British expedition in 1897.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Benin"
   },
   {
-   "id": "goryeo",
-   "name": "Goryeo",
-   "nameNative": "고려",
-   "start": 918,
-   "end": 1392,
+   "id": "great-zimbabwe",
+   "name": "Great Zimbabwe",
+   "start": 1220,
+   "end": 1450,
+   "startPrecision": "century",
+   "endPrecision": "century",
+   "region": "sub-saharan-africa",
+   "category": "kingdom",
+   "significance": 2,
+   "blurb": "The stone-walled capital of a Shona kingdom grown rich on gold and Indian Ocean trade through Kilwa.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Great_Zimbabwe"
+  },
+  {
+   "id": "mali-empire",
+   "name": "Mali Empire",
+   "start": 1235,
+   "end": 1670,
+   "startPrecision": "circa",
+   "endPrecision": "circa",
+   "region": "sub-saharan-africa",
+   "category": "empire",
+   "significance": 4,
+   "predecessors": [
+    "ghana-empire"
+   ],
+   "successors": [
+    "songhai"
+   ],
+   "capital": "Niani",
+   "blurb": "Sundiata's empire on the upper Niger. Mansa Musa's gold-laden pilgrimage to Mecca made it a byword for wealth across the old world.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Mali_Empire"
+  },
+  {
+   "id": "ethiopian-empire",
+   "name": "Ethiopian Empire",
+   "nameNative": "መንግሥተ ኢትዮጵያ",
+   "start": 1270,
+   "end": 1974,
    "startPrecision": "exact",
    "endPrecision": "exact",
-   "region": "korea-japan",
-   "category": "kingdom",
+   "region": "sub-saharan-africa",
+   "category": "empire",
    "significance": 3,
    "predecessors": [
-    "unified-silla"
+    "aksum"
    ],
-   "successors": [
-    "joseon"
-   ],
-   "capital": "Kaesong",
-   "blurb": "The dynasty that gave Korea its Western name, printer of the Tripitaka Koreana and inventor of metal movable type.",
+   "capital": "Addis Ababa",
+   "blurb": "The Solomonic dynasty's Christian highland empire, the one African state to defeat a European coloniser at Adwa in 1896.",
    "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Goryeo"
+   "wikipedia": "https://en.wikipedia.org/wiki/Ethiopian_Empire"
   },
   {
-   "id": "joseon",
-   "name": "Joseon",
-   "nameNative": "조선",
-   "start": 1392,
+   "id": "oyo",
+   "name": "Oyo Empire",
+   "start": 1300,
+   "end": 1896,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "sub-saharan-africa",
+   "category": "empire",
+   "significance": 2,
+   "capital": "Oyo-Ile",
+   "blurb": "A Yoruba cavalry empire that dominated the Bight of Benin and constrained its own kings by council.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Oyo_Empire"
+  },
+  {
+   "id": "buganda",
+   "name": "Buganda",
+   "start": 1300,
+   "end": 1894,
+   "startPrecision": "century",
+   "endPrecision": "exact",
+   "region": "sub-saharan-africa",
+   "category": "kingdom",
+   "significance": 1,
+   "capital": "Mengo",
+   "blurb": "A centralised lakeside kingdom in the Great Lakes, later the core of colonial Uganda.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Buganda"
+  },
+  {
+   "id": "kongo",
+   "name": "Kingdom of Kongo",
+   "nameNative": "Kongo dya Ntotila",
+   "start": 1390,
+   "end": 1914,
+   "startPrecision": "circa",
+   "endPrecision": "exact",
+   "region": "sub-saharan-africa",
+   "category": "kingdom",
+   "significance": 2,
+   "capital": "Mbanza Kongo",
+   "blurb": "A central African kingdom that exchanged embassies with Portugal and the Vatican, then was hollowed out by the slave trade.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Kongo"
+  },
+  {
+   "id": "songhai",
+   "name": "Songhai Empire",
+   "start": 1464,
+   "end": 1591,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "sub-saharan-africa",
+   "category": "empire",
+   "significance": 3,
+   "predecessors": [
+    "mali-empire"
+   ],
+   "capital": "Gao",
+   "blurb": "The largest state in West African history, with Timbuktu as its scholarly centre, broken by a Moroccan musket army.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Songhai_Empire"
+  },
+  {
+   "id": "funj-sennar",
+   "name": "Funj Sultanate",
+   "start": 1504,
+   "end": 1821,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "sub-saharan-africa",
+   "category": "kingdom",
+   "significance": 1,
+   "capital": "Sennar",
+   "blurb": "The Islamic sultanate of the upper Nile between Egypt and Ethiopia.",
+   "confidence": "medium",
+   "wikipedia": "https://en.wikipedia.org/wiki/Funj_Sultanate"
+  },
+  {
+   "id": "ashanti",
+   "name": "Ashanti Empire",
+   "start": 1701,
+   "end": 1901,
+   "startPrecision": "exact",
+   "endPrecision": "exact",
+   "region": "sub-saharan-africa",
+   "category": "empire",
+   "significance": 2,
+   "capital": "Kumasi",
+   "blurb": "A gold-rich Akan empire whose golden stool embodied the nation, absorbed into British Gold Coast after five wars.",
+   "confidence": "high",
+   "wikipedia": "https://en.wikipedia.org/wiki/Ashanti_Empire"
+  },
+  {
+   "id": "zulu",
+   "name": "Zulu Kingdom",
+   "nameNative": "isiZulu",
+   "start": 1816,
    "end": 1897,
    "startPrecision": "exact",
    "endPrecision": "exact",
-   "region": "korea-japan",
-   "category": "dynasty",
-   "significance": 3,
-   "predecessors": [
-    "goryeo"
-   ],
-   "successors": [
-    "korea-modern"
-   ],
-   "capital": "Hanyang",
-   "blurb": "Five centuries of Confucian monarchy that created the hangul alphabet and weathered invasions from both Japan and the Manchus.",
+   "region": "sub-saharan-africa",
+   "category": "kingdom",
+   "significance": 2,
+   "blurb": "Shaka's military revolution reshaped southern Africa and defeated a British column at Isandlwana.",
    "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Joseon"
+   "wikipedia": "https://en.wikipedia.org/wiki/Zulu_Kingdom"
   },
   {
-   "id": "korea-modern",
-   "name": "Korea",
-   "nameNative": "한국",
-   "start": 1948,
+   "id": "south-africa",
+   "name": "South Africa",
+   "start": 1910,
    "end": 2026,
    "startPrecision": "exact",
    "endPrecision": "exact",
-   "region": "korea-japan",
+   "region": "sub-saharan-africa",
    "category": "modern-state",
-   "significance": 3,
-   "predecessors": [
-    "joseon"
-   ],
-   "capital": "Seoul",
-   "blurb": "The peninsula divided since 1945 into two states, the South an industrial democracy, the North a dynastic autocracy.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Korea"
-  },
-  {
-   "id": "kofun-yamato",
-   "name": "Kofun & Yamato Japan",
-   "nameNative": "大和",
-   "start": 250,
-   "end": 710,
-   "startPrecision": "century",
-   "endPrecision": "exact",
-   "region": "korea-japan",
-   "category": "kingdom",
    "significance": 2,
-   "successors": [
-    "heian"
-   ],
-   "blurb": "The age of great keyhole tombs and the first Japanese state, importing writing and Buddhism through Korea.",
-   "confidence": "medium",
-   "wikipedia": "https://en.wikipedia.org/wiki/Kofun_period"
-  },
-  {
-   "id": "heian",
-   "name": "Heian Japan",
-   "nameNative": "平安時代",
-   "start": 794,
-   "end": 1185,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "korea-japan",
-   "category": "kingdom",
-   "significance": 3,
-   "predecessors": [
-    "kofun-yamato"
-   ],
-   "successors": [
-    "kamakura"
-   ],
-   "capital": "Kyoto",
-   "blurb": "Four centuries of courtly rule from Kyoto, the world of the Tale of Genji, ending as warrior clans took power.",
+   "capital": "Pretoria",
+   "blurb": "The union of British colonies and Boer republics, under apartheid from 1948 until the 1994 elections.",
    "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Heian_period"
+   "wikipedia": "https://en.wikipedia.org/wiki/South_Africa"
   },
   {
-   "id": "kamakura",
-   "name": "Kamakura Shogunate",
-   "nameNative": "鎌倉幕府",
-   "start": 1185,
-   "end": 1333,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "korea-japan",
-   "category": "kingdom",
-   "significance": 2,
-   "predecessors": [
-    "heian"
-   ],
-   "successors": [
-    "muromachi"
-   ],
-   "capital": "Kamakura",
-   "blurb": "Japan's first shogunate, which twice turned back Kublai Khan's invasion fleets with the help of storms named kamikaze.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Kamakura_shogunate"
-  },
-  {
-   "id": "muromachi",
-   "name": "Ashikaga Shogunate",
-   "nameNative": "室町幕府",
-   "start": 1336,
-   "end": 1573,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "korea-japan",
-   "category": "kingdom",
-   "significance": 2,
-   "predecessors": [
-    "kamakura"
-   ],
-   "successors": [
-    "edo"
-   ],
-   "capital": "Kyoto",
-   "blurb": "A weak shogunate whose collapse into the Warring States era coincided with Zen, the tea ceremony and the first Europeans.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Ashikaga_shogunate"
-  },
-  {
-   "id": "edo",
-   "name": "Tokugawa Shogunate",
-   "nameNative": "江戸幕府",
-   "start": 1603,
-   "end": 1868,
-   "startPrecision": "exact",
-   "endPrecision": "exact",
-   "region": "korea-japan",
-   "category": "kingdom",
-   "significance": 3,
-   "predecessors": [
-    "muromachi"
-   ],
-   "successors": [
-    "japan-modern"
-   ],
-   "capital": "Edo",
-   "blurb": "Two and a half centuries of enforced peace and near-closed borders, with Edo growing into a city of a million.",
-   "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Tokugawa_shogunate"
-  },
-  {
-   "id": "japan-modern",
-   "name": "Japan",
-   "nameNative": "日本",
-   "start": 1868,
+   "id": "nigeria",
+   "name": "Nigeria",
+   "start": 1960,
    "end": 2026,
    "startPrecision": "exact",
    "endPrecision": "exact",
-   "region": "korea-japan",
+   "region": "sub-saharan-africa",
    "category": "modern-state",
-   "significance": 4,
+   "significance": 2,
    "predecessors": [
-    "edo"
+    "benin-kingdom",
+    "oyo"
    ],
-   "capital": "Tokyo",
-   "blurb": "From the Meiji Restoration through empire, defeat and reconstruction to the world's fourth largest economy.",
+   "capital": "Abuja",
+   "blurb": "Africa's most populous country, assembled from Hausa, Yoruba and Igbo lands under British rule.",
    "confidence": "high",
-   "wikipedia": "https://en.wikipedia.org/wiki/Japan"
+   "wikipedia": "https://en.wikipedia.org/wiki/Nigeria"
   }
  ]
 }

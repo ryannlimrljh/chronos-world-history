@@ -1,8 +1,10 @@
+import type { LayoutResult, Polity, TimeScale } from '../types'
 import { useAppStore } from '../store/app'
 import { useViewStore } from '../store/view'
 import { DEFAULT_SCALE } from '../layout/scale'
 import { smoothZoom } from '../interact/camera'
 import { ui } from '../i18n'
+import { downloadPosterSvg } from '../export/svg'
 import { useRightOffset } from './chrome'
 
 /**
@@ -10,7 +12,15 @@ import { useRightOffset } from './chrome'
  * rail: search, zoom, fit, time cursor, filters. Shifts smoothly aside
  * when the detail drawer opens.
  */
-export function Toolbar() {
+export function Toolbar({
+  layout,
+  polities,
+  scale,
+}: {
+  layout: LayoutResult
+  polities: ReadonlyMap<string, Polity>
+  scale: TimeScale
+}) {
   const lang = useAppStore((s) => s.lang)
   const setSearchOpen = useAppStore((s) => s.setSearchOpen)
   const timeCursor = useAppStore((s) => s.timeCursor)
@@ -111,6 +121,15 @@ export function Toolbar() {
         useViewStore.getState().fitAll(),
       )}
       {btn('☰', `${ui('toolCursor', 'Time cursor', lang)} · T`, toggleCursor, timeCursor !== null)}
+      {btn('⤓', ui('toolExport', 'Export A1 poster (SVG)', lang), () =>
+        downloadPosterSvg({
+          layout,
+          polities,
+          scale,
+          filters: useAppStore.getState().filters,
+          lang: useAppStore.getState().lang,
+        }),
+      )}
       {btn(
         '▽',
         ui('filters', 'Filters', lang),

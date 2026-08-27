@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { LayoutConfig } from './types'
 import { layout } from './layout/engine'
 import { DEFAULT_SCALE } from './layout/scale'
@@ -25,6 +25,7 @@ import { Toolbar } from './ui/Toolbar'
 import { PositionReadout } from './ui/PositionReadout'
 import { HoverTip } from './ui/HoverTip'
 import { TourPanel } from './ui/TourPanel'
+import { MobileLanes } from './ui/MobileLanes'
 import { DebugSvg } from './debug/DebugSvg'
 import { useAppStore } from './store/app'
 
@@ -38,6 +39,20 @@ if (import.meta.env.DEV) {
 
 // width + titleReserve tuned so the finished sheet lands on A-series
 // portrait proportions (~1:1.4 against the 1762px-tall scale).
+/** Tracks the small-screen breakpoint, re-evaluated on resize. */
+function useIsNarrow(): boolean {
+  const [narrow, setNarrow] = useState(
+    () => typeof window !== 'undefined' && window.innerWidth < 900,
+  )
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 899px)')
+    const on = () => setNarrow(mq.matches)
+    mq.addEventListener('change', on)
+    return () => mq.removeEventListener('change', on)
+  }, [])
+  return narrow
+}
+
 const CONFIG: LayoutConfig = {
   scale: DEFAULT_SCALE,
   width: 1250,
@@ -56,6 +71,7 @@ export function App() {
 }
 
 function Chronos() {
+  const narrow = useIsNarrow()
   const polities = useMemo(() => loadPolities(), [])
   const polityMap = useMemo(
     () => new Map(polities.map((p) => [p.id, p])),
@@ -70,6 +86,19 @@ function Chronos() {
   }, [result, setWorld])
 
   useEffect(() => initUrlSync(result, DEFAULT_SCALE), [result])
+
+  // Below 900px the mosaic's horizontal comparison cannot be shown
+  // honestly, so the same data is read as a per-region chronology.
+  if (narrow) {
+    return (
+      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
+        <MobileLanes polities={polityMap} />
+        <Drawer layout={result} polities={polityMap} />
+        <LangToggle compact />
+        <SearchPalette layout={result} polities={polityMap} />
+      </div>
+    )
+  }
 
   return (
     <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
@@ -99,7 +128,7 @@ function Chronos() {
       <SearchPalette layout={result} polities={polityMap} />
       <TipsOverlay />
       <LangToggle />
-      <Toolbar />
+      <Toolbar layout={result} polities={polityMap} scale={DEFAULT_SCALE} />
       <Minimap layout={result} />
       <PositionReadout />
       <TourPanel layout={result} scale={DEFAULT_SCALE} />
