@@ -9,6 +9,7 @@ import {
   UI_ZH,
 } from './zh'
 import type { EraId } from './types-helper'
+import { BLURB_ZH } from './blurbs'
 
 export type Lang = 'en' | 'zh'
 
@@ -26,6 +27,11 @@ export function polityName(p: Polity, lang: Lang): string {
 export function politySecondary(p: Polity, lang: Lang): string | undefined {
   if (lang === 'zh') return p.name
   return p.nameNative
+}
+
+/** The polity's description in the active language. */
+export function polityBlurb(p: Polity, lang: Lang): string {
+  return lang === 'zh' ? (BLURB_ZH[p.id] ?? p.blurb) : p.blurb
 }
 
 export function regionName(id: RegionId, lang: Lang, fallback: string): string {

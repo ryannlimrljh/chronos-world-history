@@ -5,7 +5,7 @@ import { getRegion } from '../config/regions'
 import { useAppStore } from '../store/app'
 import { centerOnRect } from '../interact/camera'
 import { formatRange, durationYears } from '../interact/format'
-import { categoryName, eraName, polityName, politySecondary, regionName, ui } from '../i18n'
+import { categoryName, eraName, polityBlurb, polityName, politySecondary, regionName, ui } from '../i18n'
 
 /**
  * The right-side detail drawer. At most 380px, hairline border, no shadow;
@@ -178,7 +178,9 @@ export function Drawer({
           {p.endPrecision !== 'exact' ? ` · end ${p.endPrecision}` : ''}
         </div>
       )}
-      <p style={{ fontSize: 14, lineHeight: 1.45, marginTop: 12 }}>{p.blurb}</p>
+      <p style={{ fontSize: 14, lineHeight: 1.65, marginTop: 12 }}>
+        {polityBlurb(p, lang)}
+      </p>
 
       {p.predecessors && p.predecessors.length > 0 && (
         <>
