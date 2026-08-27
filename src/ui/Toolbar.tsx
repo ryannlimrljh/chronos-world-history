@@ -5,6 +5,7 @@ import { DEFAULT_SCALE } from '../layout/scale'
 import { smoothZoom } from '../interact/camera'
 import { ui } from '../i18n'
 import { downloadPosterSvg } from '../export/svg'
+import { useState } from 'react'
 import { useRightOffset } from './chrome'
 
 /**
@@ -31,6 +32,7 @@ export function Toolbar({
   const startTour = useAppStore((s) => s.startTour)
   const tourChapter = useAppStore((s) => s.tourChapter)
   const right = useRightOffset()
+  const [notice, setNotice] = useState<string | null>(null)
 
   const activeFilters =
     filters.regions.size +
@@ -121,14 +123,42 @@ export function Toolbar({
         useViewStore.getState().fitAll(),
       )}
       {btn('☰', `${ui('toolCursor', 'Time cursor', lang)} · T`, toggleCursor, timeCursor !== null)}
-      {btn('⤓', ui('toolExport', 'Export A1 poster (SVG)', lang), () =>
-        downloadPosterSvg({
+      {btn('⤓', ui('toolExport', 'Export A1 poster (SVG)', lang), () => {
+        void downloadPosterSvg({
           layout,
           polities,
           scale,
           filters: useAppStore.getState().filters,
           lang: useAppStore.getState().lang,
-        }),
+        }).then((status) => {
+          if (status === 'saved' || status === 'declined') return
+          setNotice(
+            ui(
+              'exportUnsupported',
+              'Export is blocked in this viewer. Open the website to download the poster.',
+              lang,
+            ),
+          )
+          setTimeout(() => setNotice(null), 6000)
+        })
+      })}
+      {notice && (
+        <div
+          className="chronos-pop"
+          style={{
+            position: 'absolute',
+            right: 42,
+            top: 0,
+            width: 220,
+            background: 'var(--ink)',
+            color: 'var(--paper)',
+            fontSize: 12,
+            lineHeight: 1.45,
+            padding: '7px 10px',
+          }}
+        >
+          {notice}
+        </div>
       )}
       {btn(
         '▽',

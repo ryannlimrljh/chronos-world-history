@@ -250,6 +250,7 @@ export const UI_ZH: Record<string, string> = {
   toolSearch: '搜索', toolZoomIn: '放大', toolZoomOut: '缩小',
   toolFit: '适配全图', toolCursor: '时间光标',
   toolExport: '导出 A1 海报（SVG）',
+  exportUnsupported: '此查看器不支持下载，请到网站导出海报。',
   tipTouchPan: '拖动', tipTouchPanWhat: '在海报上移动',
   tipTouchZoom: '双指捏合', tipTouchZoomWhat: '放大与缩小',
   tipTouchTap: '点按色块', tipTouchTapWhat: '查看简介、承继与同时代政权',

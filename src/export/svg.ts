@@ -160,16 +160,65 @@ export function buildPosterSvg({
   return out.join('\n')
 }
 
-/** Trigger a download of the current view as an A1 SVG. */
-export function downloadPosterSvg(options: ExportOptions): void {
+/**
+ * Hand the poster to the viewer.
+ *
+ * Inside the artifact viewer a page cannot download directly, so the
+ * platform's `downloads` capability mediates the save (the viewer sees a
+ * confirmation and may decline). Everywhere else, an object URL and a
+ * link do the job. Returns a short status the caller can surface.
+ */
+export type ExportStatus = 'saved' | 'declined' | 'unsupported' | 'failed'
+
+interface ClaudeHost {
+  use?(name: string): Promise<unknown>
+}
+interface DownloadsNamespace {
+  save(req: { filename: string; data: string }): Promise<{ status: string }>
+}
+
+export async function downloadPosterSvg(
+  options: ExportOptions,
+): Promise<ExportStatus> {
   const svg = buildPosterSvg(options)
-  const blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' })
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url
-  a.download = 'chronos-world-history-A1.svg'
-  document.body.appendChild(a)
-  a.click()
-  a.remove()
-  setTimeout(() => URL.revokeObjectURL(url), 1000)
+  const filename = 'chronos-world-history-A1.svg'
+
+  const host = (window as unknown as { claude?: ClaudeHost }).claude
+  if (host?.use) {
+    try {
+      const downloads = (await host.use('downloads')) as DownloadsNamespace | null
+      if (downloads) {
+        try {
+          await downloads.save({ filename, data: svg })
+          return 'saved'
+        } catch (err) {
+          const code = (err as { code?: string } | undefined)?.code
+          if (code === 'declined') return 'declined'
+          // SVG sits in the platform's extended type set, which some
+          // views do not enable; the website export still works.
+          if (code === 'extension_not_enabled' || code === 'rejected_extension') {
+            return 'unsupported'
+          }
+          return 'failed'
+        }
+      }
+    } catch {
+      // Fall through to the ordinary browser download.
+    }
+  }
+
+  try {
+    const blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = filename
+    document.body.appendChild(a)
+    a.click()
+    a.remove()
+    setTimeout(() => URL.revokeObjectURL(url), 1000)
+    return 'saved'
+  } catch {
+    return 'failed'
+  }
 }
