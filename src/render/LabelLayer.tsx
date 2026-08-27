@@ -44,6 +44,7 @@ export function LabelLayer({
   const viewport = useViewStore((s) => s.viewport)
   const filters = useAppStore((s) => s.filters)
   const timeCursor = useAppStore((s) => s.timeCursor)
+  const spotlightIds = useAppStore((s) => s.spotlightIds)
   const lang = useAppStore((s) => s.lang)
 
   const labels = useMemo(() => {
@@ -83,7 +84,7 @@ export function LabelLayer({
       if (w * h < minArea || h < 11) continue
       const polity = polities.get(rect.polityId)
       if (!polity) continue
-      if (isDimmed(polity, filters, timeCursor)) continue
+      if (isDimmed(polity, filters, timeCursor, spotlightIds)) continue
       // Tall narrow columns take vertical text, exactly as the reference
       // poster does; everything else labels horizontally. Size to the
       // rect, never overflow it. Uppercase Barlow Condensed runs ~0.52em
@@ -123,7 +124,7 @@ export function LabelLayer({
     }
     out.sort((a, b) => b.w * b.h - a.w * a.h)
     return out.slice(0, MAX_LABELS)
-  }, [layout, polities, camera, viewport, filters, timeCursor, lang])
+  }, [layout, polities, camera, viewport, filters, timeCursor, spotlightIds, lang])
 
   return (
     <div

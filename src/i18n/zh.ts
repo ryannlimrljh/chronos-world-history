@@ -179,6 +179,8 @@ export const UI_ZH: Record<string, string> = {
   filterHint: '筛选不会隐藏任何政权：不符合条件的只是淡化显示，历史的整体轮廓始终可见。',
   filterFocus: '仅高亮', sigAll: '显示全部',
   helpTip: '帮助：如何探索',
+  tour: '导览', exitTour: '退出', prev: '上一章', next: '下一章',
+  exploreNow: '自由探索', tourHint: '滚动或 ↑ ↓', toolTour: '导览',
   minimapTip: '概览地图 · 点按或拖动即可跳转',
   sigOnly: '仅高亮重要度不低于此值的政权',
   footnote:

@@ -18,6 +18,8 @@ export function Toolbar() {
   const filtersOpen = useAppStore((s) => s.filtersOpen)
   const setFiltersOpen = useAppStore((s) => s.setFiltersOpen)
   const filters = useAppStore((s) => s.filters)
+  const startTour = useAppStore((s) => s.startTour)
+  const tourChapter = useAppStore((s) => s.tourChapter)
   const right = useRightOffset()
 
   const activeFilters =
@@ -101,6 +103,7 @@ export function Toolbar() {
         background: 'var(--paper)',
       }}
     >
+      {btn('▶', ui('toolTour', 'Guided tour', lang), startTour, tourChapter !== null)}
       {btn('⌕', `${ui('toolSearch', 'Search', lang)} · ⌘K`, () => setSearchOpen(true))}
       {btn('＋', `${ui('toolZoomIn', 'Zoom in', lang)} · +`, () => zoom(1.6))}
       {btn('－', `${ui('toolZoomOut', 'Zoom out', lang)} · −`, () => zoom(0.62))}

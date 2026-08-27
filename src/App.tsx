@@ -24,6 +24,7 @@ import { Minimap } from './ui/Minimap'
 import { Toolbar } from './ui/Toolbar'
 import { PositionReadout } from './ui/PositionReadout'
 import { HoverTip } from './ui/HoverTip'
+import { TourPanel } from './ui/TourPanel'
 import { DebugSvg } from './debug/DebugSvg'
 import { useAppStore } from './store/app'
 
@@ -101,6 +102,7 @@ function Chronos() {
       <Toolbar />
       <Minimap layout={result} />
       <PositionReadout />
+      <TourPanel layout={result} scale={DEFAULT_SCALE} />
       <HoverTip />
     </div>
   )

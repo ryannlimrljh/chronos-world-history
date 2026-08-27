@@ -213,3 +213,24 @@ export interface LayoutResult {
   width: number
   height: number
 }
+
+/* ------------------------------------------------------------------ */
+/* Tour mode                                                           */
+/* ------------------------------------------------------------------ */
+
+/**
+ * An authored chapter: a declarative camera target plus the polities to
+ * spotlight. Tour interpolates between these and drives the same store
+ * Explore uses, so it is a driver rather than a second app.
+ */
+export interface Chapter {
+  id: string
+  title: string
+  titleZh: string
+  /** 80-150 words. */
+  narration: string
+  narrationZh: string
+  camera: { yearCenter: Year; yearSpan: number; regions: RegionId[] }
+  /** Polity ids to spotlight; everything else desaturates. */
+  highlight: string[]
+}

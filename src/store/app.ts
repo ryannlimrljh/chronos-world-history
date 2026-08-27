@@ -51,6 +51,10 @@ interface AppState {
   timeCursor: Year | null
   searchOpen: boolean
   filtersOpen: boolean
+  /** Tour mode: null when exploring, else the active chapter index. */
+  tourChapter: number | null
+  /** While set, everything not listed desaturates (tour spotlight). */
+  spotlightIds: ReadonlySet<string>
   /** Id pulsed after a search jump; cleared by the pulse overlay itself. */
   pulseId: string | null
   lang: Lang
@@ -64,6 +68,9 @@ interface AppState {
   setTimeCursor(year: Year | null): void
   setSearchOpen(open: boolean): void
   setFiltersOpen(open: boolean): void
+  startTour(): void
+  endTour(): void
+  setTourChapter(index: number, spotlight: readonly string[]): void
   setPulse(id: string | null): void
   setLang(lang: Lang): void
 }
@@ -76,6 +83,8 @@ export const useAppStore = create<AppState>((set) => ({
   timeCursor: null,
   searchOpen: false,
   filtersOpen: false,
+  tourChapter: null,
+  spotlightIds: new Set(),
   pulseId: null,
   lang: initialLang(),
 
@@ -96,6 +105,17 @@ export const useAppStore = create<AppState>((set) => ({
   setTimeCursor: (timeCursor) => set({ timeCursor }),
   setSearchOpen: (searchOpen) => set({ searchOpen }),
   setFiltersOpen: (filtersOpen) => set({ filtersOpen }),
+  startTour: () =>
+    set({
+      tourChapter: 0,
+      selectedId: null,
+      filtersOpen: false,
+      timeCursor: null,
+      compareIds: [],
+    }),
+  endTour: () => set({ tourChapter: null, spotlightIds: new Set() }),
+  setTourChapter: (index, spotlight) =>
+    set({ tourChapter: index, spotlightIds: new Set(spotlight) }),
   setPulse: (pulseId) => set({ pulseId }),
   setLang: (lang) => {
     try {

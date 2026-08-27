@@ -31,11 +31,11 @@ export function CanvasMosaic({
       if (!dirty) return
       dirty = false
       const { camera, viewport } = useViewStore.getState()
-      const { filters, timeCursor, selectedId, hoveredId, compareIds } =
+      const { filters, timeCursor, selectedId, hoveredId, compareIds, spotlightIds } =
         useAppStore.getState()
       const dimmedIds = new Set<string>()
       for (const p of polities.values()) {
-        if (isDimmed(p, filters, timeCursor)) dimmedIds.add(p.id)
+        if (isDimmed(p, filters, timeCursor, spotlightIds)) dimmedIds.add(p.id)
       }
       const dpr = window.devicePixelRatio || 1
       const w = Math.round(viewport.width)
